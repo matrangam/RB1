@@ -1,7 +1,3 @@
-//
-// Prefix header for all source files of the 'RB1' target in the 'RB1' project
-//
-
 #import <Availability.h>
 
 #ifndef __IPHONE_5_0
@@ -11,5 +7,9 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import "Network.h"
+
+    #import "Network.h" 
+    #import "User.h"
+    #import "JSONKit.h"
+    #import "DataProvider.h"
 #endif
