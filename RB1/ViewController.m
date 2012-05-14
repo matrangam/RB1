@@ -4,16 +4,26 @@
 
 @end
 
-@implementation ViewController {
-    NSMutableData* _data;
+@implementation ViewController
+
+@synthesize userNameField = _userNameField;
+@synthesize passwordField = _passwordField;
+
+
+- (void) viewDidUnload 
+{
+    [self setUserNameField:nil];
+    [self setPasswordField:nil];
+    [super viewDidUnload];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (IBAction)loginButtonPressed:(id)sender 
 {
-    [super viewWillAppear:animated];
-    DataProvider* provider = [[DataProvider alloc] init];    
-    User* me = [[User alloc] init];
-    [provider authenticateUser:me withCompletionBlock:^(NSArray *array) {
+    User* user = [[User alloc] init];
+    [user setUsername:_userNameField.text];
+    [user setPassword:_passwordField.text];
+    
+    [[self dataProvider] authenticateUser:user withCompletionBlock:^(NSArray *array) {
             //
         } failBlock:^(NSError *error) {
             //
@@ -21,20 +31,9 @@
     ];
 }
 
-- (void)query:(Query *)query didReceiveData:(NSData *)data
+- (DataProvider*) dataProvider
 {
-    NSLog(@"%@", data);
-    [_data appendData:data];
-}
-
-- (void)query:(Query *)query didReceiveResponse:(NSURLResponse *)response
-{
-    NSLog(@"%@", response);
-}
-
-- (void)query:(Query *)query didFailWithError:(NSError *)error
-{
-    NSLog(@"%@", error);
+    return [[AppDelegate sharedAppDelegate] dataProvider];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -42,11 +41,5 @@
     return YES;
 }
 
-- (void)queryDidFinishLoading:(Query *)query
-{
-    NSString* jsonString = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
-    NSString* result = [NSString stringWithObjectAsJSON:jsonString];
-    NSLog(@"%@", result);
-}
 
 @end

@@ -44,6 +44,7 @@
         NSLog(@"Request Body: %@", body);
         [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     }
+
     Query* query = [Query queryWithRequest:request queue:nil delegate:self startImmediately:YES];
     [query start];
 }
@@ -67,12 +68,7 @@
     NSLog(@"%@", error);
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return YES;
-}
-
-- (void)queryDidFinishLoading:(Query *)query
+- (void) queryDidFinishLoading:(Query *)query
 {
     NSString* jsonString = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
     NSString* result = [NSString stringWithObjectAsJSON:jsonString];
