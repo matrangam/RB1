@@ -15,6 +15,9 @@
 		D64E971D1561B25400B7A864 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E971C1561B25400B7A864 /* AppDelegate.m */; };
 		D64E97201561B25400B7A864 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D64E971E1561B25400B7A864 /* MainStoryboard.storyboard */; };
 		D64E97231561B25400B7A864 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E97221561B25400B7A864 /* ViewController.m */; };
+		D64E97321561B2E100B7A864 /* Query.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E972D1561B2E100B7A864 /* Query.m */; };
+		D64E97331561B2E100B7A864 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E972F1561B2E100B7A864 /* QueryManager.m */; };
+		D64E97341561B2E100B7A864 /* URLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E97311561B2E100B7A864 /* URLCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +25,23 @@
 		D64E970C1561B25400B7A864 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D64E970E1561B25400B7A864 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D64E97101561B25400B7A864 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D64E97141561B25400B7A864 /* RB1-Info.plist */ = {isa = PBXFileReference; path = "RB1-Info.plist"; sourceTree = "<group>"; };
+		D64E97141561B25400B7A864 /* RB1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RB1-Info.plist"; sourceTree = "<group>"; };
 		D64E97161561B25400B7A864 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D64E97181561B25400B7A864 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D64E971A1561B25400B7A864 /* RB1-Prefix.pch */ = {isa = PBXFileReference; path = "RB1-Prefix.pch"; sourceTree = "<group>"; };
-		D64E971B1561B25400B7A864 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		D64E971A1561B25400B7A864 /* RB1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RB1-Prefix.pch"; sourceTree = "<group>"; };
+		D64E971B1561B25400B7A864 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D64E971C1561B25400B7A864 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D64E971F1561B25400B7A864 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		D64E97211561B25400B7A864 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		D64E97211561B25400B7A864 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D64E97221561B25400B7A864 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D64E972A1561B2E100B7A864 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		D64E972B1561B2E100B7A864 /* Network.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.pch; sourceTree = "<group>"; };
+		D64E972C1561B2E100B7A864 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
+		D64E972D1561B2E100B7A864 /* Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Query.m; sourceTree = "<group>"; };
+		D64E972E1561B2E100B7A864 /* QueryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryManager.h; sourceTree = "<group>"; };
+		D64E972F1561B2E100B7A864 /* QueryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryManager.m; sourceTree = "<group>"; };
+		D64E97301561B2E100B7A864 /* URLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLCache.h; sourceTree = "<group>"; };
+		D64E97311561B2E100B7A864 /* URLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +88,7 @@
 		D64E97121561B25400B7A864 /* RB1 */ = {
 			isa = PBXGroup;
 			children = (
+				D64E97291561B2E100B7A864 /* Network */,
 				D64E971B1561B25400B7A864 /* AppDelegate.h */,
 				D64E971C1561B25400B7A864 /* AppDelegate.m */,
 				D64E971E1561B25400B7A864 /* MainStoryboard.storyboard */,
@@ -96,6 +108,21 @@
 				D64E971A1561B25400B7A864 /* RB1-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D64E97291561B2E100B7A864 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D64E972A1561B2E100B7A864 /* Network.h */,
+				D64E972B1561B2E100B7A864 /* Network.pch */,
+				D64E972C1561B2E100B7A864 /* Query.h */,
+				D64E972D1561B2E100B7A864 /* Query.m */,
+				D64E972E1561B2E100B7A864 /* QueryManager.h */,
+				D64E972F1561B2E100B7A864 /* QueryManager.m */,
+				D64E97301561B2E100B7A864 /* URLCache.h */,
+				D64E97311561B2E100B7A864 /* URLCache.m */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +191,9 @@
 				D64E97191561B25400B7A864 /* main.m in Sources */,
 				D64E971D1561B25400B7A864 /* AppDelegate.m in Sources */,
 				D64E97231561B25400B7A864 /* ViewController.m in Sources */,
+				D64E97321561B2E100B7A864 /* Query.m in Sources */,
+				D64E97331561B2E100B7A864 /* QueryManager.m in Sources */,
+				D64E97341561B2E100B7A864 /* URLCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
