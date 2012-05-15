@@ -1,6 +1,12 @@
 #import "AppDelegate.h"
 
-@implementation AppDelegate
+@interface AppDelegate ()
+- (void) _showOrHideNetworkIndicator;
+@end
+
+@implementation AppDelegate {
+    id _queryObserver;
+}
 
 @synthesize window = _window;
 @synthesize dataProvider = _dataProvider;
@@ -17,6 +23,30 @@
         _dataProvider = [[DataProvider alloc] init];
     }
     return _dataProvider;
+}
+
+- (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    _queryObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kQueryStartNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        Query* query = [note object];
+        NSLog(@"--> %@", query);
+        [self _showOrHideNetworkIndicator];
+    }];
+    return YES;
+}
+
+- (void) _showOrHideNetworkIndicator
+{
+    if (![[UIApplication sharedApplication] isNetworkActivityIndicatorVisible]) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    } else {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    }
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self], _queryObserver = nil;
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D62A10BA156205DA007DC36C /* MainSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A10B9156205DA007DC36C /* MainSplitViewController.m */; };
 		D6411E961561BB080056665A /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E951561BB080056665A /* DataProvider.m */; };
 		D6411E991561BBE40056665A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E981561BBE40056665A /* User.m */; };
 		D64E970D1561B25400B7A864 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64E970C1561B25400B7A864 /* UIKit.framework */; };
@@ -16,7 +17,7 @@
 		D64E97191561B25400B7A864 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E97181561B25400B7A864 /* main.m */; };
 		D64E971D1561B25400B7A864 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E971C1561B25400B7A864 /* AppDelegate.m */; };
 		D64E97201561B25400B7A864 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D64E971E1561B25400B7A864 /* MainStoryboard.storyboard */; };
-		D64E97231561B25400B7A864 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E97221561B25400B7A864 /* ViewController.m */; };
+		D64E97231561B25400B7A864 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E97221561B25400B7A864 /* AuthenticationViewController.m */; };
 		D64E97321561B2E100B7A864 /* Query.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E972D1561B2E100B7A864 /* Query.m */; };
 		D64E97331561B2E100B7A864 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E972F1561B2E100B7A864 /* QueryManager.m */; };
 		D64E97341561B2E100B7A864 /* URLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E97311561B2E100B7A864 /* URLCache.m */; };
@@ -25,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		D62A10B61561E50D007DC36C /* DataProvider+private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataProvider+private.h"; sourceTree = "<group>"; };
+		D62A10B8156205DA007DC36C /* MainSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSplitViewController.h; sourceTree = "<group>"; };
+		D62A10B9156205DA007DC36C /* MainSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSplitViewController.m; sourceTree = "<group>"; };
 		D6411E941561BB080056665A /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
 		D6411E951561BB080056665A /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
 		D6411E971561BBE40056665A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -40,8 +43,8 @@
 		D64E971B1561B25400B7A864 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D64E971C1561B25400B7A864 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D64E971F1561B25400B7A864 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		D64E97211561B25400B7A864 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D64E97221561B25400B7A864 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D64E97211561B25400B7A864 /* AuthenticationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
+		D64E97221561B25400B7A864 /* AuthenticationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
 		D64E972A1561B2E100B7A864 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
 		D64E972B1561B2E100B7A864 /* Network.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.pch; sourceTree = "<group>"; };
 		D64E972C1561B2E100B7A864 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
@@ -68,6 +71,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D62A10BB156205F3007DC36C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D64E971B1561B25400B7A864 /* AppDelegate.h */,
+				D64E971C1561B25400B7A864 /* AppDelegate.m */,
+				D6411E941561BB080056665A /* DataProvider.h */,
+				D62A10B61561E50D007DC36C /* DataProvider+private.h */,
+				D6411E951561BB080056665A /* DataProvider.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		D62A10BC156205FF007DC36C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6411E971561BBE40056665A /* User.h */,
+				D6411E981561BBE40056665A /* User.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D62A10BD1562060F007DC36C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D64E971E1561B25400B7A864 /* MainStoryboard.storyboard */,
+				D64E97211561B25400B7A864 /* AuthenticationViewController.h */,
+				D64E97221561B25400B7A864 /* AuthenticationViewController.m */,
+				D62A10B8156205DA007DC36C /* MainSplitViewController.h */,
+				D62A10B9156205DA007DC36C /* MainSplitViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		D6411E8B1561B6890056665A /* JSONKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,17 +146,10 @@
 			children = (
 				D6411E8B1561B6890056665A /* JSONKit */,
 				D64E97291561B2E100B7A864 /* Network */,
-				D64E971B1561B25400B7A864 /* AppDelegate.h */,
-				D64E971C1561B25400B7A864 /* AppDelegate.m */,
-				D64E971E1561B25400B7A864 /* MainStoryboard.storyboard */,
-				D64E97211561B25400B7A864 /* ViewController.h */,
-				D64E97221561B25400B7A864 /* ViewController.m */,
+				D62A10BB156205F3007DC36C /* Application */,
+				D62A10BD1562060F007DC36C /* ViewControllers */,
 				D64E97131561B25400B7A864 /* Supporting Files */,
-				D6411E941561BB080056665A /* DataProvider.h */,
-				D62A10B61561E50D007DC36C /* DataProvider+private.h */,
-				D6411E951561BB080056665A /* DataProvider.m */,
-				D6411E971561BBE40056665A /* User.h */,
-				D6411E981561BBE40056665A /* User.m */,
+				D62A10BC156205FF007DC36C /* Model */,
 			);
 			path = RB1;
 			sourceTree = "<group>";
@@ -216,13 +245,14 @@
 			files = (
 				D64E97191561B25400B7A864 /* main.m in Sources */,
 				D64E971D1561B25400B7A864 /* AppDelegate.m in Sources */,
-				D64E97231561B25400B7A864 /* ViewController.m in Sources */,
+				D64E97231561B25400B7A864 /* AuthenticationViewController.m in Sources */,
 				D64E97321561B2E100B7A864 /* Query.m in Sources */,
 				D64E97331561B2E100B7A864 /* QueryManager.m in Sources */,
 				D64E97341561B2E100B7A864 /* URLCache.m in Sources */,
 				D6411E961561BB080056665A /* DataProvider.m in Sources */,
 				D6411E991561BBE40056665A /* User.m in Sources */,
 				D6B706CA1561C31000F8C35E /* JSONKit.m in Sources */,
+				D62A10BA156205DA007DC36C /* MainSplitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

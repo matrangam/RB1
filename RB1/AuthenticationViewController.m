@@ -1,10 +1,11 @@
-#import "ViewController.h"
+#import "AuthenticationViewController.h"
+#import "MainSplitViewController.h"
 
-@interface ViewController ()
+@interface AuthenticationViewController ()
 
 @end
 
-@implementation ViewController
+@implementation AuthenticationViewController
 
 @synthesize userNameField = _userNameField;
 @synthesize passwordField = _passwordField;
@@ -23,12 +24,12 @@
     [user setUsername:_userNameField.text];
     [user setPassword:_passwordField.text];
     
-    [[self dataProvider] authenticateUser:user withCompletionBlock:^(NSArray *array) {
-            //
-        } failBlock:^(NSError *error) {
-            //
-        }
-    ];
+//    [[self dataProvider] authenticateUser:user withCompletionBlock:^(User *user) {
+//            //
+//        } failBlock:^(NSError *error) {
+//            //
+//        }
+//    ];
 }
 
 - (DataProvider*) dataProvider

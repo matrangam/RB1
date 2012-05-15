@@ -7,6 +7,7 @@
 
 static NSString* endpoint = @"http://www.reddit.com/api/";
 
+
 @synthesize didComplete = _didComplete;
 @synthesize didFailWithError = _didFailWithError;
 
@@ -59,15 +60,19 @@ static NSString* endpoint = @"http://www.reddit.com/api/";
             dispatch_release(queue);
         } 
     });
-    
+       
     self.didComplete = ^(NSURLResponse* response, id object) {
         dispatch_async(queue, ^{
-            NSDictionary* jsonDict = [object objectForKey:@"json"];
-            completionBlock_(jsonDict);
+            NSDictionary* jsonDictionary = [object objectForKey:@"json"];
+            if ([jsonDictionary objectForKey:@"errors"]) {
+                NSError* error = [NSError errorWithDomain:@"bad thing" code:0 userInfo:nil];
+                failedWithError_(error);
+                return;
+            }
+            completionBlock_(jsonDictionary);
         }) ;
         dispatch_release(queue);
     };
-    
     return query;
 }
 
@@ -80,7 +85,8 @@ static NSString* endpoint = @"http://www.reddit.com/api/";
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPMethod:@"POST"];
-    
+    [request setValue:UserAgentString forHTTPHeaderField:@"User-Agent"];    
+
     if ([parameters count] > 0) {
         NSString* body = [self queryStringFormDictionary:parameters];
         NSLog(@"Request Body: %@", body);
@@ -89,18 +95,22 @@ static NSString* endpoint = @"http://www.reddit.com/api/";
     return [self queryWithRequest:request completionBlock:completionBlock onFailedWithError:failedWithError];
 }
 
-- (void) authenticateUser:(User*)user withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError *))failedWithError
+- (void) authenticateUser:(User*)user withCompletionBlock:(void(^)(User*))completionBlock failBlock:(void(^)(NSError *))failedWithError
 {
+    NSAssert(nil != completionBlock, @"???");
+    
+    void (^completionBlock_)(User*) = [completionBlock copy];
     NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:user.username, QueryStringUsername, user.password, QueryStringPassword, @"json", QueryStringAPIType, nil];
     [self queryForPosttingToURI:[NSString stringWithFormat:LoginPathFormat, user.username] withParameters:parameters 
                 completionBlock:^(id response) {
-                    
                     NSLog(@"%@", response);
-                } 
-                onFailedWithError:^(NSError *error) {
-                    //
+                    NSDictionary* responseDict = [response objectForKey:@"data"];
+                    [user setCookie:[responseDict objectForKey:@"cookie"]];
+                    [user setModhash:[responseDict objectForKey:@"modhash"]];
+                    completionBlock_(user);
                 }
-    ];
+              onFailedWithError:failedWithError
+     ];
 }   
 
 - (void)query:(Query *)query didReceiveData:(NSData *)data
@@ -124,14 +134,20 @@ static NSString* endpoint = @"http://www.reddit.com/api/";
 
 - (void) queryDidFinishLoading:(Query *)query
 {
-    NSString* jsonString = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
-    NSString* response = [NSString stringWithObjectAsJSON:jsonString];
-    NSLog(@"%@", response);
-
     if (_didComplete) {
-        _didComplete(_response, [NSObject objectWithJSON:jsonString]);
+        NSString* jsonString = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
+        NSString* response = [NSString stringWithObjectAsJSON:jsonString];
+        NSLog(@"%@", response);
+        
+        @try {
+            _didComplete(_response, [NSObject objectWithJSON:jsonString]);
+        }
+        @catch (NSException *exception) {
+            if (_didFailWithError) {
+                _didFailWithError([NSError errorWithDomain:@"" code:0 userInfo:nil]);
+            }
+        }   
     }
-    
     _response = nil;
     _responseData = nil;
 }
