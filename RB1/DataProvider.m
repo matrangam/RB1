@@ -1,8 +1,12 @@
 #import "DataProvider.h"
 
 @implementation DataProvider {
-    NSMutableData* _data;
+    NSURLResponse* _response;
+    NSMutableData* _responseData;
 }
+
+@synthesize didComplete = _didComplete;
+@synthesize didFailWithError = _didFailWithError;
 
 - (NSString*) queryStringFormDictionary:(NSDictionary*)dictionary  
 {
@@ -52,27 +56,32 @@
 - (void)query:(Query *)query didReceiveData:(NSData *)data
 {
     NSLog(@"%@", data);
-    if (!_data) {
-        _data = [[NSMutableData alloc] init];
+    if (!_responseData) {
+        _responseData = [[NSMutableData alloc] init];
     }
-    [_data appendData:data];
+    [_responseData appendData:data];
 }
 
 - (void)query:(Query *)query didReceiveResponse:(NSURLResponse *)response
 {
-    NSLog(@"%@", response);
+    _response = response;
+    _responseData = [[NSMutableData alloc] init];
 }
 
 - (void)query:(Query *)query didFailWithError:(NSError *)error
 {
-    NSLog(@"%@", error);
+    _didFailWithError(error);
 }
 
 - (void) queryDidFinishLoading:(Query *)query
 {
-    NSString* jsonString = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+    NSString* jsonString = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
     NSString* result = [NSString stringWithObjectAsJSON:jsonString];
     NSLog(@"%@", result);
+
+    _response = nil;
+    _responseData = nil;
+
 }
 
 @end
