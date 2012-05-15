@@ -12,5 +12,6 @@
     #import "User.h"
     #import "JSONKit.h"
     #import "DataProvider.h"
+    #import "DataProvider+private.h"
     #import "AppDelegate.h"
 #endif

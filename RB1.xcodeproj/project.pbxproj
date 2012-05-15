@@ -24,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D62A10B61561E50D007DC36C /* DataProvider+private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataProvider+private.h"; sourceTree = "<group>"; };
 		D6411E941561BB080056665A /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
 		D6411E951561BB080056665A /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
 		D6411E971561BBE40056665A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 				D64E97221561B25400B7A864 /* ViewController.m */,
 				D64E97131561B25400B7A864 /* Supporting Files */,
 				D6411E941561BB080056665A /* DataProvider.h */,
+				D62A10B61561E50D007DC36C /* DataProvider+private.h */,
 				D6411E951561BB080056665A /* DataProvider.m */,
 				D6411E971561BBE40056665A /* User.h */,
 				D6411E981561BBE40056665A /* User.m */,

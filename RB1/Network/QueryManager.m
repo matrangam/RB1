@@ -265,17 +265,6 @@ NSString* const kQueryCompleteNotification   = @"kQueryDidCompleteNotification";
     [_query _finish];
 }
 
-#ifdef DEBUG
-- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)space {
-    if([[space authenticationMethod] isEqualToString:NSURLAuthenticationMethodServerTrust]) {
-        return YES; // Self-signed cert will be accepted
-    }
-    // If no other authentication is required, return NO for everything else
-    // Otherwise maybe YES for NSURLAuthenticationMethodDefault and etc.
-    return NO;
-}
-#endif
-
 - (NSURLRequest*) connection:(NSURLConnection*)connection willSendRequest:(NSURLRequest*)request redirectResponse:(NSURLResponse*)redirectResponse 
 {
     if (!_query.cancelled && [_delegate respondsToSelector:@selector(query:willSendRequest:redirectResponse:)]) {
