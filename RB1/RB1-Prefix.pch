@@ -10,6 +10,8 @@
 
     #import "Network.h" 
     #import "User.h"
+    #import "SubReddit.h"
+
     #import "JSONKit.h"
     #import "DataProvider.h"
     #import "DataProvider+private.h"

@@ -5,7 +5,7 @@
     NSMutableData* _responseData;
 }
 
-static NSString* endpoint = @"http://www.reddit.com/api/";
+static NSString* endpoint = @"http://www.reddit.com/";
 
 
 @synthesize didComplete = _didComplete;
@@ -136,8 +136,15 @@ static NSString* endpoint = @"http://www.reddit.com/api/";
 - (void) redditsForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError *))failedWithError
 {
     void (^completionBlock_)(NSArray*) = [completionBlock copy];
-    [self queryForGettingFromURI:nil withCompletionBlock:^(NSArray* response) {
-        NSLog(@"%@", response);
+    [self queryForGettingFromURI:AnonymousRedditsPath withCompletionBlock:^(NSDictionary* response) {
+        NSArray* children = [response objectForKey:@"children"];
+        NSMutableArray* allSubReddits = [NSMutableArray array];
+        for (NSDictionary* subRedditDictionary in children) {
+            [allSubReddits addObject:[SubReddit subRedditFromDictionary:subRedditDictionary]];
+        }
+        completionBlock_(allSubReddits);
+        
+        NSLog(@"%@", allSubReddits);
     } onFailedWithError:^(NSError *error) {
         //
     }];

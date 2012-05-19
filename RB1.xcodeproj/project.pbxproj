@@ -21,6 +21,7 @@
 		D64E97321561B2E100B7A864 /* Query.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E972D1561B2E100B7A864 /* Query.m */; };
 		D64E97331561B2E100B7A864 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E972F1561B2E100B7A864 /* QueryManager.m */; };
 		D64E97341561B2E100B7A864 /* URLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E97311561B2E100B7A864 /* URLCache.m */; };
+		D682DB7A1567EF7900DE57B3 /* SubReddit.m in Sources */ = {isa = PBXBuildFile; fileRef = D682DB791567EF7900DE57B3 /* SubReddit.m */; };
 		D6B706CA1561C31000F8C35E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B706C91561C31000F8C35E /* JSONKit.m */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,8 @@
 		D64E972F1561B2E100B7A864 /* QueryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryManager.m; sourceTree = "<group>"; };
 		D64E97301561B2E100B7A864 /* URLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLCache.h; sourceTree = "<group>"; };
 		D64E97311561B2E100B7A864 /* URLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLCache.m; sourceTree = "<group>"; };
+		D682DB781567EF7900DE57B3 /* SubReddit.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SubReddit.h; sourceTree = "<group>"; };
+		D682DB791567EF7900DE57B3 /* SubReddit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubReddit.m; sourceTree = "<group>"; };
 		D6B706C81561C31000F8C35E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = RB1/JSONKit/JSONKit.h; sourceTree = SOURCE_ROOT; };
 		D6B706C91561C31000F8C35E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = RB1/JSONKit/JSONKit.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -88,6 +91,8 @@
 			children = (
 				D6411E971561BBE40056665A /* User.h */,
 				D6411E981561BBE40056665A /* User.m */,
+				D682DB781567EF7900DE57B3 /* SubReddit.h */,
+				D682DB791567EF7900DE57B3 /* SubReddit.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 				D6411E991561BBE40056665A /* User.m in Sources */,
 				D6B706CA1561C31000F8C35E /* JSONKit.m in Sources */,
 				D62A10BA156205DA007DC36C /* MainSplitViewController.m in Sources */,
+				D682DB7A1567EF7900DE57B3 /* SubReddit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
