@@ -76,8 +76,8 @@
 			children = (
 				D64E971B1561B25400B7A864 /* AppDelegate.h */,
 				D64E971C1561B25400B7A864 /* AppDelegate.m */,
-				D6411E941561BB080056665A /* DataProvider.h */,
 				D62A10B61561E50D007DC36C /* DataProvider+private.h */,
+				D6411E941561BB080056665A /* DataProvider.h */,
 				D6411E951561BB080056665A /* DataProvider.m */,
 			);
 			name = Application;

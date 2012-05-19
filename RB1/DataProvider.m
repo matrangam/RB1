@@ -63,12 +63,18 @@ static NSString* endpoint = @"http://www.reddit.com/api/";
        
     self.didComplete = ^(NSURLResponse* response, id object) {
         dispatch_async(queue, ^{
-            NSDictionary* jsonDictionary = [object objectForKey:@"json"];
+            NSDictionary* jsonDictionary = [NSDictionary dictionary];
+            if ([object objectForKey:@"json"]) {
+                jsonDictionary = [object objectForKey:@"json"];
+            }
+            if ([object objectForKey:@"data"]) {
+                jsonDictionary = [object objectForKey:@"data"];
+            }
             if ([jsonDictionary objectForKey:@"errors"]) {
                 NSError* error = [NSError errorWithDomain:@"bad thing" code:0 userInfo:nil];
                 failedWithError_(error);
                 return;
-            }
+            }            
             completionBlock_(jsonDictionary);
         }) ;
         dispatch_release(queue);
@@ -95,6 +101,20 @@ static NSString* endpoint = @"http://www.reddit.com/api/";
     return [self queryWithRequest:request completionBlock:completionBlock onFailedWithError:failedWithError];
 }
 
+- (Query*) queryForGettingFromURI:(NSString*)uri withCompletionBlock:(void(^)(id))completionBlock onFailedWithError:(void(^)(NSError* error))failedWithError
+{
+    NSAssert(nil != completionBlock, @"???");
+    NSString* urlString = [endpoint stringByAppendingString:uri];
+
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:UserAgentString forHTTPHeaderField:@"User-Agent"];    
+
+    return [self queryWithRequest:request completionBlock:completionBlock onFailedWithError:failedWithError];
+}
+
 - (void) authenticateUser:(User*)user withCompletionBlock:(void(^)(User*))completionBlock failBlock:(void(^)(NSError *))failedWithError
 {
     NSAssert(nil != completionBlock, @"???");
@@ -112,6 +132,16 @@ static NSString* endpoint = @"http://www.reddit.com/api/";
               onFailedWithError:failedWithError
      ];
 }   
+
+- (void) redditsForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError *))failedWithError
+{
+    void (^completionBlock_)(NSArray*) = [completionBlock copy];
+    [self queryForGettingFromURI:nil withCompletionBlock:^(NSArray* response) {
+        NSLog(@"%@", response);
+    } onFailedWithError:^(NSError *error) {
+        //
+    }];
+}
 
 - (void)query:(Query *)query didReceiveData:(NSData *)data
 {

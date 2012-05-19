@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="ZkM-Xg-BxI">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -47,7 +47,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="2" eventType="touchUpInside" id="eTj-Kz-3hC"/>
-                                    <segue destination="ZkM-Xg-BxI" kind="push" identifier="AuthPush" id="rvK-gA-Epx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -61,7 +60,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-665" y="-567"/>
+            <point key="canvasLocation" x="-1161" y="-1079"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VP5-KA-mQl">
@@ -85,7 +84,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="paq-sx-b1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="gEJ-hn-6Bk" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wXO-yq-BWW">
-                        <rect key="frame" x="0.0" y="64" width="320" height="704"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -106,9 +105,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="W2J-Cg-lhD"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2179" y="-995"/>
+            <point key="canvasLocation" x="2201" y="-995"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cRF-f8-H05">
@@ -141,6 +141,19 @@
             <point key="canvasLocation" x="407" y="-567"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AuthenticationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AuthenticationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginButtonPressed:"/>
+                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userNameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MainSplitViewController" superclassName="UISplitViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainSplitViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>

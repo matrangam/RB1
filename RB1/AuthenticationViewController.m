@@ -24,12 +24,11 @@
     [user setUsername:_userNameField.text];
     [user setPassword:_passwordField.text];
     
-//    [[self dataProvider] authenticateUser:user withCompletionBlock:^(User *user) {
-//            //
-//        } failBlock:^(NSError *error) {
-//            //
-//        }
-//    ];
+    [[self dataProvider] authenticateUser:user withCompletionBlock:^(User *user) {
+        //
+    } failBlock:^(NSError *error) {
+        //
+    }];
 }
 
 - (DataProvider*) dataProvider
