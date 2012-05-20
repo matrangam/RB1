@@ -1,4 +1,5 @@
 #import "HomeViewController.h"
+#import "HomeInfoView.h"
 
 @interface HomeViewController ()
 
@@ -11,13 +12,13 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    [[self dataProvider] redditsForAnonymousUserWithCompletionBlock:^(NSArray *subReddits) {        
-        _subReddits = [subReddits sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(caseInsensitiveCompare:)]]];
-        [_tableView reloadData];
+        
+    [[self dataProvider] redditsForAnonymousUserWithCompletionBlock:^(NSArray *subReddits) {
+        _subReddits = [subReddits sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"displayName" ascending:YES selector:@selector(caseInsensitiveCompare:)]]];
+        [_selectionListTable reloadData];
     } failBlock:^(NSError *error) {
         //
     }];
-    
 }
 
 - (CGFloat) tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
@@ -34,11 +35,16 @@
 {
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DefaultCell"];
     if (nil == cell) {
-        [cell setBackgroundColor:[UIColor blueColor]];
+        //XXX: set up the cell
     }
     SubReddit* subReddit = [_subReddits objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:subReddit.title];
+    [[cell textLabel] setText:subReddit.displayName];
     return cell;
+}
+
+-(void) tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    [_homeInfoView setSelectedSubReddit:[_subReddits objectAtIndex:[indexPath row]]];
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

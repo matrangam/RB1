@@ -149,18 +149,18 @@
             [allSubReddits addObject:[SubReddit subRedditFromDictionary:subRedditDictionary]];
         }
         completionBlock_(allSubReddits);
-        
-        NSLog(@"%@", allSubReddits);
     } onFailedWithError:^(NSError *error) {
         //
     }];
 }
 
-- (void) frontPageForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
+- (void) infoForReddit:(NSString*)reddit withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
 {
     void(^completionBlock_)(NSArray*) = [completionBlock copy];
-    NSDictionary* parameters = [NSDictionary dictionaryWithObject:@"http://reddit.com" forKey:@"url"];
+    NSString* subRedditUrl = [NSString stringWithFormat:@"%@%@", RedditDefaultUrl, reddit];
+    NSDictionary* parameters = [NSDictionary dictionaryWithObject:subRedditUrl forKey:@"url"];
     [self queryForGettingFromURI:InfoPath parameters:parameters withCompletionBlock:^(NSArray* response) {
+        completionBlock_(response);
         NSLog(@"%@", response);
     } onFailedWithError:^(NSError *error) {
         //

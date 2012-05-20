@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D60F838D1569414B002DF94B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F838C1569414B002DF94B /* HomeViewController.m */; };
+		D60F8390156949DD002DF94B /* HomeInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F838F156949DD002DF94B /* HomeInfoView.m */; };
 		D6411E961561BB080056665A /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E951561BB080056665A /* DataProvider.m */; };
 		D6411E991561BBE40056665A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E981561BBE40056665A /* User.m */; };
 		D64E970D1561B25400B7A864 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64E970C1561B25400B7A864 /* UIKit.framework */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		D60F838B1569414B002DF94B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D60F838C1569414B002DF94B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		D60F838E156949DD002DF94B /* HomeInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeInfoView.h; sourceTree = "<group>"; };
+		D60F838F156949DD002DF94B /* HomeInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeInfoView.m; sourceTree = "<group>"; };
 		D62A10B61561E50D007DC36C /* DataProvider+private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataProvider+private.h"; sourceTree = "<group>"; };
 		D6411E941561BB080056665A /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
 		D6411E951561BB080056665A /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				D64E97221561B25400B7A864 /* AuthenticationViewController.m */,
 				D60F838B1569414B002DF94B /* HomeViewController.h */,
 				D60F838C1569414B002DF94B /* HomeViewController.m */,
+				D60F838E156949DD002DF94B /* HomeInfoView.h */,
+				D60F838F156949DD002DF94B /* HomeInfoView.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				D6B706CA1561C31000F8C35E /* JSONKit.m in Sources */,
 				D682DB7A1567EF7900DE57B3 /* SubReddit.m in Sources */,
 				D60F838D1569414B002DF94B /* HomeViewController.m in Sources */,
+				D60F8390156949DD002DF94B /* HomeInfoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

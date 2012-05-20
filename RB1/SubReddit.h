@@ -1,3 +1,15 @@
+extern NSString* const SubRedditCreated;
+extern NSString* const SubRedditCreatedUTC;
+extern NSString* const SubRedditDescription;
+extern NSString* const SubRedditDisplayName;
+extern NSString* const SubRedditHeaderImageUrl;
+extern NSString* const SubRedditHeaderTitle;
+extern NSString* const SubRedditUniqueId;
+extern NSString* const SubRedditOver18;
+extern NSString* const SubRedditSubscribers;
+extern NSString* const SubRedditTitle;
+extern NSString* const SubRedditUrl;
+
 @interface SubReddit : NSObject
 
 @property (nonatomic, strong) NSString* displayName;
