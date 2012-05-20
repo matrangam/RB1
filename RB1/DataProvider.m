@@ -1,4 +1,5 @@
 #import "DataProvider.h"
+#import "NSString+QueryString.h"
 
 @implementation DataProvider {
     NSURLResponse* _response;
@@ -7,33 +8,6 @@
 
 @synthesize didComplete = _didComplete;
 @synthesize didFailWithError = _didFailWithError;
-
-- (NSString*) queryStringFormDictionary:(NSDictionary*)dictionary  
-{
-    if ([dictionary count] == 0) {
-        return nil;
-    }
-    
-    NSMutableString *string = [NSMutableString string];
-    NSArray *keys = [dictionary allKeys];
-    for (NSString *key in keys) {
-        id object = [dictionary objectForKey:key];
-        if ([object isKindOfClass:[NSString class]]) {
-            object = object;
-        }
-        else if ([object respondsToSelector:@selector(stringValue)]) {
-            object = [object stringValue];
-        }
-        else {
-            [[NSException exceptionWithName:NSGenericException reason:@"Bad request object" userInfo:nil] raise];
-        }
-        [string appendFormat:@"%@=%@", key, [[object description] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-        if ([keys lastObject] != key) {
-            [string appendString:@"&"];
-        }
-    }
-    return string;
-}
 
 - (Query*) queryWithRequest:(NSURLRequest*)request completionBlock:(void(^)(id))completionBlock onFailedWithError:(void(^)(NSError* error))failedWithError
 {
@@ -93,7 +67,7 @@
     [request setValue:UserAgentString forHTTPHeaderField:@"User-Agent"];    
 
     if ([parameters count] > 0) {
-        NSString* body = [self queryStringFormDictionary:parameters];
+        NSString* body = [NSString queryStringFormDictionary:parameters];
         NSLog(@"Request Body: %@", body);
         [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     }
@@ -108,7 +82,7 @@
     NSString* urlString = [RedditDefaultUrl stringByAppendingString:uri];
 
     if ([parameters count] > 0) {
-        NSString* q = [self queryStringFormDictionary:parameters];
+        NSString* q = [NSString queryStringFormDictionary:parameters];
         urlString = [urlString stringByAppendingFormat:@"?%@", q];
     }
     
