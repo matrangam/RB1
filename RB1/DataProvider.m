@@ -159,9 +159,14 @@
     void(^completionBlock_)(NSArray*) = [completionBlock copy];
     NSString* subRedditUrl = [NSString stringWithFormat:@"%@%@", RedditDefaultUrl, reddit];
     NSDictionary* parameters = [NSDictionary dictionaryWithObject:subRedditUrl forKey:@"url"];
-    [self queryForGettingFromURI:InfoPath parameters:parameters withCompletionBlock:^(NSArray* response) {
-        completionBlock_(response);
-        NSLog(@"%@", response);
+    [self queryForGettingFromURI:InfoPath parameters:parameters withCompletionBlock:^(NSDictionary* response) {
+        NSArray* children = [response objectForKey:@"children"];
+        NSMutableArray* allTheThings = [NSMutableArray array];
+        for (NSDictionary* thing in children) {
+            Thing* newThing = [Thing thingFromDictionary:thing];
+            [allTheThings addObject:newThing];
+        }
+        completionBlock_(allTheThings);
     } onFailedWithError:^(NSError *error) {
         //
     }];

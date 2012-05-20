@@ -1,6 +1,4 @@
-@interface HomeInfoView : UIView <UITableViewDataSource, UITableViewDelegate> {
-    UITableView* _infoTable;
-}
+@interface HomeInfoView : UIView <UITableViewDataSource, UITableViewDelegate> 
 
 @property (nonatomic, strong) SubReddit* selectedSubReddit;
 

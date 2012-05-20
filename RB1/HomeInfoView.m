@@ -1,7 +1,9 @@
 #import "HomeInfoView.h"
 
 @implementation HomeInfoView {
+    UITableView* _infoTable;
     NSArray* _things;
+
 }
 
 @synthesize selectedSubReddit = _selectedSubReddit;
@@ -10,6 +12,8 @@
 {
     if (nil != (self = [super initWithCoder:aDecoder])) {
         _infoTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) style:UITableViewStylePlain];
+        [_infoTable setDataSource:self];
+        [_infoTable setDelegate:self];
         [self addSubview:_infoTable];
     }
     return self;
@@ -19,8 +23,8 @@
 {
     if (_selectedSubReddit != selectedSubReddit) {
         _selectedSubReddit = selectedSubReddit;
-        [[self dataProvider] infoForReddit:_selectedSubReddit.url withCompletionBlock:^(NSArray *array) {
-            _things = [array copy];
+        [[self dataProvider] infoForReddit:_selectedSubReddit.url withCompletionBlock:^(NSArray *things) {
+            _things = [NSArray arrayWithArray:things];
             [_infoTable reloadData];
         } failBlock:^(NSError* error) {
             //
@@ -39,6 +43,8 @@
     if (nil == cell) {
         //XXX: set up the cell
     }
+    Thing* selectedThing = [_things objectAtIndex:[indexPath row]];
+    [[cell textLabel] setText:selectedThing.title];
     
     return cell;
 }

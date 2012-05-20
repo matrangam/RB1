@@ -11,6 +11,7 @@
     #import "Network.h" 
     #import "User.h"
     #import "SubReddit.h"
+    #import "Thing.h"
 
     #import "JSONKit.h"
     #import "DataProvider.h"
