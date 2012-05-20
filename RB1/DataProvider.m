@@ -5,9 +5,6 @@
     NSMutableData* _responseData;
 }
 
-static NSString* endpoint = @"http://www.reddit.com/";
-
-
 @synthesize didComplete = _didComplete;
 @synthesize didFailWithError = _didFailWithError;
 
@@ -82,11 +79,13 @@ static NSString* endpoint = @"http://www.reddit.com/";
     return query;
 }
 
+#pragma Mark PostCalls
+
 - (Query*) queryForPosttingToURI:(NSString*)uri withParameters:(NSDictionary*)parameters completionBlock:(void(^)(id))completionBlock onFailedWithError:(void(^)(NSError* error))failedWithError
 {
     NSAssert(nil != completionBlock, @"???");
     
-    NSString* urlString = [endpoint stringByAppendingString:uri];
+    NSString* urlString = [RedditDefaultUrl stringByAppendingString:uri];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
@@ -101,17 +100,24 @@ static NSString* endpoint = @"http://www.reddit.com/";
     return [self queryWithRequest:request completionBlock:completionBlock onFailedWithError:failedWithError];
 }
 
-- (Query*) queryForGettingFromURI:(NSString*)uri withCompletionBlock:(void(^)(id))completionBlock onFailedWithError:(void(^)(NSError* error))failedWithError
+#pragma Mark GetCalls
+
+- (Query*) queryForGettingFromURI:(NSString*)uri parameters:(NSDictionary*)parameters withCompletionBlock:(void(^)(id))completionBlock onFailedWithError:(void(^)(NSError* error))failedWithError
 {
     NSAssert(nil != completionBlock, @"???");
-    NSString* urlString = [endpoint stringByAppendingString:uri];
+    NSString* urlString = [RedditDefaultUrl stringByAppendingString:uri];
 
+    if ([parameters count] > 0) {
+        NSString* q = [self queryStringFormDictionary:parameters];
+        urlString = [urlString stringByAppendingFormat:@"?%@", q];
+    }
+    
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPMethod:@"GET"];
     [request setValue:UserAgentString forHTTPHeaderField:@"User-Agent"];    
-
+    
     return [self queryWithRequest:request completionBlock:completionBlock onFailedWithError:failedWithError];
 }
 
@@ -136,7 +142,7 @@ static NSString* endpoint = @"http://www.reddit.com/";
 - (void) redditsForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError *))failedWithError
 {
     void (^completionBlock_)(NSArray*) = [completionBlock copy];
-    [self queryForGettingFromURI:AnonymousRedditsPath withCompletionBlock:^(NSDictionary* response) {
+    [self queryForGettingFromURI:AnonymousRedditsPath parameters:nil withCompletionBlock:^(NSDictionary* response) {
         NSArray* children = [response objectForKey:@"children"];
         NSMutableArray* allSubReddits = [NSMutableArray array];
         for (NSDictionary* subRedditDictionary in children) {
@@ -145,6 +151,17 @@ static NSString* endpoint = @"http://www.reddit.com/";
         completionBlock_(allSubReddits);
         
         NSLog(@"%@", allSubReddits);
+    } onFailedWithError:^(NSError *error) {
+        //
+    }];
+}
+
+- (void) frontPageForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
+{
+    void(^completionBlock_)(NSArray*) = [completionBlock copy];
+    NSDictionary* parameters = [NSDictionary dictionaryWithObject:@"http://reddit.com" forKey:@"url"];
+    [self queryForGettingFromURI:InfoPath parameters:parameters withCompletionBlock:^(NSArray* response) {
+        NSLog(@"%@", response);
     } onFailedWithError:^(NSError *error) {
         //
     }];

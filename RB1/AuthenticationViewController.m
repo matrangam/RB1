@@ -1,5 +1,4 @@
 #import "AuthenticationViewController.h"
-#import "MainSplitViewController.h"
 
 @interface AuthenticationViewController ()
 

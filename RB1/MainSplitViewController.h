@@ -1,3 +1,0 @@
-@interface MainSplitViewController : UISplitViewController
-
-@end

@@ -12,6 +12,7 @@ NSString* const SubRedditUniqueId = @"id";
 NSString* const SubRedditOver18 = @"over18";
 NSString* const SubRedditSubscribers = @"subscribers";
 NSString* const SubRedditTitle = @"title";
+NSString* const SubRedditUrl = @"url";
 
 @synthesize displayName;
 @synthesize title;
@@ -38,6 +39,7 @@ NSString* const SubRedditTitle = @"title";
     [subReddit setUniqueId:[subRedditDictionary objectForKey:SubRedditUniqueId]];
     [subReddit setOver18:[subRedditDictionary objectForKey:SubRedditOver18]];
     [subReddit setSubscribers:[subRedditDictionary objectForKey:SubRedditSubscribers]];
+    [subReddit setUrl:[subRedditDictionary objectForKey:SubRedditUrl]];
     [subReddit setTitle:[subRedditDictionary objectForKey:SubRedditTitle]];
     
     return subReddit;
