@@ -4,6 +4,9 @@ static NSString* const QueryStringPassword = @"passwd";
 static NSString* const QueryStringUsername = @"user";
 static NSString* const QueryStringAPIType = @"api_type";
 
+static NSString* const APIKeyData = @"data";
+static NSString* const APIKeyChildren = @"children";
+
 static NSString* const RedditDefaultUrl = @"http://www.reddit.com";
 
 //uri paths with formats

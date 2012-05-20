@@ -15,7 +15,7 @@
 
 + (Thing*) thingFromDictionary:(NSDictionary*)dictionary
 {
-    NSDictionary* thingDictionary = [dictionary objectForKey:@"data"];
+    NSDictionary* thingDictionary = [dictionary objectForKey:APIKeyData];
     Thing* thing = [[Thing alloc] init];
     [thing setAuthor:[thingDictionary objectForKey:@"author"]];
     [thing setTitle:[thingDictionary objectForKey:@"title"]];

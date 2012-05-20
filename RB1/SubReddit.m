@@ -29,7 +29,7 @@ NSString* const SubRedditUrl = @"url";
 + (SubReddit*) subRedditFromDictionary:(NSDictionary*)dictionary
 {
     SubReddit* subReddit = [[SubReddit alloc] init];
-    NSDictionary* subRedditDictionary = [dictionary objectForKey:@"data"];
+    NSDictionary* subRedditDictionary = [dictionary objectForKey:APIKeyData];
     [subReddit setCreated:[subRedditDictionary objectForKey:SubRedditCreated]];
     [subReddit setCreatedUTC:[subRedditDictionary objectForKey:SubRedditCreatedUTC]];
     [subReddit setSubRedditDescription:[subRedditDictionary objectForKey:SubRedditDescription]];

@@ -64,8 +64,8 @@
             if ([object objectForKey:@"json"]) {
                 jsonDictionary = [object objectForKey:@"json"];
             }
-            if ([object objectForKey:@"data"]) {
-                jsonDictionary = [object objectForKey:@"data"];
+            if ([object objectForKey:APIKeyData]) {
+                jsonDictionary = [object objectForKey:APIKeyData];
             }
             if ([jsonDictionary objectForKey:@"errors"]) {
                 NSError* error = [NSError errorWithDomain:@"bad thing" code:0 userInfo:nil];
@@ -129,8 +129,7 @@
     NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:user.username, QueryStringUsername, user.password, QueryStringPassword, @"json", QueryStringAPIType, nil];
     [self queryForPosttingToURI:[NSString stringWithFormat:LoginPathFormat, user.username] withParameters:parameters 
                 completionBlock:^(id response) {
-                    NSLog(@"%@", response);
-                    NSDictionary* responseDict = [response objectForKey:@"data"];
+                    NSDictionary* responseDict = [response objectForKey:APIKeyData];
                     [user setCookie:[responseDict objectForKey:@"cookie"]];
                     [user setModhash:[responseDict objectForKey:@"modhash"]];
                     completionBlock_(user);
@@ -143,7 +142,7 @@
 {
     void (^completionBlock_)(NSArray*) = [completionBlock copy];
     [self queryForGettingFromURI:AnonymousRedditsPath parameters:nil withCompletionBlock:^(NSDictionary* response) {
-        NSArray* children = [response objectForKey:@"children"];
+        NSArray* children = [response objectForKey:APIKeyChildren];
         NSMutableArray* allSubReddits = [NSMutableArray array];
         for (NSDictionary* subRedditDictionary in children) {
             [allSubReddits addObject:[SubReddit subRedditFromDictionary:subRedditDictionary]];
@@ -160,7 +159,7 @@
     NSString* subRedditUrl = [NSString stringWithFormat:@"%@%@", RedditDefaultUrl, reddit];
     NSDictionary* parameters = [NSDictionary dictionaryWithObject:subRedditUrl forKey:@"url"];
     [self queryForGettingFromURI:InfoPath parameters:parameters withCompletionBlock:^(NSDictionary* response) {
-        NSArray* children = [response objectForKey:@"children"];
+        NSArray* children = [response objectForKey:APIKeyChildren];
         NSMutableArray* allTheThings = [NSMutableArray array];
         for (NSDictionary* thing in children) {
             Thing* newThing = [Thing thingFromDictionary:thing];
@@ -194,10 +193,7 @@
 - (void) queryDidFinishLoading:(Query *)query
 {
     if (_didComplete) {
-        NSString* jsonString = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
-        NSString* response = [NSString stringWithObjectAsJSON:jsonString];
-        NSLog(@"%@", response);
-        
+        NSString* jsonString = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];        
         @try {
             _didComplete(_response, [NSObject objectWithJSON:jsonString]);
         }
