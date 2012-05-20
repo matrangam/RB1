@@ -133,6 +133,8 @@
     _responseData = nil;
 }
 
+#pragma Mark API Calls
+
 - (void) authenticateUser:(User*)user withCompletionBlock:(void(^)(User*))completionBlock failBlock:(void(^)(NSError *))failedWithError
 {
     NSAssert(nil != completionBlock, @"???");
