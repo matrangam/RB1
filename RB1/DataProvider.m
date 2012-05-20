@@ -95,57 +95,9 @@
     return [self queryWithRequest:request completionBlock:completionBlock onFailedWithError:failedWithError];
 }
 
-- (void) authenticateUser:(User*)user withCompletionBlock:(void(^)(User*))completionBlock failBlock:(void(^)(NSError *))failedWithError
-{
-    NSAssert(nil != completionBlock, @"???");
-    
-    void (^completionBlock_)(User*) = [completionBlock copy];
-    NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:user.username, QueryStringUsername, user.password, QueryStringPassword, @"json", QueryStringAPIType, nil];
-    [self queryForPosttingToURI:[NSString stringWithFormat:LoginPathFormat, user.username] withParameters:parameters 
-                completionBlock:^(id response) {
-                    NSDictionary* responseDict = [response objectForKey:APIKeyData];
-                    [user setCookie:[responseDict objectForKey:@"cookie"]];
-                    [user setModhash:[responseDict objectForKey:@"modhash"]];
-                    completionBlock_(user);
-                }
-              onFailedWithError:failedWithError
-     ];
-}   
+#pragma Mark Query Stuff
 
-- (void) redditsForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError *))failedWithError
-{
-    void (^completionBlock_)(NSArray*) = [completionBlock copy];
-    [self queryForGettingFromURI:AnonymousRedditsPath parameters:nil withCompletionBlock:^(NSDictionary* response) {
-        NSArray* children = [response objectForKey:APIKeyChildren];
-        NSMutableArray* allSubReddits = [NSMutableArray array];
-        for (NSDictionary* subRedditDictionary in children) {
-            [allSubReddits addObject:[SubReddit subRedditFromDictionary:subRedditDictionary]];
-        }
-        completionBlock_(allSubReddits);
-    } onFailedWithError:^(NSError *error) {
-        //
-    }];
-}
-
-- (void) infoForReddit:(NSString*)reddit withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
-{
-    void(^completionBlock_)(NSArray*) = [completionBlock copy];
-    NSString* subRedditUrl = [NSString stringWithFormat:@"%@%@", RedditDefaultUrl, reddit];
-    NSDictionary* parameters = [NSDictionary dictionaryWithObject:subRedditUrl forKey:@"url"];
-    [self queryForGettingFromURI:InfoPath parameters:parameters withCompletionBlock:^(NSDictionary* response) {
-        NSArray* children = [response objectForKey:APIKeyChildren];
-        NSMutableArray* allTheThings = [NSMutableArray array];
-        for (NSDictionary* thing in children) {
-            Thing* newThing = [Thing thingFromDictionary:thing];
-            [allTheThings addObject:newThing];
-        }
-        completionBlock_(allTheThings);
-    } onFailedWithError:^(NSError *error) {
-        //
-    }];
-}
-
-- (void)query:(Query *)query didReceiveData:(NSData *)data
+- (void) query:(Query*)query didReceiveData:(NSData *)data
 {
     if (!_responseData) {
         _responseData = [[NSMutableData alloc] init];
@@ -153,18 +105,18 @@
     [_responseData appendData:data];
 }
 
-- (void)query:(Query *)query didReceiveResponse:(NSURLResponse *)response
+- (void) query:(Query*)query didReceiveResponse:(NSURLResponse *)response
 {
     _response = response;
     _responseData = [[NSMutableData alloc] init];
 }
 
-- (void)query:(Query *)query didFailWithError:(NSError *)error
+- (void) query:(Query*)query didFailWithError:(NSError *)error
 {
     _didFailWithError(error);
 }
 
-- (void) queryDidFinishLoading:(Query *)query
+- (void) queryDidFinishLoading:(Query*)query
 {
     if (_didComplete) {
         NSString* jsonString = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];        
@@ -179,6 +131,55 @@
     }
     _response = nil;
     _responseData = nil;
+}
+
+- (void) authenticateUser:(User*)user withCompletionBlock:(void(^)(User*))completionBlock failBlock:(void(^)(NSError *))failedWithError
+{
+    NSAssert(nil != completionBlock, @"???");
+    
+    void (^completionBlock_)(User*) = [completionBlock copy];
+    NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:user.username, QueryStringUsername, user.password, QueryStringPassword, @"json", QueryStringAPIType, nil];
+    [self queryForPosttingToURI:[NSString stringWithFormat:LoginPathFormat, user.username] withParameters:parameters 
+        completionBlock:^(id response) {
+            NSDictionary* responseDict = [response objectForKey:APIKeyData];
+            [user setCookie:[responseDict objectForKey:@"cookie"]];
+            [user setModhash:[responseDict objectForKey:@"modhash"]];
+            completionBlock_(user);
+        } onFailedWithError:failedWithError
+    ];
+}   
+
+- (void) redditsForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError *))failedWithError
+{
+    void (^completionBlock_)(NSArray*) = [completionBlock copy];
+    [self queryForGettingFromURI:AnonymousRedditsPath parameters:nil 
+        withCompletionBlock:^(NSDictionary* response) {
+            NSArray* children = [response objectForKey:APIKeyChildren];
+            NSMutableArray* allSubReddits = [NSMutableArray array];
+            for (NSDictionary* subRedditDictionary in children) {
+                [allSubReddits addObject:[SubReddit subRedditFromDictionary:subRedditDictionary]];
+            }
+            completionBlock_(allSubReddits);
+        } onFailedWithError:failedWithError
+    ];
+}
+
+- (void) infoForReddit:(NSString*)reddit withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
+{
+    void(^completionBlock_)(NSArray*) = [completionBlock copy];
+    NSString* subRedditUrl = [NSString stringWithFormat:@"%@%@", RedditDefaultUrl, reddit];
+    NSDictionary* parameters = [NSDictionary dictionaryWithObject:subRedditUrl forKey:@"url"];
+    [self queryForGettingFromURI:InfoPath parameters:parameters 
+        withCompletionBlock:^(NSDictionary* response) {
+            NSArray* children = [response objectForKey:APIKeyChildren];
+            NSMutableArray* allTheThings = [NSMutableArray array];
+            for (NSDictionary* thing in children) {
+                Thing* newThing = [Thing thingFromDictionary:thing];
+                [allTheThings addObject:newThing];
+            }
+            completionBlock_(allTheThings);
+        } onFailedWithError:failedWithError
+    ];
 }
 
 @end
