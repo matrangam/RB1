@@ -7,6 +7,7 @@ CGFloat kHomeInfoViewTableCellHeight = 90.0;
 @synthesize iconImageView;
 @synthesize titleLabel;
 @synthesize goButton;
+@synthesize authorLabel;
 
 
 + (HomeInfoViewTableCell*) createNewCellFromNib

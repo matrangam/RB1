@@ -12,6 +12,7 @@
 @synthesize downs;
 @synthesize uniqueId;
 @synthesize subredditId;
+@synthesize subreddit;
 
 + (Thing*) thingFromDictionary:(NSDictionary*)dictionary
 {
@@ -27,6 +28,7 @@
     [thing setDowns:[thingDictionary objectForKey:@"downs"]];
     [thing setUniqueId:[thingDictionary objectForKey:@"id"]];
     [thing setSubredditId:[thingDictionary objectForKey:@"subreddit_id"]];
+    [thing setSubreddit:[thingDictionary objectForKey:@"subreddit"]];
     
     return thing;
 }

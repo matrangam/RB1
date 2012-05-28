@@ -1,5 +1,6 @@
 #import "HomeInfoView.h"
 #import "HomeInfoViewTableCell.h"
+#import "NSString+TimeInterval.h"
 
 @implementation HomeInfoView {
     UITableView* _infoTable;
@@ -51,8 +52,18 @@
     }
     Thing* selectedThing = [_things objectAtIndex:[indexPath row]];
     [[cell titleLabel] setText:selectedThing.title];
+
+    NSInteger timeInterval = [[NSDate dateWithTimeIntervalSince1970:selectedThing.createdUTC.doubleValue] timeIntervalSinceDate:[NSDate date]];
+    [[cell authorLabel] setText:[NSString stringWithFormat:@"Submitted %@ by %@ to %@", [NSString stringForTimeInterval:timeInterval includeSeconds:YES], selectedThing.author, selectedThing.subreddit]];
     
     return cell;
+}
+
+- (void) tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Thing* selectedThing = [_things objectAtIndex:[indexPath row]];
+    NSLog(@"%@", selectedThing.createdUTC);
 }
 
 - (DataProvider*) dataProvider 

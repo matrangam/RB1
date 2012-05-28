@@ -11,6 +11,7 @@
 		D60F8390156949DD002DF94B /* HomeInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F838F156949DD002DF94B /* HomeInfoView.m */; };
 		D60F83931569567E002DF94B /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83921569567E002DF94B /* Thing.m */; };
 		D60F83971569619A002DF94B /* NSString+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83961569619A002DF94B /* NSString+QueryString.m */; };
+		D60F839E15743C18002DF94B /* NSString+TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F839D15743C18002DF94B /* NSString+TimeInterval.m */; };
 		D612B94A156C5BE000CC5199 /* HomeInfoViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */; };
 		D612B94D156C5EDD00CC5199 /* HomeInfoViewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */; };
 		D6411E961561BB080056665A /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E951561BB080056665A /* DataProvider.m */; };
@@ -39,6 +40,8 @@
 		D60F83921569567E002DF94B /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
 		D60F83951569619A002DF94B /* NSString+QueryString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QueryString.h"; sourceTree = "<group>"; };
 		D60F83961569619A002DF94B /* NSString+QueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QueryString.m"; sourceTree = "<group>"; };
+		D60F839C15743C18002DF94B /* NSString+TimeInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeInterval.h"; sourceTree = "<group>"; };
+		D60F839D15743C18002DF94B /* NSString+TimeInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeInterval.m"; sourceTree = "<group>"; };
 		D612B948156C5BE000CC5199 /* HomeInfoViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeInfoViewTableCell.h; sourceTree = "<group>"; };
 		D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeInfoViewTableCell.m; sourceTree = "<group>"; };
 		D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeInfoViewTableCell.xib; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 			children = (
 				D60F83951569619A002DF94B /* NSString+QueryString.h */,
 				D60F83961569619A002DF94B /* NSString+QueryString.m */,
+				D60F839C15743C18002DF94B /* NSString+TimeInterval.h */,
+				D60F839D15743C18002DF94B /* NSString+TimeInterval.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				D60F83931569567E002DF94B /* Thing.m in Sources */,
 				D60F83971569619A002DF94B /* NSString+QueryString.m in Sources */,
 				D612B94A156C5BE000CC5199 /* HomeInfoViewTableCell.m in Sources */,
+				D60F839E15743C18002DF94B /* NSString+TimeInterval.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

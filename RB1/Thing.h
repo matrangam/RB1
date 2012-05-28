@@ -11,6 +11,7 @@
 @property (nonatomic, strong) NSNumber* downs;
 @property (nonatomic, strong) NSString* uniqueId;
 @property (nonatomic, strong) NSString* subredditId;
+@property (nonatomic, strong) NSString* subreddit;
 
 + (Thing*) thingFromDictionary:(NSDictionary*)dictionary;
 
