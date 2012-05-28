@@ -11,6 +11,8 @@
 		D60F8390156949DD002DF94B /* HomeInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F838F156949DD002DF94B /* HomeInfoView.m */; };
 		D60F83931569567E002DF94B /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83921569567E002DF94B /* Thing.m */; };
 		D60F83971569619A002DF94B /* NSString+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83961569619A002DF94B /* NSString+QueryString.m */; };
+		D612B94A156C5BE000CC5199 /* HomeInfoViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */; };
+		D612B94D156C5EDD00CC5199 /* HomeInfoViewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */; };
 		D6411E961561BB080056665A /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E951561BB080056665A /* DataProvider.m */; };
 		D6411E991561BBE40056665A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E981561BBE40056665A /* User.m */; };
 		D64E970D1561B25400B7A864 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64E970C1561B25400B7A864 /* UIKit.framework */; };
@@ -37,6 +39,9 @@
 		D60F83921569567E002DF94B /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
 		D60F83951569619A002DF94B /* NSString+QueryString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QueryString.h"; sourceTree = "<group>"; };
 		D60F83961569619A002DF94B /* NSString+QueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QueryString.m"; sourceTree = "<group>"; };
+		D612B948156C5BE000CC5199 /* HomeInfoViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeInfoViewTableCell.h; sourceTree = "<group>"; };
+		D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeInfoViewTableCell.m; sourceTree = "<group>"; };
+		D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeInfoViewTableCell.xib; sourceTree = "<group>"; };
 		D62A10B61561E50D007DC36C /* DataProvider+private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataProvider+private.h"; sourceTree = "<group>"; };
 		D6411E941561BB080056665A /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
 		D6411E951561BB080056665A /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
@@ -127,6 +132,9 @@
 				D60F838C1569414B002DF94B /* HomeViewController.m */,
 				D60F838E156949DD002DF94B /* HomeInfoView.h */,
 				D60F838F156949DD002DF94B /* HomeInfoView.m */,
+				D612B948156C5BE000CC5199 /* HomeInfoViewTableCell.h */,
+				D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */,
+				D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -261,6 +269,7 @@
 			files = (
 				D64E97171561B25400B7A864 /* InfoPlist.strings in Resources */,
 				D64E97201561B25400B7A864 /* MainStoryboard.storyboard in Resources */,
+				D612B94D156C5EDD00CC5199 /* HomeInfoViewTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +294,7 @@
 				D60F8390156949DD002DF94B /* HomeInfoView.m in Sources */,
 				D60F83931569567E002DF94B /* Thing.m in Sources */,
 				D60F83971569619A002DF94B /* NSString+QueryString.m in Sources */,
+				D612B94A156C5BE000CC5199 /* HomeInfoViewTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

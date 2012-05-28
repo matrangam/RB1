@@ -1,4 +1,5 @@
 #import "HomeInfoView.h"
+#import "HomeInfoViewTableCell.h"
 
 @implementation HomeInfoView {
     UITableView* _infoTable;
@@ -37,14 +38,19 @@
     return _things.count;
 }
 
+- (CGFloat) tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    return kHomeInfoViewTableCellHeight;
+}
+
 - (UITableViewCell*) tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DefaultCell"];
+    HomeInfoViewTableCell* cell = [tableView dequeueReusableCellWithIdentifier:kHomeInfoViewTableCellReuseIdentifier];
     if (nil == cell) {
-        //XXX: set up the cell
+        cell = [HomeInfoViewTableCell createNewCellFromNib];
     }
     Thing* selectedThing = [_things objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:selectedThing.title];
+    [[cell titleLabel] setText:selectedThing.title];
     
     return cell;
 }
