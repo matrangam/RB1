@@ -72,12 +72,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="63B-SH-MLs" customClass="HomeInfoView">
-                                <rect key="frame" x="337" y="0.0" width="687" height="748"/>
+                                <rect key="frame" x="249" y="0.0" width="775" height="748"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MeO-ze-Xx0" userLabel="selectionTable">
-                                <rect key="frame" x="0.0" y="0.0" width="338" height="748"/>
+                                <rect key="frame" x="0.0" y="0.0" width="249" height="748"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>

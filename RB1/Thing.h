@@ -9,6 +9,8 @@
 
 @property (nonatomic, strong) NSNumber* ups;
 @property (nonatomic, strong) NSNumber* downs;
+@property (nonatomic, strong) NSNumber* comments;
+
 @property (nonatomic, strong) NSString* uniqueId;
 @property (nonatomic, strong) NSString* subredditId;
 @property (nonatomic, strong) NSString* subreddit;

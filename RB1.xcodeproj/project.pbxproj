@@ -12,6 +12,11 @@
 		D60F83931569567E002DF94B /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83921569567E002DF94B /* Thing.m */; };
 		D60F83971569619A002DF94B /* NSString+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83961569619A002DF94B /* NSString+QueryString.m */; };
 		D60F839E15743C18002DF94B /* NSString+TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F839D15743C18002DF94B /* NSString+TimeInterval.m */; };
+		D60F83AE157445A0002DF94B /* CachingImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83A51574459E002DF94B /* CachingImageLoader.m */; };
+		D60F83AF157445A0002DF94B /* IncrementalImageAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83A9157445A0002DF94B /* IncrementalImageAdapter.m */; };
+		D60F83B0157445A0002DF94B /* NetworkImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83AB157445A0002DF94B /* NetworkImageLoader.m */; };
+		D60F83B1157445A0002DF94B /* ThumbnailImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83AD157445A0002DF94B /* ThumbnailImageLoader.m */; };
+		D60F83B415744602002DF94B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60F83B315744602002DF94B /* ImageIO.framework */; };
 		D612B94A156C5BE000CC5199 /* HomeInfoViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */; };
 		D612B94D156C5EDD00CC5199 /* HomeInfoViewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */; };
 		D6411E961561BB080056665A /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E951561BB080056665A /* DataProvider.m */; };
@@ -42,6 +47,17 @@
 		D60F83961569619A002DF94B /* NSString+QueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QueryString.m"; sourceTree = "<group>"; };
 		D60F839C15743C18002DF94B /* NSString+TimeInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeInterval.h"; sourceTree = "<group>"; };
 		D60F839D15743C18002DF94B /* NSString+TimeInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeInterval.m"; sourceTree = "<group>"; };
+		D60F83A41574459E002DF94B /* CachingImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CachingImageLoader.h; path = "Image Loader/CachingImageLoader.h"; sourceTree = "<group>"; };
+		D60F83A51574459E002DF94B /* CachingImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CachingImageLoader.m; path = "Image Loader/CachingImageLoader.m"; sourceTree = "<group>"; };
+		D60F83A61574459F002DF94B /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLoader.h; path = "Image Loader/ImageLoader.h"; sourceTree = "<group>"; };
+		D60F83A71574459F002DF94B /* ImageLoader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLoader.pch; path = "Image Loader/ImageLoader.pch"; sourceTree = "<group>"; };
+		D60F83A81574459F002DF94B /* IncrementalImageAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncrementalImageAdapter.h; path = "Image Loader/IncrementalImageAdapter.h"; sourceTree = "<group>"; };
+		D60F83A9157445A0002DF94B /* IncrementalImageAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncrementalImageAdapter.m; path = "Image Loader/IncrementalImageAdapter.m"; sourceTree = "<group>"; };
+		D60F83AA157445A0002DF94B /* NetworkImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkImageLoader.h; path = "Image Loader/NetworkImageLoader.h"; sourceTree = "<group>"; };
+		D60F83AB157445A0002DF94B /* NetworkImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkImageLoader.m; path = "Image Loader/NetworkImageLoader.m"; sourceTree = "<group>"; };
+		D60F83AC157445A0002DF94B /* ThumbnailImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThumbnailImageLoader.h; path = "Image Loader/ThumbnailImageLoader.h"; sourceTree = "<group>"; };
+		D60F83AD157445A0002DF94B /* ThumbnailImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThumbnailImageLoader.m; path = "Image Loader/ThumbnailImageLoader.m"; sourceTree = "<group>"; };
+		D60F83B315744602002DF94B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		D612B948156C5BE000CC5199 /* HomeInfoViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeInfoViewTableCell.h; sourceTree = "<group>"; };
 		D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeInfoViewTableCell.m; sourceTree = "<group>"; };
 		D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeInfoViewTableCell.xib; sourceTree = "<group>"; };
@@ -82,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D60F83B415744602002DF94B /* ImageIO.framework in Frameworks */,
 				D64E970D1561B25400B7A864 /* UIKit.framework in Frameworks */,
 				D64E970F1561B25400B7A864 /* Foundation.framework in Frameworks */,
 				D64E97111561B25400B7A864 /* CoreGraphics.framework in Frameworks */,
@@ -100,6 +117,24 @@
 				D60F839D15743C18002DF94B /* NSString+TimeInterval.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		D60F83B2157445A9002DF94B /* Image Loader */ = {
+			isa = PBXGroup;
+			children = (
+				D60F83A41574459E002DF94B /* CachingImageLoader.h */,
+				D60F83A51574459E002DF94B /* CachingImageLoader.m */,
+				D60F83A61574459F002DF94B /* ImageLoader.h */,
+				D60F83A71574459F002DF94B /* ImageLoader.pch */,
+				D60F83A81574459F002DF94B /* IncrementalImageAdapter.h */,
+				D60F83A9157445A0002DF94B /* IncrementalImageAdapter.m */,
+				D60F83AA157445A0002DF94B /* NetworkImageLoader.h */,
+				D60F83AB157445A0002DF94B /* NetworkImageLoader.m */,
+				D60F83AC157445A0002DF94B /* ThumbnailImageLoader.h */,
+				D60F83AD157445A0002DF94B /* ThumbnailImageLoader.m */,
+			);
+			name = "Image Loader";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D62A10BB156205F3007DC36C /* Application */ = {
@@ -151,12 +186,13 @@
 				D6B706C91561C31000F8C35E /* JSONKit.m */,
 			);
 			name = JSONKit;
-			path = Source;
+			path = ../Source;
 			sourceTree = "<group>";
 		};
 		D64E96FD1561B25400B7A864 = {
 			isa = PBXGroup;
 			children = (
+				D60F83B315744602002DF94B /* ImageIO.framework */,
 				D64E97121561B25400B7A864 /* RB1 */,
 				D64E970B1561B25400B7A864 /* Frameworks */,
 				D64E97091561B25400B7A864 /* Products */,
@@ -185,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				D60F839415696180002DF94B /* Categories */,
-				D6411E8B1561B6890056665A /* JSONKit */,
 				D64E97291561B2E100B7A864 /* Network */,
 				D62A10BB156205F3007DC36C /* Application */,
 				D62A10BD1562060F007DC36C /* ViewControllers */,
@@ -209,6 +244,8 @@
 		D64E97291561B2E100B7A864 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D60F83B2157445A9002DF94B /* Image Loader */,
+				D6411E8B1561B6890056665A /* JSONKit */,
 				D64E972A1561B2E100B7A864 /* Network.h */,
 				D64E972B1561B2E100B7A864 /* Network.pch */,
 				D64E972C1561B2E100B7A864 /* Query.h */,
@@ -301,6 +338,10 @@
 				D60F83971569619A002DF94B /* NSString+QueryString.m in Sources */,
 				D612B94A156C5BE000CC5199 /* HomeInfoViewTableCell.m in Sources */,
 				D60F839E15743C18002DF94B /* NSString+TimeInterval.m in Sources */,
+				D60F83AE157445A0002DF94B /* CachingImageLoader.m in Sources */,
+				D60F83AF157445A0002DF94B /* IncrementalImageAdapter.m in Sources */,
+				D60F83B0157445A0002DF94B /* NetworkImageLoader.m in Sources */,
+				D60F83B1157445A0002DF94B /* ThumbnailImageLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

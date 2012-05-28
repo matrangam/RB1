@@ -56,6 +56,8 @@
     NSInteger timeInterval = [[NSDate dateWithTimeIntervalSince1970:selectedThing.createdUTC.doubleValue] timeIntervalSinceDate:[NSDate date]];
     [[cell authorLabel] setText:[NSString stringWithFormat:@"Submitted %@ by %@ to %@", [NSString stringForTimeInterval:timeInterval includeSeconds:YES], selectedThing.author, selectedThing.subreddit]];
     
+    [[cell commentsButton] setTitle:[NSString stringWithFormat:@"%@", selectedThing.comments] forState:UIControlStateNormal];
+    
     return cell;
 }
 

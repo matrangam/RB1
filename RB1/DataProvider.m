@@ -1,5 +1,6 @@
 #import "DataProvider.h"
 #import "NSString+QueryString.h"
+#import "ImageLoader.h"
 
 @implementation DataProvider {
     NSURLResponse* _response;
@@ -182,6 +183,16 @@
             completionBlock_(allTheThings);
         } onFailedWithError:failedWithError
     ];
+}
+
++ (id<ImageLoader>) sharedImageLoader
+{
+    static id<ImageLoader> instance;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        instance = [[CachingImageLoader alloc] initWithBackingImageLoader:[NetworkImageLoader sharedImageLoader] diskPath:[[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"Icons"]]; 
+    });
+    return instance;
 }
 
 @end

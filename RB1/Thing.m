@@ -10,6 +10,7 @@
 @synthesize domain;
 @synthesize ups;
 @synthesize downs;
+@synthesize comments;
 @synthesize uniqueId;
 @synthesize subredditId;
 @synthesize subreddit;
@@ -26,6 +27,7 @@
     [thing setDomain:[thingDictionary objectForKey:@"domain"]];
     [thing setUps:[thingDictionary objectForKey:@"ups"]];
     [thing setDowns:[thingDictionary objectForKey:@"downs"]];
+    [thing setComments:[thingDictionary objectForKey:@"num_comments"]];
     [thing setUniqueId:[thingDictionary objectForKey:@"id"]];
     [thing setSubredditId:[thingDictionary objectForKey:@"subreddit_id"]];
     [thing setSubreddit:[thingDictionary objectForKey:@"subreddit"]];
