@@ -67,7 +67,7 @@
     [request setValue:UserAgentString forHTTPHeaderField:@"User-Agent"];    
 
     if ([parameters count] > 0) {
-        NSString* body = [NSString queryStringFormDictionary:parameters];
+        NSString* body = [NSString queryStringFromDictionary:parameters];
         NSLog(@"Request Body: %@", body);
         [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     }
@@ -82,7 +82,7 @@
     NSString* urlString = [RedditDefaultUrl stringByAppendingString:uri];
 
     if ([parameters count] > 0) {
-        NSString* q = [NSString queryStringFormDictionary:parameters];
+        NSString* q = [NSString queryStringFromDictionary:parameters];
         urlString = [urlString stringByAppendingFormat:@"?%@", q];
     }
     

@@ -1,3 +1,3 @@
 @interface NSString (QueryString)
-+ (NSString*) queryStringFormDictionary:(NSDictionary*)dictionary ;
++ (NSString*) queryStringFromDictionary:(NSDictionary*)dictionary ;
 @end

@@ -2,7 +2,7 @@
 
 @implementation NSString (QueryString)
 
-+ (NSString*) queryStringFormDictionary:(NSDictionary*)dictionary  
++ (NSString*) queryStringFromDictionary:(NSDictionary*)dictionary  
 {
     if ([dictionary count] == 0) {
         return nil;
