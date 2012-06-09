@@ -33,7 +33,7 @@
     UISplitViewController* splitViewController = (UISplitViewController*) self.window.rootViewController;
     [splitViewController setDelegate:[[splitViewController viewControllers] lastObject]];
         
-    _detailViewController = (HomeInfoViewController*)[[splitViewController viewControllers] lastObject];
+    _detailViewController = (DetailViewController*)[[splitViewController viewControllers] lastObject];
     _masterViewController = (MasterTableViewController*)[[[splitViewController viewControllers] objectAtIndex:0] topViewController];
     [_masterViewController setDelegate:_detailViewController];
     

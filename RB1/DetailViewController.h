@@ -1,6 +1,6 @@
 #import "MasterTableViewController.h"
 
-@interface HomeInfoViewController : UIViewController <UISplitViewControllerDelegate, MasterTableViewControllerDelegate> 
+@interface DetailViewController : UIViewController <UISplitViewControllerDelegate, MasterTableViewControllerDelegate> 
 {
     @private
     UIPopoverController* _masterPopoverController;

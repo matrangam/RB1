@@ -1,8 +1,8 @@
-#import "HomeInfoViewController.h"
+#import "DetailViewController.h"
 #import "HomeInfoViewTableCell.h"
 #import "NSString+TimeInterval.h"
 
-@implementation HomeInfoViewController {
+@implementation DetailViewController {
     UITableView* _infoTable;
     NSArray* _things;
 }
