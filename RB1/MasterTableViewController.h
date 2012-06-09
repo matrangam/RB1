@@ -8,6 +8,6 @@
 
 @interface MasterTableViewController : UITableViewController
 
-@property (unsafe_unretained, nonatomic) id <MasterTableViewControllerDelegate> delegate;
+@property (unsafe_unretained, nonatomic) id delegate;
 
 @end
