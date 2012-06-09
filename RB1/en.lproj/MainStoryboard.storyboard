@@ -67,32 +67,40 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3c-h4-Lgq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="t2X-3B-ahC" customClass="HomeInfoViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OLN-0N-RPq">
+                    <view key="view" contentMode="scaleToFill" id="DDe-Ny-I4c">
                         <rect key="frame" x="0.0" y="20" width="703" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="DK0-6x-J9R">
+                                <rect key="frame" x="0.0" y="0.0" width="703" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="f80-a2-Sqf"/>
+                                    <barButtonItem title="Item" id="gTH-9p-1m4"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ric-Hm-1Sh">
+                                <rect key="frame" x="0.0" y="44" width="703" height="704"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="t2X-3B-ahC" id="zyS-ED-6Wl"/>
+                                    <outlet property="delegate" destination="t2X-3B-ahC" id="u1b-4a-0RJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="yEA-iq-RUq">
-                            <rect key="frame" x="0.0" y="0.0" width="703" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <items>
-                                <barButtonItem style="plain" systemItem="flexibleSpace" id="zZt-Td-gJl"/>
-                                <barButtonItem title="Item" id="Qtt-Kh-JCg"/>
-                            </items>
-                        </toolbar>
-                        <connections>
-                            <outlet property="dataSource" destination="t2X-3B-ahC" id="rfm-Or-06m"/>
-                            <outlet property="delegate" destination="t2X-3B-ahC" id="fUP-bd-xBX"/>
-                        </connections>
-                    </tableView>
+                    </view>
                     <toolbarItems/>
                     <connections>
-                        <outlet property="infoTable" destination="OLN-0N-RPq" id="bXX-XL-UyJ"/>
-                        <outlet property="toolbar" destination="yEA-iq-RUq" id="32v-xj-dTw"/>
+                        <outlet property="infoTable" destination="ric-Hm-1Sh" id="n5f-jd-lqA"/>
+                        <outlet property="toolbar" destination="DK0-6x-J9R" id="UMB-d9-2UK"/>
+                        <outlet property="view" destination="DDe-Ny-I4c" id="5gQ-3L-Q2u"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-4635" y="-1899"/>
+            <point key="canvasLocation" x="-4643" y="-1903"/>
         </scene>
         <!--Master Table View Controller - Root View Controller-->
         <scene sceneID="jx8-RJ-bbB">
