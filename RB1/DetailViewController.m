@@ -9,7 +9,17 @@
 
 @synthesize infoTable = _infoTable;
 @synthesize toolbar = _toolbar;
+@synthesize loginButton = _loginButton;
 @synthesize selectedSubReddit = _selectedSubReddit;
+
+#pragma mark View LifeCycle
+
+- (void) viewDidLoad
+{
+    [super viewDidLoad];
+}
+
+#pragma mark MasterTableViewControllerDelegate
 
 - (void) masterTableViewController:(MasterTableViewController*)tableViewController didSelectSubreddit:(SubReddit*)subreddit
 {
@@ -89,6 +99,7 @@
 - (void) viewDidUnload 
 {
     [self setToolbar:nil];
+    [self setLoginButton:nil];
     [super viewDidUnload];
 }
 @end
