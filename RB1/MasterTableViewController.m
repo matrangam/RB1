@@ -8,6 +8,7 @@
     NSArray* _subReddits;
 }
 
+@synthesize delegate = _delegate;
 
 - (void)viewDidLoad
 {
@@ -19,12 +20,6 @@
     } failBlock:^(NSError *error) {
         //
     }];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-
 }
 
 #pragma mark - Table view data source
@@ -52,7 +47,7 @@
 
 - (void) tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-//    [_homeInfoView setSelectedSubReddit:[_subReddits objectAtIndex:[indexPath row]]];
+    [[self delegate] masterTableViewController:self didSelectSubreddit:[_subReddits objectAtIndex:[indexPath row]]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation

@@ -11,6 +11,11 @@
 @synthesize toolbar = _toolbar;
 @synthesize selectedSubReddit = _selectedSubReddit;
 
+- (void)masterTableViewController:(MasterTableViewController *)tableViewController didSelectSubreddit:(SubReddit *)subreddit
+{
+    [self setSelectedSubReddit:subreddit];
+}
+
 - (void) setSelectedSubReddit:(SubReddit*)selectedSubReddit
 {
     if (_selectedSubReddit != selectedSubReddit) {

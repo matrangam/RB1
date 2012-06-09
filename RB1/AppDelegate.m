@@ -1,4 +1,6 @@
 #import "AppDelegate.h"
+#import "MasterTableViewController.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 - (void) _showOrHideNetworkIndicator;
@@ -10,6 +12,7 @@
 
 @synthesize window = _window;
 @synthesize dataProvider = _dataProvider;
+
 
 + (AppDelegate*) sharedAppDelegate
 {
@@ -29,6 +32,10 @@
 {
     UISplitViewController* splitViewController = (UISplitViewController*) self.window.rootViewController;
     [splitViewController setDelegate:[[splitViewController viewControllers] lastObject]];
+        
+    HomeInfoViewController* detailViewController = (HomeInfoViewController*)[[splitViewController viewControllers] lastObject];
+    MasterTableViewController* master = (MasterTableViewController*)[[[splitViewController viewControllers] objectAtIndex:0] topViewController];
+    [master setDelegate:detailViewController];
     
     _queryObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kQueryStartNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         Query* query = [note object];
