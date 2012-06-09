@@ -1,5 +1,5 @@
 #import "DetailViewController.h"
-#import "HomeInfoViewTableCell.h"
+#import "DetailViewTableCell.h"
 #import "NSString+TimeInterval.h"
 
 @implementation DetailViewController {
@@ -29,14 +29,14 @@
 
 - (CGFloat) tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    return kHomeInfoViewTableCellHeight;
+    return kDetailViewTableCellHeight;
 }
 
 - (UITableViewCell*) tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    HomeInfoViewTableCell* cell = [tableView dequeueReusableCellWithIdentifier:kHomeInfoViewTableCellReuseIdentifier];
+    DetailViewTableCell* cell = [tableView dequeueReusableCellWithIdentifier:kDetailViewTableCellReuseIdentifier];
     if (nil == cell) {
-        cell = [UIView viewWithNibNamed:kHomeInfoViewTableCellReuseIdentifier];
+        cell = [UIView viewWithNibNamed:kDetailViewTableCellReuseIdentifier];
     }
     Thing* selectedThing = [_things objectAtIndex:[indexPath row]];
     [[cell titleLabel] setText:selectedThing.title];

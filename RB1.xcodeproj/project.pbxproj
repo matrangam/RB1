@@ -18,8 +18,8 @@
 		D60F83B0157445A0002DF94B /* NetworkImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83AB157445A0002DF94B /* NetworkImageLoader.m */; };
 		D60F83B1157445A0002DF94B /* ThumbnailImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83AD157445A0002DF94B /* ThumbnailImageLoader.m */; };
 		D60F83B415744602002DF94B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60F83B315744602002DF94B /* ImageIO.framework */; };
-		D612B94A156C5BE000CC5199 /* HomeInfoViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */; };
-		D612B94D156C5EDD00CC5199 /* HomeInfoViewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */; };
+		D612B94A156C5BE000CC5199 /* DetailViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D612B949156C5BE000CC5199 /* DetailViewTableCell.m */; };
+		D612B94D156C5EDD00CC5199 /* DetailViewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D612B94C156C5EDD00CC5199 /* DetailViewTableCell.xib */; };
 		D6411E961561BB080056665A /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E951561BB080056665A /* DataProvider.m */; };
 		D6411E991561BBE40056665A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E981561BBE40056665A /* User.m */; };
 		D64E970D1561B25400B7A864 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64E970C1561B25400B7A864 /* UIKit.framework */; };
@@ -61,9 +61,9 @@
 		D60F83AC157445A0002DF94B /* ThumbnailImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThumbnailImageLoader.h; path = "Image Loader/ThumbnailImageLoader.h"; sourceTree = "<group>"; };
 		D60F83AD157445A0002DF94B /* ThumbnailImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThumbnailImageLoader.m; path = "Image Loader/ThumbnailImageLoader.m"; sourceTree = "<group>"; };
 		D60F83B315744602002DF94B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		D612B948156C5BE000CC5199 /* HomeInfoViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeInfoViewTableCell.h; sourceTree = "<group>"; };
-		D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeInfoViewTableCell.m; sourceTree = "<group>"; };
-		D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeInfoViewTableCell.xib; sourceTree = "<group>"; };
+		D612B948156C5BE000CC5199 /* DetailViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DetailViewTableCell.h; sourceTree = "<group>"; };
+		D612B949156C5BE000CC5199 /* DetailViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewTableCell.m; sourceTree = "<group>"; };
+		D612B94C156C5EDD00CC5199 /* DetailViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewTableCell.xib; sourceTree = "<group>"; };
 		D62A10B61561E50D007DC36C /* DataProvider+private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataProvider+private.h"; sourceTree = "<group>"; };
 		D6411E941561BB080056665A /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
 		D6411E951561BB080056665A /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
@@ -149,9 +149,9 @@
 				D605C8191583DAD40031A7BF /* MasterTableViewController.m */,
 				D60F838E156949DD002DF94B /* DetailViewController.h */,
 				D60F838F156949DD002DF94B /* DetailViewController.m */,
-				D612B948156C5BE000CC5199 /* HomeInfoViewTableCell.h */,
-				D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */,
-				D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */,
+				D612B948156C5BE000CC5199 /* DetailViewTableCell.h */,
+				D612B949156C5BE000CC5199 /* DetailViewTableCell.m */,
+				D612B94C156C5EDD00CC5199 /* DetailViewTableCell.xib */,
 			);
 			name = SplitViewController;
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 			files = (
 				D64E97171561B25400B7A864 /* InfoPlist.strings in Resources */,
 				D64E97201561B25400B7A864 /* MainStoryboard.storyboard in Resources */,
-				D612B94D156C5EDD00CC5199 /* HomeInfoViewTableCell.xib in Resources */,
+				D612B94D156C5EDD00CC5199 /* DetailViewTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +348,7 @@
 				D60F8390156949DD002DF94B /* DetailViewController.m in Sources */,
 				D60F83931569567E002DF94B /* Thing.m in Sources */,
 				D60F83971569619A002DF94B /* NSString+QueryString.m in Sources */,
-				D612B94A156C5BE000CC5199 /* HomeInfoViewTableCell.m in Sources */,
+				D612B94A156C5BE000CC5199 /* DetailViewTableCell.m in Sources */,
 				D60F839E15743C18002DF94B /* NSString+TimeInterval.m in Sources */,
 				D60F83AE157445A0002DF94B /* CachingImageLoader.m in Sources */,
 				D60F83AF157445A0002DF94B /* IncrementalImageAdapter.m in Sources */,

@@ -1,7 +1,7 @@
-extern NSString* kHomeInfoViewTableCellReuseIdentifier;
-extern CGFloat kHomeInfoViewTableCellHeight;
+extern NSString* kDetailViewTableCellReuseIdentifier;
+extern CGFloat kDetailViewTableCellHeight;
 
-@interface HomeInfoViewTableCell : UITableViewCell
+@interface DetailViewTableCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
