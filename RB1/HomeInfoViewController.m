@@ -11,25 +11,17 @@
 @synthesize toolbar = _toolbar;
 @synthesize selectedSubReddit = _selectedSubReddit;
 
-- (void)masterTableViewController:(MasterTableViewController *)tableViewController didSelectSubreddit:(SubReddit *)subreddit
+- (void) masterTableViewController:(MasterTableViewController*)tableViewController didSelectSubreddit:(SubReddit*)subreddit
 {
-    [self setSelectedSubReddit:subreddit];
+    [[self dataProvider] infoForReddit:_selectedSubReddit.url withCompletionBlock:^(NSArray* things) {
+        _things = [NSArray arrayWithArray:things];
+        [_infoTable reloadData];
+    } failBlock:^(NSError* error) {
+        //
+    }];
 }
 
-- (void) setSelectedSubReddit:(SubReddit*)selectedSubReddit
-{
-    if (_selectedSubReddit != selectedSubReddit) {
-        _selectedSubReddit = selectedSubReddit;
-        [[self dataProvider] infoForReddit:_selectedSubReddit.url withCompletionBlock:^(NSArray *things) {
-            _things = [NSArray arrayWithArray:things];
-            [_infoTable reloadData];
-        } failBlock:^(NSError* error) {
-            //
-        }];
-    }
-}
-
-- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _things.count;
 }
@@ -66,7 +58,7 @@
 
 #pragma Mark SplitViewController
 
-- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
+- (void) splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController*)pc
 {
     [barButtonItem setTitle:@"Reddits"];
     NSMutableArray* items = [[[self toolbar] items] mutableCopy];
@@ -75,7 +67,7 @@
     _masterPopoverController = pc;
 }
 
-- (void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+- (void) splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController*)aViewController invalidatingBarButtonItem:(UIBarButtonItem*)barButtonItem
 {
     NSMutableArray* items = [[[self toolbar] items] mutableCopy];
     [items removeObject:barButtonItem];
@@ -83,7 +75,7 @@
     _masterPopoverController = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     return YES;
 }
@@ -93,7 +85,8 @@
     return [[AppDelegate sharedAppDelegate] dataProvider];
 }
 
-- (void)viewDidUnload {
+- (void) viewDidUnload 
+{
     [self setToolbar:nil];
     [super viewDidUnload];
 }

@@ -96,7 +96,6 @@
                     <connections>
                         <outlet property="infoTable" destination="ric-Hm-1Sh" id="n5f-jd-lqA"/>
                         <outlet property="toolbar" destination="DK0-6x-J9R" id="UMB-d9-2UK"/>
-                        <outlet property="view" destination="DDe-Ny-I4c" id="5gQ-3L-Q2u"/>
                     </connections>
                 </viewController>
             </objects>
