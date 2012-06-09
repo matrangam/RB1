@@ -1,8 +1,8 @@
-@class HomeInfoView, HomeViewController;
+@class HomeInfoViewController, HomeViewController;
 
-@interface HomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface HomeViewController : UISplitViewController <UISplitViewControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
     IBOutlet UITableView* _selectionListTable;
-    IBOutlet HomeInfoView* _homeInfoView;
+    IBOutlet HomeInfoViewController* _homeInfoView;
 }
 
 

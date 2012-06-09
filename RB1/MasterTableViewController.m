@@ -1,31 +1,37 @@
-#import "HomeViewController.h"
-#import "HomeInfoViewController.h"
+#import "MasterTableViewController.h"
 
-@interface HomeViewController ()
+@interface MasterTableViewController ()
 
 @end
 
-@implementation HomeViewController {
+@implementation MasterTableViewController {
     NSArray* _subReddits;
 }
 
-- (void) viewDidLoad
+
+- (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [[self dataProvider] redditsForAnonymousUserWithCompletionBlock:^(NSArray *subReddits) {
         _subReddits = [subReddits sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"displayName" ascending:YES selector:@selector(caseInsensitiveCompare:)]]];
-        [_selectionListTable reloadData];
+        [self.tableView reloadData];
     } failBlock:^(NSError *error) {
         //
     }];
 }
 
-#pragma Mark TableView
-
-- (CGFloat) tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
+- (void)viewDidUnload
 {
-    return 60;
+    [super viewDidUnload];
+
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView*)tableView
+{
+    return 1;
 }
 
 - (NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
@@ -33,7 +39,7 @@
     return _subReddits.count;
 }
 
-- (UITableViewCell*) tableView:(UITableView*) tableView cellForRowAtIndexPath:(NSIndexPath*) indexPath
+- (UITableViewCell*) tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DefaultCell"];
     if (nil == cell) {
@@ -44,10 +50,16 @@
     return cell;
 }
 
--(void) tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+- (void) tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    [_homeInfoView setSelectedSubReddit:[_subReddits objectAtIndex:[indexPath row]]];
+//    [_homeInfoView setSelectedSubReddit:[_subReddits objectAtIndex:[indexPath row]]];
 }
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return YES;
+}
+
 
 - (DataProvider*) dataProvider
 {

@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D605C81A1583DAD40031A7BF /* MasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D605C8191583DAD40031A7BF /* MasterTableViewController.m */; };
 		D60F1B511583BC84000AA7D5 /* UIView+Nib.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F1B501583BC84000AA7D5 /* UIView+Nib.m */; };
 		D60F838D1569414B002DF94B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F838C1569414B002DF94B /* HomeViewController.m */; };
-		D60F8390156949DD002DF94B /* HomeInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F838F156949DD002DF94B /* HomeInfoView.m */; };
+		D60F8390156949DD002DF94B /* HomeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F838F156949DD002DF94B /* HomeInfoViewController.m */; };
 		D60F83931569567E002DF94B /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83921569567E002DF94B /* Thing.m */; };
 		D60F83971569619A002DF94B /* NSString+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83961569619A002DF94B /* NSString+QueryString.m */; };
 		D60F839E15743C18002DF94B /* NSString+TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F839D15743C18002DF94B /* NSString+TimeInterval.m */; };
@@ -38,12 +39,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D605C8181583DAD40031A7BF /* MasterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterTableViewController.h; sourceTree = "<group>"; };
+		D605C8191583DAD40031A7BF /* MasterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTableViewController.m; sourceTree = "<group>"; };
 		D60F1B4F1583BC84000AA7D5 /* UIView+Nib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Nib.h"; sourceTree = "<group>"; };
 		D60F1B501583BC84000AA7D5 /* UIView+Nib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Nib.m"; sourceTree = "<group>"; };
 		D60F838B1569414B002DF94B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D60F838C1569414B002DF94B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		D60F838E156949DD002DF94B /* HomeInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeInfoView.h; sourceTree = "<group>"; };
-		D60F838F156949DD002DF94B /* HomeInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeInfoView.m; sourceTree = "<group>"; };
+		D60F838E156949DD002DF94B /* HomeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeInfoViewController.h; sourceTree = "<group>"; };
+		D60F838F156949DD002DF94B /* HomeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeInfoViewController.m; sourceTree = "<group>"; };
 		D60F83911569567E002DF94B /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
 		D60F83921569567E002DF94B /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
 		D60F83951569619A002DF94B /* NSString+QueryString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QueryString.h"; sourceTree = "<group>"; };
@@ -142,16 +145,18 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		D60F83B5157447BA002DF94B /* Info View */ = {
+		D60F83B5157447BA002DF94B /* SplitViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D60F838E156949DD002DF94B /* HomeInfoView.h */,
-				D60F838F156949DD002DF94B /* HomeInfoView.m */,
+				D605C8181583DAD40031A7BF /* MasterTableViewController.h */,
+				D605C8191583DAD40031A7BF /* MasterTableViewController.m */,
+				D60F838E156949DD002DF94B /* HomeInfoViewController.h */,
+				D60F838F156949DD002DF94B /* HomeInfoViewController.m */,
 				D612B948156C5BE000CC5199 /* HomeInfoViewTableCell.h */,
 				D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */,
 				D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */,
 			);
-			name = "Info View";
+			name = SplitViewController;
 			sourceTree = "<group>";
 		};
 		D62A10BB156205F3007DC36C /* Application */ = {
@@ -187,7 +192,7 @@
 				D64E97221561B25400B7A864 /* AuthenticationViewController.m */,
 				D60F838B1569414B002DF94B /* HomeViewController.h */,
 				D60F838C1569414B002DF94B /* HomeViewController.m */,
-				D60F83B5157447BA002DF94B /* Info View */,
+				D60F83B5157447BA002DF94B /* SplitViewController */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -346,7 +351,7 @@
 				D6B706CA1561C31000F8C35E /* JSONKit.m in Sources */,
 				D682DB7A1567EF7900DE57B3 /* SubReddit.m in Sources */,
 				D60F838D1569414B002DF94B /* HomeViewController.m in Sources */,
-				D60F8390156949DD002DF94B /* HomeInfoView.m in Sources */,
+				D60F8390156949DD002DF94B /* HomeInfoViewController.m in Sources */,
 				D60F83931569567E002DF94B /* Thing.m in Sources */,
 				D60F83971569619A002DF94B /* NSString+QueryString.m in Sources */,
 				D612B94A156C5BE000CC5199 /* HomeInfoViewTableCell.m in Sources */,
@@ -356,6 +361,7 @@
 				D60F83B0157445A0002DF94B /* NetworkImageLoader.m in Sources */,
 				D60F83B1157445A0002DF94B /* ThumbnailImageLoader.m in Sources */,
 				D60F1B511583BC84000AA7D5 /* UIView+Nib.m in Sources */,
+				D605C81A1583DAD40031A7BF /* MasterTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

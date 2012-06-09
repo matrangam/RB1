@@ -27,6 +27,9 @@
 
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    UISplitViewController* splitViewController = (UISplitViewController*) self.window.rootViewController;
+    [splitViewController setDelegate:[[splitViewController viewControllers] lastObject]];
+    
     _queryObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kQueryStartNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         Query* query = [note object];
         NSLog(@"--> %@", query);

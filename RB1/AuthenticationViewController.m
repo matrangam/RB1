@@ -35,10 +35,6 @@
     return [[AppDelegate sharedAppDelegate] dataProvider];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return YES;
-}
 
 
 @end

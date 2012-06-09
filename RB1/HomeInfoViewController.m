@@ -1,24 +1,15 @@
-#import "HomeInfoView.h"
+#import "HomeInfoViewController.h"
 #import "HomeInfoViewTableCell.h"
 #import "NSString+TimeInterval.h"
 
-@implementation HomeInfoView {
+@implementation HomeInfoViewController {
     UITableView* _infoTable;
     NSArray* _things;
 }
 
+@synthesize infoTable = _infoTable;
+@synthesize toolbar = _toolbar;
 @synthesize selectedSubReddit = _selectedSubReddit;
-
-- (id) initWithCoder:(NSCoder *)aDecoder
-{
-    if (nil != (self = [super initWithCoder:aDecoder])) {
-        _infoTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) style:UITableViewStylePlain];
-        [_infoTable setDataSource:self];
-        [_infoTable setDelegate:self];
-        [self addSubview:_infoTable];
-    }
-    return self;
-}
 
 - (void) setSelectedSubReddit:(SubReddit*)selectedSubReddit
 {
@@ -68,9 +59,37 @@
     NSLog(@"%@", selectedThing.createdUTC);
 }
 
+#pragma Mark SplitViewController
+
+- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc
+{
+    [barButtonItem setTitle:@"Reddits"];
+    NSMutableArray* items = [[[self toolbar] items] mutableCopy];
+    [items insertObject:barButtonItem atIndex:0];
+    [[self toolbar] setItems:items animated:YES];
+    _masterPopoverController = pc;
+}
+
+- (void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    NSMutableArray* items = [[[self toolbar] items] mutableCopy];
+    [items removeObject:barButtonItem];
+    [[self toolbar] setItems:items animated:YES];
+    _masterPopoverController = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return YES;
+}
+
 - (DataProvider*) dataProvider 
 {
     return [[AppDelegate sharedAppDelegate] dataProvider];
 }
 
+- (void)viewDidUnload {
+    [self setToolbar:nil];
+    [super viewDidUnload];
+}
 @end

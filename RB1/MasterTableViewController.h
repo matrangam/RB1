@@ -1,0 +1,3 @@
+@interface MasterTableViewController : UITableViewController
+
+@end
