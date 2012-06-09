@@ -8,6 +8,4 @@ extern CGFloat kHomeInfoViewTableCellHeight;
 @property (strong, nonatomic) IBOutlet UIButton *commentsButton;
 @property (strong, nonatomic) IBOutlet UILabel *authorLabel;
 
-+ (HomeInfoViewTableCell*) createNewCellFromNib;
-
 @end

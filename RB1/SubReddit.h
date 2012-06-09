@@ -23,6 +23,8 @@ extern NSString* const SubRedditUrl;
 @property (nonatomic, strong) NSNumber* subscribers;
 @property (nonatomic, strong) NSString* uniqueId;
 @property (nonatomic, strong) NSString* subRedditDescription;
+@property (nonatomic, assign) NSInteger headerHeight;
+@property (nonatomic, assign) NSInteger headerWidth;
 
 + (SubReddit*) subRedditFromDictionary:(NSDictionary*)dictionary;
 

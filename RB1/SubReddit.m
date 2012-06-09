@@ -25,6 +25,8 @@ NSString* const SubRedditUrl = @"url";
 @synthesize subscribers;
 @synthesize uniqueId;
 @synthesize subRedditDescription;
+@synthesize headerHeight;
+@synthesize headerWidth;
 
 + (SubReddit*) subRedditFromDictionary:(NSDictionary*)dictionary
 {
@@ -41,10 +43,13 @@ NSString* const SubRedditUrl = @"url";
     [subReddit setSubscribers:[subRedditDictionary objectForKey:SubRedditSubscribers]];
     [subReddit setUrl:[subRedditDictionary objectForKey:SubRedditUrl]];
     [subReddit setTitle:[subRedditDictionary objectForKey:SubRedditTitle]];
+    NSArray* sizeArray = [subRedditDictionary objectForKey:@"header_size"];
+    if (![sizeArray isEqual:[NSNull null]]) {
+        [subReddit setHeaderWidth:(NSInteger)[sizeArray objectAtIndex:0]];
+        [subReddit setHeaderHeight:(NSInteger)[sizeArray objectAtIndex:1]];
+    }
     
     return subReddit;
 }
-
-// XXX: We also get header size, not sure if we'll need this so I'm leaving it out
 
 @end

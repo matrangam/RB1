@@ -1,5 +1,4 @@
-#import <Foundation/Foundation.h>
-
+#import "ImageLoader.h"
 @interface DataProvider : NSObject <QueryDelegate>
 
 @property (nonatomic, copy) void(^didComplete)(NSURLResponse* response, id object);
@@ -9,4 +8,5 @@
 - (void) redditsForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError *))failedWithError;
 - (void) infoForReddit:(NSString*)reddit withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError;
 
++ (id<ImageLoader>) sharedImageLoader;
 @end

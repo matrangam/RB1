@@ -5,7 +5,6 @@
 @implementation HomeInfoView {
     UITableView* _infoTable;
     NSArray* _things;
-
 }
 
 @synthesize selectedSubReddit = _selectedSubReddit;
@@ -48,7 +47,7 @@
 {
     HomeInfoViewTableCell* cell = [tableView dequeueReusableCellWithIdentifier:kHomeInfoViewTableCellReuseIdentifier];
     if (nil == cell) {
-        cell = [HomeInfoViewTableCell createNewCellFromNib];
+        cell = [UIView viewWithNibNamed:kHomeInfoViewTableCellReuseIdentifier];
     }
     Thing* selectedThing = [_things objectAtIndex:[indexPath row]];
     [[cell titleLabel] setText:selectedThing.title];
@@ -65,6 +64,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Thing* selectedThing = [_things objectAtIndex:[indexPath row]];
+    
     NSLog(@"%@", selectedThing.createdUTC);
 }
 

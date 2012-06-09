@@ -1,6 +1,5 @@
 #import "DataProvider.h"
 #import "NSString+QueryString.h"
-#import "ImageLoader.h"
 
 @implementation DataProvider {
     NSURLResponse* _response;

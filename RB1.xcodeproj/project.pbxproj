@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D60F1B511583BC84000AA7D5 /* UIView+Nib.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F1B501583BC84000AA7D5 /* UIView+Nib.m */; };
 		D60F838D1569414B002DF94B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F838C1569414B002DF94B /* HomeViewController.m */; };
 		D60F8390156949DD002DF94B /* HomeInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F838F156949DD002DF94B /* HomeInfoView.m */; };
 		D60F83931569567E002DF94B /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83921569567E002DF94B /* Thing.m */; };
@@ -37,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D60F1B4F1583BC84000AA7D5 /* UIView+Nib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Nib.h"; sourceTree = "<group>"; };
+		D60F1B501583BC84000AA7D5 /* UIView+Nib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Nib.m"; sourceTree = "<group>"; };
 		D60F838B1569414B002DF94B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D60F838C1569414B002DF94B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D60F838E156949DD002DF94B /* HomeInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeInfoView.h; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				D60F83961569619A002DF94B /* NSString+QueryString.m */,
 				D60F839C15743C18002DF94B /* NSString+TimeInterval.h */,
 				D60F839D15743C18002DF94B /* NSString+TimeInterval.m */,
+				D60F1B4F1583BC84000AA7D5 /* UIView+Nib.h */,
+				D60F1B501583BC84000AA7D5 /* UIView+Nib.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -135,6 +140,18 @@
 			);
 			name = "Image Loader";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		D60F83B5157447BA002DF94B /* Info View */ = {
+			isa = PBXGroup;
+			children = (
+				D60F838E156949DD002DF94B /* HomeInfoView.h */,
+				D60F838F156949DD002DF94B /* HomeInfoView.m */,
+				D612B948156C5BE000CC5199 /* HomeInfoViewTableCell.h */,
+				D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */,
+				D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */,
+			);
+			name = "Info View";
 			sourceTree = "<group>";
 		};
 		D62A10BB156205F3007DC36C /* Application */ = {
@@ -170,11 +187,7 @@
 				D64E97221561B25400B7A864 /* AuthenticationViewController.m */,
 				D60F838B1569414B002DF94B /* HomeViewController.h */,
 				D60F838C1569414B002DF94B /* HomeViewController.m */,
-				D60F838E156949DD002DF94B /* HomeInfoView.h */,
-				D60F838F156949DD002DF94B /* HomeInfoView.m */,
-				D612B948156C5BE000CC5199 /* HomeInfoViewTableCell.h */,
-				D612B949156C5BE000CC5199 /* HomeInfoViewTableCell.m */,
-				D612B94C156C5EDD00CC5199 /* HomeInfoViewTableCell.xib */,
+				D60F83B5157447BA002DF94B /* Info View */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -342,6 +355,7 @@
 				D60F83AF157445A0002DF94B /* IncrementalImageAdapter.m in Sources */,
 				D60F83B0157445A0002DF94B /* NetworkImageLoader.m in Sources */,
 				D60F83B1157445A0002DF94B /* ThumbnailImageLoader.m in Sources */,
+				D60F1B511583BC84000AA7D5 /* UIView+Nib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

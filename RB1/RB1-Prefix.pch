@@ -17,4 +17,6 @@
     #import "DataProvider.h"
     #import "DataProvider+private.h"
     #import "AppDelegate.h"
+
+    #import "UIView+Nib.h"
 #endif
