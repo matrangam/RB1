@@ -1,6 +1,5 @@
 #import "AppDelegate.h"
 #import "MasterTableViewController.h"
-#import "HomeViewController.h"
 
 @interface AppDelegate ()
 - (void) _showOrHideNetworkIndicator;
