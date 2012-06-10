@@ -1,6 +1,5 @@
 #import "DetailViewController.h"
 #import "DetailViewTableCell.h"
-#import "NSString+TimeInterval.h"
 
 @implementation DetailViewController {
     UITableView* _infoTable;
@@ -53,13 +52,7 @@
     if (nil == cell) {
         cell = [UIView viewWithNibNamed:kDetailViewTableCellReuseIdentifier];
     }
-    Thing* selectedThing = [_things objectAtIndex:[indexPath row]];
-    [[cell titleLabel] setText:selectedThing.title];
-
-    NSInteger timeInterval = [[NSDate dateWithTimeIntervalSince1970:selectedThing.createdUTC.doubleValue] timeIntervalSinceDate:[NSDate date]];
-    [[cell authorLabel] setText:[NSString stringWithFormat:@"Submitted %@ by %@ to %@", [NSString stringForTimeInterval:timeInterval includeSeconds:YES], selectedThing.author, selectedThing.subreddit]];
-    
-    [[cell commentsButton] setTitle:[NSString stringWithFormat:@"%@", selectedThing.comments] forState:UIControlStateNormal];
+    [cell setThing:[_things objectAtIndex:[indexPath row]]];
     
     return cell;
 }
