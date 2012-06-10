@@ -75,7 +75,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="f80-a2-Sqf"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0jF-VP-6bb"/>
+                                    <barButtonItem style="plain" id="lxc-iP-1SO" userLabel="TitleViewContainer">
+                                        <view key="customView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" id="WQ2-pM-Yw6" userLabel="TitleViewContainer">
+                                            <rect key="frame" x="214" y="6" width="340" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="krn-WE-gWa" userLabel="Title Label">
+                                                    <rect key="frame" x="0.0" y="0.0" width="340" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VAb-wb-hD6"/>
                                     <barButtonItem title="Login" id="gTH-9p-1m4">
                                         <connections>
                                             <segue destination="2" kind="modal" id="eaw-Cb-4OE"/>
@@ -100,6 +118,7 @@
                         <outlet property="infoTable" destination="ric-Hm-1Sh" id="n5f-jd-lqA"/>
                         <outlet property="loginButton" destination="gTH-9p-1m4" id="kr0-Jb-Hg1"/>
                         <outlet property="toolbar" destination="DK0-6x-J9R" id="UMB-d9-2UK"/>
+                        <outlet property="toolbarTitle" destination="krn-WE-gWa" id="myP-wR-cQm"/>
                     </connections>
                 </viewController>
             </objects>
@@ -181,6 +200,7 @@
                 <relationship kind="outlet" name="infoTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="loginButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="toolbarTitle" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="MasterTableViewController" superclassName="UITableViewController">

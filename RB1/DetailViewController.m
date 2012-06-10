@@ -10,6 +10,7 @@
 @synthesize infoTable = _infoTable;
 @synthesize toolbar = _toolbar;
 @synthesize loginButton = _loginButton;
+@synthesize toolbarTitle = _toolbarTitle;
 @synthesize selectedSubReddit = _selectedSubReddit;
 
 #pragma mark View LifeCycle
@@ -25,6 +26,8 @@
 {
     [_masterPopoverController dismissPopoverAnimated:YES];
     
+    [[self toolbarTitle] setText:[subreddit title]];
+        
     [self setSelectedSubReddit:subreddit];
     [[self dataProvider] infoForReddit:_selectedSubReddit.url withCompletionBlock:^(NSArray* things) {
         _things = [NSArray arrayWithArray:things];
@@ -65,7 +68,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Thing* selectedThing = [_things objectAtIndex:[indexPath row]];
-    
+
     NSLog(@"%@", selectedThing.createdUTC);
 }
 
@@ -78,7 +81,6 @@
     [items insertObject:barButtonItem atIndex:0];
     [[self toolbar] setItems:items animated:YES];
     _masterPopoverController = pc;
-    [_masterPopoverController setDelegate:self];
 }
 
 - (void) splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController*)aViewController invalidatingBarButtonItem:(UIBarButtonItem*)barButtonItem
@@ -103,6 +105,7 @@
 {
     [self setToolbar:nil];
     [self setLoginButton:nil];
+    [self setToolbarTitle:nil];
     [super viewDidUnload];
 }
 @end
