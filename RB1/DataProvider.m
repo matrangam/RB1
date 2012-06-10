@@ -41,7 +41,8 @@
             if ([object objectForKey:APIKeyData]) {
                 jsonDictionary = [object objectForKey:APIKeyData];
             }
-            if ([jsonDictionary objectForKey:@"errors"]) {
+            NSArray* errors = [jsonDictionary objectForKey:@"errors"];
+            if ([errors count]) {
                 NSError* error = [NSError errorWithDomain:@"bad thing" code:0 userInfo:nil];
                 failedWithError_(error);
                 return;
@@ -147,7 +148,9 @@
             [user setCookie:[responseDict objectForKey:@"cookie"]];
             [user setModhash:[responseDict objectForKey:@"modhash"]];
             completionBlock_(user);
-        } onFailedWithError:failedWithError
+        } onFailedWithError:^(NSError* error) {
+            NSLog(@"%@", error);
+        }
     ];
 }   
 

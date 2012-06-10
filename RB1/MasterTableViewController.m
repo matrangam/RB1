@@ -55,6 +55,12 @@
     return YES;
 }
 
+#pragma mark AuthenticationViewControllerDelegate
+
+- (void) authenticationViewControllerDidAuthenticate:(AuthenticationViewController*)authenticationViewController
+{
+    //reddits for authenticated user
+}
 
 - (DataProvider*) dataProvider
 {

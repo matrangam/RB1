@@ -6,9 +6,9 @@
 
 @implementation AuthenticationViewController
 
+@synthesize delegate = _delegate;
 @synthesize userNameField = _userNameField;
 @synthesize passwordField = _passwordField;
-
 
 - (void) viewDidUnload 
 {
@@ -24,10 +24,17 @@
     [user setPassword:_passwordField.text];
     
     [[self dataProvider] authenticateUser:user withCompletionBlock:^(User *user) {
-        //
+        [self dismissViewControllerAnimated:YES completion:^{
+            [[self delegate] authenticationViewControllerDidAuthenticate:self];
+        }];
     } failBlock:^(NSError *error) {
         //
     }];
+}
+
+- (IBAction) dismisButtonPressed:(id)sender 
+{
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (DataProvider*) dataProvider

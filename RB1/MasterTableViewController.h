@@ -1,3 +1,5 @@
+#import "AuthenticationViewController.h"
+
 @class MasterTableViewController, SubReddit;
 
 @protocol MasterTableViewControllerDelegate  <NSObject>
@@ -6,7 +8,7 @@
 
 @end
 
-@interface MasterTableViewController : UITableViewController
+@interface MasterTableViewController : UITableViewController <AuthenticationViewControllerDelegate>
 
 @property (unsafe_unretained, nonatomic) id delegate;
 

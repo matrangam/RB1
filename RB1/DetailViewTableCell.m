@@ -19,7 +19,6 @@ CGFloat kDetailViewTableCellHeight = 90.0;
         [[self authorLabel] setText:[NSString stringWithFormat:@"Submitted %@ by %@ to %@", [NSString stringForTimeInterval:timeInterval includeSeconds:YES], thing.author, thing.subreddit]];
         [[self titleLabel] setText:thing.title];        
         [[self commentsButton] setTitle:[NSString stringWithFormat:@"%@", thing.comments] forState:UIControlStateNormal];
-
     }
 }
 
