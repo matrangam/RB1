@@ -152,9 +152,11 @@
             NSLog(@"%@", error);
         }
     ];
-}   
+}
 
-- (void) redditsForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError *))failedWithError
+#pragma mark Auth Calls
+
+- (void) redditsForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
 {
     void (^completionBlock_)(NSArray*) = [completionBlock copy];
     [self queryForGettingFromURI:AnonymousRedditsPath parameters:nil 
@@ -167,6 +169,24 @@
             completionBlock_(allSubReddits);
         } onFailedWithError:failedWithError
     ];
+}
+
+- (void) redditsForUser:(User*)user withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
+{
+    void (^completionBlock_)(NSArray*) = [completionBlock copy];
+    NSDictionary* parameters = [NSDictionary dictionaryWithObject:user.redditSession forKey:@"cookie"];
+    [self queryForGettingFromURI:AuthenticatedRedditsPath parameters:parameters
+         withCompletionBlock:^(NSDictionary* response) {
+             NSArray* children = [response objectForKey:APIKeyChildren];
+             NSMutableArray* allSubReddits = [NSMutableArray array];
+             for (NSDictionary* subRedditDictionary in children) {
+                 [allSubReddits addObject:[SubReddit subRedditFromDictionary:subRedditDictionary]];
+             }
+             completionBlock_(allSubReddits);
+         } onFailedWithError:^(NSError* error) {
+             NSLog(@"%@", error);
+         }
+     ];    
 }
 
 - (void) infoForReddit:(NSString*)reddit withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError

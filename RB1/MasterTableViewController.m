@@ -1,7 +1,7 @@
 #import "MasterTableViewController.h"
 
 @interface MasterTableViewController ()
-
+- (void) _sortSubreddits:(NSArray*)subreddits;
 @end
 
 @implementation MasterTableViewController {
@@ -15,11 +15,18 @@
     [super viewDidLoad];
 
     [[self dataProvider] redditsForAnonymousUserWithCompletionBlock:^(NSArray *subReddits) {
-        _subReddits = [subReddits sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"displayName" ascending:YES selector:@selector(caseInsensitiveCompare:)]]];
-        [self.tableView reloadData];
+        [self _sortSubreddits:subReddits];
     } failBlock:^(NSError *error) {
         //
     }];
+}
+
+#pragma mark methods man
+
+- (void) _sortSubreddits:(NSArray*)subreddits 
+{
+    _subReddits = [subreddits sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"displayName" ascending:YES selector:@selector(caseInsensitiveCompare:)]]];
+    [self.tableView reloadData];    
 }
 
 #pragma mark - Table view data source
@@ -57,9 +64,13 @@
 
 #pragma mark AuthenticationViewControllerDelegate
 
-- (void) authenticationViewControllerDidAuthenticate:(AuthenticationViewController*)authenticationViewController
+- (void) authenticationViewController:(AuthenticationViewController*)authenticationViewController authenticatedUser:(User*)user
 {
-    //reddits for authenticated user
+    [[self dataProvider] redditsForUser:user withCompletionBlock:^(NSArray *subReddits) {
+        [self _sortSubreddits:subReddits];
+    } failBlock:^(NSError* error) {
+        //
+    }];
 }
 
 - (DataProvider*) dataProvider

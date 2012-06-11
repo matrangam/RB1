@@ -2,7 +2,7 @@
 
 @protocol AuthenticationViewControllerDelegate <NSObject>
 
-- (void) authenticationViewControllerDidAuthenticate:(AuthenticationViewController*)authenticationViewController;
+- (void) authenticationViewController:(AuthenticationViewController*)authenticationViewController authenticatedUser:(User*)user;
 
 @end
 

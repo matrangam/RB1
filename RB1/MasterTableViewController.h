@@ -8,7 +8,7 @@
 
 @end
 
-@interface MasterTableViewController : UITableViewController <AuthenticationViewControllerDelegate>
+@interface MasterTableViewController : UITableViewController
 
 @property (unsafe_unretained, nonatomic) id delegate;
 

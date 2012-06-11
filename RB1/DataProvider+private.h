@@ -14,4 +14,5 @@ static NSString* const LoginPathFormat = @"/api/login/%@"; //username
 
 //uri paths
 static NSString* const AnonymousRedditsPath = @"/reddits/.json";
+static NSString* const AuthenticatedRedditsPath = @"/reddits/mine/.json";
 static NSString* const InfoPath = @"/api/info.json";

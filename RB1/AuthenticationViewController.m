@@ -25,7 +25,7 @@
     
     [[self dataProvider] authenticateUser:user withCompletionBlock:^(User *user) {
         [self dismissViewControllerAnimated:YES completion:^{
-            [[self delegate] authenticationViewControllerDidAuthenticate:self];
+            [[self delegate] authenticationViewController:self authenticatedUser:user];
         }];
     } failBlock:^(NSError *error) {
         //
@@ -37,11 +37,14 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return YES;
+}
+
 - (DataProvider*) dataProvider
 {
     return [[AppDelegate sharedAppDelegate] dataProvider];
 }
-
-
 
 @end

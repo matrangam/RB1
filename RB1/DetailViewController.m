@@ -19,6 +19,14 @@
     [super viewDidLoad];
 }
 
+- (void) viewDidUnload 
+{
+    [self setToolbar:nil];
+    [self setLoginButton:nil];
+    [self setToolbarTitle:nil];
+    [super viewDidUnload];
+}
+
 #pragma mark MasterTableViewControllerDelegate
 
 - (void) masterTableViewController:(MasterTableViewController*)tableViewController didSelectSubreddit:(SubReddit*)subreddit
@@ -35,6 +43,8 @@
         //
     }];
 }
+
+#pragma mark TableView Methods
 
 - (NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -84,6 +94,14 @@
     _masterPopoverController = nil;
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"AuthModal"]) {
+        AuthenticationViewController* authController = [[AuthenticationViewController alloc] init];
+        [authController setDelegate:self];
+    }
+}
+
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     return YES;
@@ -92,13 +110,5 @@
 - (DataProvider*) dataProvider 
 {
     return [[AppDelegate sharedAppDelegate] dataProvider];
-}
-
-- (void) viewDidUnload 
-{
-    [self setToolbar:nil];
-    [self setLoginButton:nil];
-    [self setToolbarTitle:nil];
-    [super viewDidUnload];
 }
 @end
