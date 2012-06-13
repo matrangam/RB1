@@ -4,6 +4,7 @@
 @implementation DetailViewController {
     UITableView* _infoTable;
     NSArray* _things;
+    MasterTableViewController* _masterTableViewController;
 }
 
 @synthesize infoTable = _infoTable;
@@ -17,6 +18,8 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+    
+    _masterTableViewController = (MasterTableViewController*)[[[[[AppDelegate sharedAppDelegate] splitViewController] viewControllers] objectAtIndex:0] topViewController];
 }
 
 - (void) viewDidUnload 
@@ -105,8 +108,7 @@
 {
     [[self dataProvider] redditsForUser:user
         withCompletionBlock:^(NSArray* subreddits) {
-            MasterTableViewController* tableViewController = (MasterTableViewController*)[[[[[AppDelegate sharedAppDelegate] splitViewController] viewControllers] objectAtIndex:0] topViewController];
-            [tableViewController setSubReddits:subreddits];
+            [_masterTableViewController setSubReddits:subreddits];
         } failBlock:^(NSError* error) {
             //
         }
