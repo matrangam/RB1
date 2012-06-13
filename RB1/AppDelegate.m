@@ -8,6 +8,7 @@
 }
 
 @synthesize window = _window;
+@synthesize splitViewController = _splitViewController;
 @synthesize dataProvider = _dataProvider;
 @synthesize masterViewController = _masterViewController;
 @synthesize detailViewController = _detailViewController;
@@ -27,13 +28,13 @@
     return _dataProvider;
 }
 
-- (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL) application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
-    UISplitViewController* splitViewController = (UISplitViewController*)self.window.rootViewController;
-    [splitViewController setDelegate:[[splitViewController viewControllers] lastObject]];
+    _splitViewController = (UISplitViewController*)self.window.rootViewController;
+    [_splitViewController setDelegate:[[_splitViewController viewControllers] lastObject]];
         
-    _detailViewController = (DetailViewController*)[[splitViewController viewControllers] lastObject];
-    _masterViewController = (MasterTableViewController*)[[[splitViewController viewControllers] objectAtIndex:0] topViewController];
+    _detailViewController = (DetailViewController*)[[_splitViewController viewControllers] lastObject];
+    _masterViewController = (MasterTableViewController*)[[[_splitViewController viewControllers] objectAtIndex:0] topViewController];
     [_masterViewController setDelegate:_detailViewController];
     
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];

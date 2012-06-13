@@ -4,18 +4,17 @@
 - (void) _sortSubreddits:(NSArray*)subreddits;
 @end
 
-@implementation MasterTableViewController {
-    NSArray* _subReddits;
-}
+@implementation MasterTableViewController 
 
 @synthesize delegate = _delegate;
+@synthesize subReddits = _subReddits;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     [[self dataProvider] redditsForAnonymousUserWithCompletionBlock:^(NSArray *subReddits) {
-        [self _sortSubreddits:subReddits];
+        [self setSubReddits:subReddits];
     } failBlock:^(NSError *error) {
         //
     }];
@@ -23,10 +22,16 @@
 
 #pragma mark methods man
 
+- (void) setSubReddits:(NSArray*)subReddits
+{
+    if (_subReddits != subReddits) {
+        _subReddits = [subReddits sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"displayName" ascending:YES selector:@selector(caseInsensitiveCompare:)]]];
+        [self.tableView reloadData];            
+    }
+}
+
 - (void) _sortSubreddits:(NSArray*)subreddits 
 {
-    _subReddits = [subreddits sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"displayName" ascending:YES selector:@selector(caseInsensitiveCompare:)]]];
-    [self.tableView reloadData];    
 }
 
 #pragma mark - Table view data source
@@ -60,17 +65,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     return YES;
-}
-
-#pragma mark AuthenticationViewControllerDelegate
-
-- (void) authenticationViewController:(AuthenticationViewController*)authenticationViewController authenticatedUser:(User*)user
-{
-    [[self dataProvider] redditsForUser:user withCompletionBlock:^(NSArray *subReddits) {
-        [self _sortSubreddits:subReddits];
-    } failBlock:^(NSError* error) {
-        //
-    }];
 }
 
 - (DataProvider*) dataProvider

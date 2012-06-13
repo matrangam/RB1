@@ -97,9 +97,20 @@
 - (void) prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"AuthModal"]) {
-        AuthenticationViewController* authController = [[AuthenticationViewController alloc] init];
-        [authController setDelegate:self];
+        [(AuthenticationViewController*)[segue destinationViewController] setDelegate:self];
     }
+}
+
+- (void) authenticationViewController:(AuthenticationViewController*)authenticationViewController authenticatedUser:(User*)user
+{
+    [[self dataProvider] redditsForUser:user
+        withCompletionBlock:^(NSArray* subreddits) {
+            MasterTableViewController* tableViewController = (MasterTableViewController*)[[[[[AppDelegate sharedAppDelegate] splitViewController] viewControllers] objectAtIndex:0] topViewController];
+            [tableViewController setSubReddits:subreddits];
+        } failBlock:^(NSError* error) {
+            //
+        }
+    ];
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -111,4 +122,5 @@
 {
     return [[AppDelegate sharedAppDelegate] dataProvider];
 }
+
 @end

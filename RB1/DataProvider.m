@@ -183,9 +183,7 @@
                  [allSubReddits addObject:[SubReddit subRedditFromDictionary:subRedditDictionary]];
              }
              completionBlock_(allSubReddits);
-         } onFailedWithError:^(NSError* error) {
-             NSLog(@"%@", error);
-         }
+         } onFailedWithError:failedWithError
      ];    
 }
 

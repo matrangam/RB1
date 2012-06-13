@@ -8,7 +8,7 @@
 
 @interface AuthenticationViewController : UIViewController <UITextFieldDelegate>
 
-@property (unsafe_unretained, nonatomic) id delegate;
+@property (unsafe_unretained, nonatomic) id <AuthenticationViewControllerDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UITextField *userNameField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 - (IBAction) loginButtonPressed:(id)sender;

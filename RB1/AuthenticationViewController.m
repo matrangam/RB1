@@ -23,13 +23,15 @@
     [user setUsername:_userNameField.text];
     [user setPassword:_passwordField.text];
     
-    [[self dataProvider] authenticateUser:user withCompletionBlock:^(User *user) {
-        [self dismissViewControllerAnimated:YES completion:^{
+    [[self dataProvider] authenticateUser:user 
+        withCompletionBlock:^(User *user) {
             [[self delegate] authenticationViewController:self authenticatedUser:user];
-        }];
-    } failBlock:^(NSError *error) {
-        //
-    }];
+            [self dismissModalViewControllerAnimated:YES];
+        } 
+        failBlock:^(NSError *error) {
+            //
+        }
+    ];
 }
 
 - (IBAction) dismisButtonPressed:(id)sender 

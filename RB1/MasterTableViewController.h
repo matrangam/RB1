@@ -11,5 +11,6 @@
 @interface MasterTableViewController : UITableViewController
 
 @property (unsafe_unretained, nonatomic) id delegate;
+@property (strong, nonatomic) NSArray* subReddits;
 
 @end
