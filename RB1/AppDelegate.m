@@ -1,18 +1,17 @@
 #import "AppDelegate.h"
 #import "MasterTableViewController.h"
 
-@interface AppDelegate ()
-- (void) _showOrHideNetworkIndicator;
-@end
-
 @implementation AppDelegate {
-    id _queryObserver;
+    NSUInteger networkActivityCount;
+    uint64_t networkActivityStarted;
+    double networkActivityElapsedTimeInMilliseconds;
 }
 
 @synthesize window = _window;
 @synthesize dataProvider = _dataProvider;
 @synthesize masterViewController = _masterViewController;
 @synthesize detailViewController = _detailViewController;
+
 
 + (AppDelegate*) sharedAppDelegate
 {
@@ -30,33 +29,43 @@
 
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    UISplitViewController* splitViewController = (UISplitViewController*) self.window.rootViewController;
+    UISplitViewController* splitViewController = (UISplitViewController*)self.window.rootViewController;
     [splitViewController setDelegate:[[splitViewController viewControllers] lastObject]];
         
     _detailViewController = (DetailViewController*)[[splitViewController viewControllers] lastObject];
     _masterViewController = (MasterTableViewController*)[[[splitViewController viewControllers] objectAtIndex:0] topViewController];
     [_masterViewController setDelegate:_detailViewController];
     
-    _queryObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kQueryStartNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        Query* query = [note object];
-        NSLog(@"--> %@", query);
-        [self _showOrHideNetworkIndicator];
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc addObserverForName:kQueryStartNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification* notification) {
+        Query* query = [notification object];
+        NSString *postBody = [[NSString alloc] initWithData:[[query request] HTTPBody] encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", postBody);
+        NSLog(@"-> %@", query);
+        if (!networkActivityCount) {
+            if (![[UIApplication sharedApplication] isNetworkActivityIndicatorVisible]) {
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+            } else {
+                [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_turnOffNetworkActivityIndicator) object:nil];
+            }
+        }
+        networkActivityCount++;
+    }];
+    
+    [nc addObserverForName:kQueryCompleteNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification* notification) {
+        Query* query = [notification object];
+        NSLog(@"<- %@", query);
+        networkActivityCount--;
+        if (!networkActivityCount) {
+            [self performSelector:@selector(_turnOffNetworkActivityIndicator) withObject:nil afterDelay:1.0];
+        }
     }];
     return YES;
 }
 
-- (void) _showOrHideNetworkIndicator
+- (void) _turnOffNetworkActivityIndicator
 {
-    if (![[UIApplication sharedApplication] isNetworkActivityIndicatorVisible]) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    } else {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    }
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self], _queryObserver = nil;
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 @end
