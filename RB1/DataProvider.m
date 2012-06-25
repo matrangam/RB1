@@ -81,7 +81,7 @@
 {
     NSAssert(nil != completionBlock, @"???");
     
-    NSString* urlString = uri;
+    NSString* urlString = [RedditDefaultUrl stringByAppendingString:uri];
     if ([parameters count] > 0) {
         NSString* q = [NSString queryStringFromDictionary:parameters];
         urlString = [urlString stringByAppendingFormat:@"?%@", q];
@@ -160,7 +160,7 @@
 - (void) redditsForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
 {
     void (^completionBlock_)(NSArray*) = [completionBlock copy];
-    [self queryForGettingFromURI:[NSString stringWithFormat:@"%@%@", RedditDefaultUrl, AnonymousRedditsPath] parameters:nil 
+    [self queryForGettingFromURI:AnonymousRedditsPath parameters:nil 
         withCompletionBlock:^(NSDictionary* response) {
             NSArray* children = [response objectForKey:APIKeyChildren];
             NSMutableArray* allSubReddits = [NSMutableArray array];
@@ -177,7 +177,7 @@
     void (^completionBlock_)(NSArray*) = [completionBlock copy];
     NSDictionary* parameters = [NSDictionary dictionaryWithObject:user.redditSession forKey:@"cookie"];
     
-    [self queryForGettingFromURI:[NSString stringWithFormat:@"%@%@", RedditDefaultUrl, AuthenticatedRedditsPath] parameters:parameters
+    [self queryForGettingFromURI:AuthenticatedRedditsPath parameters:parameters
          withCompletionBlock:^(NSDictionary* response) {
              NSArray* children = [response objectForKey:APIKeyChildren];
              NSMutableArray* allSubReddits = [NSMutableArray array];
@@ -193,7 +193,7 @@
 {
     void(^completionBlock_)(NSArray*) = [completionBlock copy];
 
-    [self queryForGettingFromURI:[NSString stringWithFormat:@"%@%@%@", RedditDefaultUrl, reddit, @".json"] parameters:nil 
+    [self queryForGettingFromURI:[NSString stringWithFormat:@"%@%@", reddit, @".json"] parameters:nil 
         withCompletionBlock:^(NSDictionary* response) {
             NSArray* children = [response objectForKey:APIKeyChildren];
             NSMutableArray* allTheThings = [NSMutableArray array];
