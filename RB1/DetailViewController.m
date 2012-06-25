@@ -65,6 +65,7 @@
     DetailViewTableCell* cell = [tableView dequeueReusableCellWithIdentifier:kDetailViewTableCellReuseIdentifier];
     if (nil == cell) {
         cell = [UIView viewWithNibNamed:kDetailViewTableCellReuseIdentifier];
+        [cell setDelegate:self];
     }
     [cell setThing:[_things objectAtIndex:[indexPath row]]];
     
@@ -130,6 +131,17 @@
 {
     [self dismissViewControllerAnimated:YES completion:^{
         // dismiss
+    }];
+}
+
+#pragma mark DetailViewTableCellDelegate
+
+- (void) detailViewTableCell:(DetailViewTableCell*)detailViewTableCell didSelectCommentsForThing:(Thing*)thing
+{
+    [[self dataProvider] commentsForThing:thing withCompletionBlock:^{
+        //
+    } failBlock:^(NSError *error) {
+        //
     }];
 }
 

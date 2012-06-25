@@ -10,9 +10,9 @@ static NSString* const APIKeyChildren = @"children";
 static NSString* const RedditDefaultUrl = @"http://www.reddit.com";
 
 //uri paths with formats
-static NSString* const LoginPathFormat = @"/api/login/%@"; //username
-
+static NSString* const LoginPathFormat = @"/api/login/%@"; // username
+static NSString* const InfoPathFormat = @"/by_id%@.json"; // thing.name
+static NSString* const CommentsPathFormat = @"/comments/%@/.json"; // thing.uniqueId
 //uri paths
 static NSString* const AnonymousRedditsPath = @"/reddits/.json";
 static NSString* const AuthenticatedRedditsPath = @"/reddits/mine/.json";
-static NSString* const InfoPath = @"/api/info.json";

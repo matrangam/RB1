@@ -206,6 +206,23 @@
     ];
 }
 
+- (void) commentsForThing:(Thing*)thing withCompletionBlock:(void(^)(void))completionBlock failBlock:(void(^)(NSError*))failedWithError
+{
+    void(^completionBlock_)(NSArray*) = [completionBlock copy];
+    
+    [self queryForGettingFromURI:[NSString stringWithFormat:CommentsPathFormat, thing.name] parameters:nil 
+             withCompletionBlock:^(NSDictionary* response) {
+             NSArray* children = [response objectForKey:APIKeyChildren];
+             NSMutableArray* allTheThings = [NSMutableArray array];
+             for (NSDictionary* thing in children) {
+                 Thing* newThing = [Thing thingFromDictionary:thing];
+                 [allTheThings addObject:newThing];
+             }
+             completionBlock_(allTheThings);
+         } onFailedWithError:failedWithError
+     ];   
+}
+
 + (id<ImageLoader>) sharedImageLoader
 {
     static id<ImageLoader> instance;

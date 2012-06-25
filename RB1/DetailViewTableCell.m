@@ -5,6 +5,8 @@ NSString* kDetailViewTableCellReuseIdentifier = @"DetailViewTableCell";
 CGFloat kDetailViewTableCellHeight = 90.0;
 
 @implementation DetailViewTableCell
+
+@synthesize delegate = _delegate;
 @synthesize iconImageView = _iconImageView;
 @synthesize titleLabel = _titleLabel;
 @synthesize commentsButton = _commentsButton;
@@ -22,4 +24,8 @@ CGFloat kDetailViewTableCellHeight = 90.0;
     }
 }
 
+- (IBAction) commentsButtonPressed:(id)sender 
+{
+    [_delegate detailViewTableCell:self didSelectCommentsForThing:_thing];
+}
 @end
