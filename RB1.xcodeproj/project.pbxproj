@@ -34,6 +34,7 @@
 		D64E97331561B2E100B7A864 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E972F1561B2E100B7A864 /* QueryManager.m */; };
 		D64E97341561B2E100B7A864 /* URLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E97311561B2E100B7A864 /* URLCache.m */; };
 		D682DB7A1567EF7900DE57B3 /* SubReddit.m in Sources */ = {isa = PBXBuildFile; fileRef = D682DB791567EF7900DE57B3 /* SubReddit.m */; };
+		D69F9BF01597F97700409A44 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D69F9BEF1597F97700409A44 /* WebViewController.m */; };
 		D6B706CA1561C31000F8C35E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B706C91561C31000F8C35E /* JSONKit.m */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +43,7 @@
 		D605C8191583DAD40031A7BF /* MasterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTableViewController.m; sourceTree = "<group>"; };
 		D60F1B4F1583BC84000AA7D5 /* UIView+Nib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Nib.h"; sourceTree = "<group>"; };
 		D60F1B501583BC84000AA7D5 /* UIView+Nib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Nib.m"; sourceTree = "<group>"; };
-		D60F838E156949DD002DF94B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DetailViewController.h; sourceTree = "<group>"; };
+		D60F838E156949DD002DF94B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		D60F838F156949DD002DF94B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		D60F83911569567E002DF94B /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
 		D60F83921569567E002DF94B /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
@@ -61,7 +62,7 @@
 		D60F83AC157445A0002DF94B /* ThumbnailImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThumbnailImageLoader.h; path = "Image Loader/ThumbnailImageLoader.h"; sourceTree = "<group>"; };
 		D60F83AD157445A0002DF94B /* ThumbnailImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThumbnailImageLoader.m; path = "Image Loader/ThumbnailImageLoader.m"; sourceTree = "<group>"; };
 		D60F83B315744602002DF94B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		D612B948156C5BE000CC5199 /* DetailViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DetailViewTableCell.h; sourceTree = "<group>"; };
+		D612B948156C5BE000CC5199 /* DetailViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewTableCell.h; sourceTree = "<group>"; };
 		D612B949156C5BE000CC5199 /* DetailViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewTableCell.m; sourceTree = "<group>"; };
 		D612B94C156C5EDD00CC5199 /* DetailViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewTableCell.xib; sourceTree = "<group>"; };
 		D62A10B61561E50D007DC36C /* DataProvider+private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataProvider+private.h"; sourceTree = "<group>"; };
@@ -92,6 +93,8 @@
 		D64E97311561B2E100B7A864 /* URLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLCache.m; sourceTree = "<group>"; };
 		D682DB781567EF7900DE57B3 /* SubReddit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubReddit.h; sourceTree = "<group>"; };
 		D682DB791567EF7900DE57B3 /* SubReddit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubReddit.m; sourceTree = "<group>"; };
+		D69F9BEE1597F97700409A44 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		D69F9BEF1597F97700409A44 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		D6B706C81561C31000F8C35E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = RB1/JSONKit/JSONKit.h; sourceTree = SOURCE_ROOT; };
 		D6B706C91561C31000F8C35E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = RB1/JSONKit/JSONKit.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -188,6 +191,8 @@
 				D64E97211561B25400B7A864 /* AuthenticationViewController.h */,
 				D64E97221561B25400B7A864 /* AuthenticationViewController.m */,
 				D60F83B5157447BA002DF94B /* SplitViewController */,
+				D69F9BEE1597F97700409A44 /* WebViewController.h */,
+				D69F9BEF1597F97700409A44 /* WebViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				D60F83B1157445A0002DF94B /* ThumbnailImageLoader.m in Sources */,
 				D60F1B511583BC84000AA7D5 /* UIView+Nib.m in Sources */,
 				D605C81A1583DAD40031A7BF /* MasterTableViewController.m in Sources */,
+				D69F9BF01597F97700409A44 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 
 @synthesize window = _window;
 @synthesize splitViewController = _splitViewController;
+@synthesize navController = _navController;
 @synthesize dataProvider = _dataProvider;
 @synthesize masterViewController = _masterViewController;
 @synthesize detailViewController = _detailViewController;
@@ -32,7 +33,7 @@
 {
     _splitViewController = (UISplitViewController*)self.window.rootViewController;
     [_splitViewController setDelegate:[[_splitViewController viewControllers] lastObject]];
-        
+       
     _detailViewController = (DetailViewController*)[[_splitViewController viewControllers] lastObject];
     _masterViewController = (MasterTableViewController*)[[[_splitViewController viewControllers] objectAtIndex:0] topViewController];
     [_masterViewController setDelegate:_detailViewController];

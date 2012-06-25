@@ -1,12 +1,13 @@
 #import "DetailViewController.h"
 #import "DetailViewTableCell.h"
+#import "WebViewController.h"
 
 @implementation DetailViewController {
     UITableView* _infoTable;
     NSArray* _things;
     MasterTableViewController* _masterTableViewController;
+    Thing* _selectedThing;
 }
-
 @synthesize infoTable = _infoTable;
 @synthesize toolbar = _toolbar;
 @synthesize loginButton = _loginButton;
@@ -73,9 +74,10 @@
 - (void) tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    Thing* selectedThing = [_things objectAtIndex:[indexPath row]];
-
-    NSLog(@"%@", selectedThing.name);
+    _selectedThing = [_things objectAtIndex:[indexPath row]];
+    if (![[_selectedThing isSelf] boolValue]) {
+        [self performSegueWithIdentifier:@"WebViewPush" sender:nil];        
+    }
 }
 
 #pragma Mark SplitViewController
@@ -101,6 +103,9 @@
 {
     if ([[segue identifier] isEqualToString:@"AuthModal"]) {
         [(AuthenticationViewController*)[segue destinationViewController] setDelegate:self];
+    }
+    else if ([[segue identifier] isEqualToString:@"WebViewPush"]) {
+        [(WebViewController*)[segue destinationViewController] setThing:_selectedThing];
     }
 }
 

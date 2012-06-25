@@ -4,6 +4,7 @@
 
 @synthesize title;
 @synthesize author;
+@synthesize isSelf;
 @synthesize created;
 @synthesize createdUTC;
 @synthesize thumbnail;
@@ -23,6 +24,7 @@
     Thing* thing = [[Thing alloc] init];
     [thing setAuthor:[thingDictionary objectForKey:@"author"]];
     [thing setTitle:[thingDictionary objectForKey:@"title"]];
+    [thing setIsSelf:[thingDictionary objectForKey:@"is_self"]];
     [thing setCreated:[thingDictionary objectForKey:@"created"]];
     [thing setCreatedUTC:[thingDictionary objectForKey:@"created_utc"]];
     [thing setThumbnail:[thingDictionary objectForKey:@"thumbnail"]];
