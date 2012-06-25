@@ -11,6 +11,9 @@
 @property (nonatomic, strong) NSNumber* downs;
 @property (nonatomic, strong) NSNumber* comments;
 
+@property (nonatomic, strong) NSString* name;
+@property (nonatomic, strong) NSString* url;
+
 @property (nonatomic, strong) NSString* uniqueId;
 @property (nonatomic, strong) NSString* subredditId;
 @property (nonatomic, strong) NSString* subreddit;

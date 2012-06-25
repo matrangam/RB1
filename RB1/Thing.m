@@ -11,6 +11,8 @@
 @synthesize ups;
 @synthesize downs;
 @synthesize comments;
+@synthesize name;
+@synthesize url;
 @synthesize uniqueId;
 @synthesize subredditId;
 @synthesize subreddit;
@@ -31,6 +33,8 @@
     [thing setUniqueId:[thingDictionary objectForKey:@"id"]];
     [thing setSubredditId:[thingDictionary objectForKey:@"subreddit_id"]];
     [thing setSubreddit:[thingDictionary objectForKey:@"subreddit"]];
+    [thing setName:[thingDictionary objectForKey:@"name"]];
+    [thing setUrl:[thingDictionary objectForKey:@"url"]];
     
     return thing;
 }

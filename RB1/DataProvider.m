@@ -80,8 +80,8 @@
 - (Query*) queryForGettingFromURI:(NSString*)uri parameters:(NSDictionary*)parameters withCompletionBlock:(void(^)(id))completionBlock onFailedWithError:(void(^)(NSError* error))failedWithError
 {
     NSAssert(nil != completionBlock, @"???");
-    NSString* urlString = [RedditDefaultUrl stringByAppendingString:uri];
-
+    
+    NSString* urlString = uri;
     if ([parameters count] > 0) {
         NSString* q = [NSString queryStringFromDictionary:parameters];
         urlString = [urlString stringByAppendingFormat:@"?%@", q];
@@ -142,6 +142,7 @@
     
     void (^completionBlock_)(User*) = [completionBlock copy];
     NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:user.username, QueryStringUsername, user.password, QueryStringPassword, @"json", QueryStringAPIType, nil];
+
     [self queryForPosttingToURI:[NSString stringWithFormat:LoginPathFormat, user.username] withParameters:parameters 
         completionBlock:^(id response) {
             NSDictionary* responseDict = [response objectForKey:APIKeyData];
@@ -159,7 +160,7 @@
 - (void) redditsForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
 {
     void (^completionBlock_)(NSArray*) = [completionBlock copy];
-    [self queryForGettingFromURI:AnonymousRedditsPath parameters:nil 
+    [self queryForGettingFromURI:[NSString stringWithFormat:@"%@%@", RedditDefaultUrl, AnonymousRedditsPath] parameters:nil 
         withCompletionBlock:^(NSDictionary* response) {
             NSArray* children = [response objectForKey:APIKeyChildren];
             NSMutableArray* allSubReddits = [NSMutableArray array];
@@ -175,7 +176,8 @@
 {
     void (^completionBlock_)(NSArray*) = [completionBlock copy];
     NSDictionary* parameters = [NSDictionary dictionaryWithObject:user.redditSession forKey:@"cookie"];
-    [self queryForGettingFromURI:AuthenticatedRedditsPath parameters:parameters
+    
+    [self queryForGettingFromURI:[NSString stringWithFormat:@"%@%@", RedditDefaultUrl, AuthenticatedRedditsPath] parameters:parameters
          withCompletionBlock:^(NSDictionary* response) {
              NSArray* children = [response objectForKey:APIKeyChildren];
              NSMutableArray* allSubReddits = [NSMutableArray array];
@@ -190,9 +192,8 @@
 - (void) infoForReddit:(NSString*)reddit withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
 {
     void(^completionBlock_)(NSArray*) = [completionBlock copy];
-    NSString* subRedditUrl = [NSString stringWithFormat:@"%@%@", RedditDefaultUrl, reddit];
-    NSDictionary* parameters = [NSDictionary dictionaryWithObject:subRedditUrl forKey:@"url"];
-    [self queryForGettingFromURI:InfoPath parameters:parameters 
+
+    [self queryForGettingFromURI:[NSString stringWithFormat:@"%@%@%@", RedditDefaultUrl, reddit, @".json"] parameters:nil 
         withCompletionBlock:^(NSDictionary* response) {
             NSArray* children = [response objectForKey:APIKeyChildren];
             NSMutableArray* allTheThings = [NSMutableArray array];

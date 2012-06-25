@@ -75,7 +75,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Thing* selectedThing = [_things objectAtIndex:[indexPath row]];
 
-    NSLog(@"%@", selectedThing.createdUTC);
+    NSLog(@"%@", selectedThing.name);
 }
 
 #pragma Mark SplitViewController
