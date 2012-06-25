@@ -105,9 +105,13 @@
         [(AuthenticationViewController*)[segue destinationViewController] setDelegate:self];
     }
     else if ([[segue identifier] isEqualToString:@"WebViewPush"]) {
-        [(WebViewController*)[segue destinationViewController] setThing:_selectedThing];
+        WebViewController* viewController = (WebViewController*)[segue destinationViewController];
+        [viewController setThing:_selectedThing];
+        [viewController setDelegate:self];        
     }
 }
+
+#pragma mark AuthenticationControllerDelegate
 
 - (void) authenticationViewController:(AuthenticationViewController*)authenticationViewController authenticatedUser:(User*)user
 {
@@ -118,6 +122,15 @@
             //
         }
     ];
+}
+
+#pragma mark WebViewControllerDelegate
+
+- (void) webViewControllerShouldDismiss:(WebViewController*)webViewController
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        // dismiss
+    }];
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
