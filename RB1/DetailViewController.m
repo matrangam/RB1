@@ -40,7 +40,7 @@
     [[self toolbarTitle] setText:[subreddit title]];
         
     [self setSelectedSubReddit:subreddit];
-    [[self dataProvider] infoForReddit:_selectedSubReddit.url withCompletionBlock:^(NSArray* things) {
+    [[self dataProvider] thingsForRedditNamed:_selectedSubReddit.url withCompletionBlock:^(NSArray* things) {
         _things = [NSArray arrayWithArray:things];
         [_infoTable reloadData];
     } failBlock:^(NSError* error) {
