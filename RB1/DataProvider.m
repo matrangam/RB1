@@ -210,7 +210,7 @@
     ];
 }
 
-- (void) commentsForThing:(Thing*)thing withCompletionBlock:(void(^)(void))completionBlock failBlock:(void(^)(NSError*))failedWithError
+- (void) commentsForThing:(Thing*)thing withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
 {
     void(^completionBlock_)(NSArray*) = [completionBlock copy];
     

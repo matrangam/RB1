@@ -1,10 +1,12 @@
 #import "DetailViewController.h"
 #import "DetailViewTableCell.h"
 #import "WebViewController.h"
+#import "CommentsViewController.h"
 
 @implementation DetailViewController {
     UITableView* _infoTable;
     NSArray* _things;
+    NSArray* _comments;
     MasterTableViewController* _masterTableViewController;
     Thing* _selectedThing;
 }
@@ -76,8 +78,10 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     _selectedThing = [_things objectAtIndex:[indexPath row]];
+
+    //XXX: not showing self posts
     if (![[_selectedThing isSelf] boolValue]) {
-        [self performSegueWithIdentifier:@"WebViewPush" sender:nil];        
+        [self performSegueWithIdentifier:@"WebViewPush" sender:nil];
     }
 }
 
@@ -110,6 +114,10 @@
         [viewController setThing:_selectedThing];
         [viewController setDelegate:self];        
     }
+    else if ([[segue identifier] isEqualToString:@"CommentsModal"]) {
+        CommentsViewController* viewController = (CommentsViewController*)[segue destinationViewController];
+        [viewController setComments:_comments];
+    }
 }
 
 #pragma mark AuthenticationControllerDelegate
@@ -138,8 +146,9 @@
 
 - (void) detailViewTableCell:(DetailViewTableCell*)detailViewTableCell didSelectCommentsForThing:(Thing*)thing
 {
-    [[self dataProvider] commentsForThing:thing withCompletionBlock:^{
-        //
+    [[self dataProvider] commentsForThing:thing withCompletionBlock:^(NSArray* comments){
+        _comments = [NSArray arrayWithArray:comments];
+        [self performSegueWithIdentifier:@"CommentsModal" sender:self];
     } failBlock:^(NSError *error) {
         //
     }];

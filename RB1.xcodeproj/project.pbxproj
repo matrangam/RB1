@@ -33,6 +33,7 @@
 		D64E97321561B2E100B7A864 /* Query.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E972D1561B2E100B7A864 /* Query.m */; };
 		D64E97331561B2E100B7A864 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E972F1561B2E100B7A864 /* QueryManager.m */; };
 		D64E97341561B2E100B7A864 /* URLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E97311561B2E100B7A864 /* URLCache.m */; };
+		D67A51EA15A7CEE90063A3E7 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67A51E915A7CEE90063A3E7 /* CommentsViewController.m */; };
 		D682DB7A1567EF7900DE57B3 /* SubReddit.m in Sources */ = {isa = PBXBuildFile; fileRef = D682DB791567EF7900DE57B3 /* SubReddit.m */; };
 		D68C2C3E15A26F4B00D6E4CB /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = D68C2C3D15A26F4B00D6E4CB /* Comment.m */; };
 		D69F9BF01597F97700409A44 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D69F9BEF1597F97700409A44 /* WebViewController.m */; };
@@ -92,6 +93,8 @@
 		D64E972F1561B2E100B7A864 /* QueryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryManager.m; sourceTree = "<group>"; };
 		D64E97301561B2E100B7A864 /* URLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLCache.h; sourceTree = "<group>"; };
 		D64E97311561B2E100B7A864 /* URLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLCache.m; sourceTree = "<group>"; };
+		D67A51E815A7CEE90063A3E7 /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
+		D67A51E915A7CEE90063A3E7 /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 		D682DB781567EF7900DE57B3 /* SubReddit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubReddit.h; sourceTree = "<group>"; };
 		D682DB791567EF7900DE57B3 /* SubReddit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubReddit.m; sourceTree = "<group>"; };
 		D68C2C3C15A26F4B00D6E4CB /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 				D60F83B5157447BA002DF94B /* SplitViewController */,
 				D69F9BEE1597F97700409A44 /* WebViewController.h */,
 				D69F9BEF1597F97700409A44 /* WebViewController.m */,
+				D67A51E815A7CEE90063A3E7 /* CommentsViewController.h */,
+				D67A51E915A7CEE90063A3E7 /* CommentsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				D605C81A1583DAD40031A7BF /* MasterTableViewController.m in Sources */,
 				D69F9BF01597F97700409A44 /* WebViewController.m in Sources */,
 				D68C2C3E15A26F4B00D6E4CB /* Comment.m in Sources */,
+				D67A51EA15A7CEE90063A3E7 /* CommentsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
