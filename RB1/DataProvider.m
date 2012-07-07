@@ -35,18 +35,22 @@
     self.didComplete = ^(NSURLResponse* response, id object) {
         dispatch_async(queue, ^{
             NSDictionary* jsonDictionary = [NSDictionary dictionary];
-            if ([object objectForKey:@"json"]) {
-                jsonDictionary = [object objectForKey:@"json"];
+            __block id responseObject = object;
+            if ([responseObject isKindOfClass:[NSArray class]]) {
+                responseObject = [responseObject objectAtIndex:1];
             }
-            if ([object objectForKey:APIKeyData]) {
-                jsonDictionary = [object objectForKey:APIKeyData];
+            if ([responseObject objectForKey:@"json"]) {
+                jsonDictionary = [responseObject objectForKey:@"json"];
+            }
+            if ([responseObject objectForKey:APIKeyData]) {
+                jsonDictionary = [responseObject objectForKey:APIKeyData];
             }
             NSArray* errors = [jsonDictionary objectForKey:@"errors"];
             if ([errors count]) {
                 NSError* error = [NSError errorWithDomain:@"bad thing" code:0 userInfo:nil];
                 failedWithError_(error);
                 return;
-            }            
+            }
             completionBlock_(jsonDictionary);
         }) ;
         dispatch_release(queue);
@@ -210,15 +214,15 @@
 {
     void(^completionBlock_)(NSArray*) = [completionBlock copy];
     
-    [self queryForGettingFromURI:[NSString stringWithFormat:CommentsPathFormat, thing.name] parameters:nil 
-             withCompletionBlock:^(NSDictionary* response) {
+    [self queryForGettingFromURI:[NSString stringWithFormat:CommentsPathFormat, thing.uniqueId] parameters:nil 
+         withCompletionBlock:^(NSDictionary* response) {
              NSArray* children = [response objectForKey:APIKeyChildren];
-             NSMutableArray* allTheThings = [NSMutableArray array];
-             for (NSDictionary* thing in children) {
-                 Thing* newThing = [Thing thingFromDictionary:thing];
-                 [allTheThings addObject:newThing];
+             NSMutableArray* comments = [NSMutableArray array];
+             for (NSDictionary* comment in children) {
+                 Comment* newComment = [Comment commentFromDictionary:comment];
+                 [comments addObject:newComment];
              }
-             completionBlock_(allTheThings);
+             completionBlock_(comments);
          } onFailedWithError:failedWithError
      ];   
 }
