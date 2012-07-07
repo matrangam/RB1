@@ -1,8 +1,9 @@
 #import "MasterTableViewController.h"
 #import "WebViewController.h"
 #import "DetailViewTableCell.h"
+#import "CommentsViewController.h"
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate, MasterTableViewControllerDelegate, UIPopoverControllerDelegate, AuthenticationViewControllerDelegate, WebViewControllerDelegate, DetailViewTableCellDelegate> 
+@interface DetailViewController : UIViewController <UISplitViewControllerDelegate, MasterTableViewControllerDelegate, UIPopoverControllerDelegate, AuthenticationViewControllerDelegate, WebViewControllerDelegate, DetailViewTableCellDelegate, CommentsViewControllerDelegate> 
 {
     @private
     UIPopoverController* _masterPopoverController;

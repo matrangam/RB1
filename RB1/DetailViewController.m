@@ -117,6 +117,7 @@
     else if ([[segue identifier] isEqualToString:@"CommentsModal"]) {
         CommentsViewController* viewController = (CommentsViewController*)[segue destinationViewController];
         [viewController setComments:_comments];
+        [viewController setDelegate:self];
     }
 }
 
@@ -152,6 +153,15 @@
     } failBlock:^(NSError *error) {
         //
     }];
+}
+
+#pragma mark CommentsViewControllerDelegate
+
+- (void)commentsViewControllerShouldDismiss:(CommentsViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        // dismiss
+    }];    
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation

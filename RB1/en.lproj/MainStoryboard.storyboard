@@ -127,9 +127,6 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <connections>
-                                            <segue destination="qQW-kr-98E" kind="modal" identifier="CommentsModal" id="tMr-Cu-fOh"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -146,6 +143,8 @@
                         <outlet property="loginButton" destination="gTH-9p-1m4" id="kr0-Jb-Hg1"/>
                         <outlet property="toolbar" destination="DK0-6x-J9R" id="UMB-d9-2UK"/>
                         <outlet property="toolbarTitle" destination="krn-WE-gWa" id="myP-wR-cQm"/>
+                        <segue destination="zEc-Eh-s1q" kind="modal" identifier="CommentsModal" id="c73-q5-35h"/>
+                        <segue destination="fPZ-Ib-0B0" kind="modal" identifier="WebViewPush" id="4z7-ky-Mbo"/>
                     </connections>
                 </viewController>
             </objects>
@@ -211,33 +210,62 @@
             <point key="canvasLocation" x="-3607" y="-1734"/>
         </scene>
         <!--Comments View Controller-->
-        <scene sceneID="o1S-fz-0l3">
+        <scene sceneID="aMx-CA-DSS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EJ1-mg-lYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="qQW-kr-98E" customClass="CommentsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xUz-3L-Aze" customClass="comm">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RlA-0h-9JU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="zEc-Eh-s1q" customClass="CommentsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5o6-IK-zMJ">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" id="5IA-vP-RAV">
-                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="qQW-kr-98E" id="kMz-xx-nwJ"/>
-                            <outlet property="delegate" destination="qQW-kr-98E" id="1ts-59-Fhg"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="R5l-9a-WRO">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <barButtonItem title="BACK" id="cUK-Da-9Gw">
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="zEc-Eh-s1q" id="KuG-vV-3LJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="HGz-uc-Csy"/>
+                                    <barButtonItem style="plain" id="DqB-ep-kte" userLabel="TitleViewContainer">
+                                        <view key="customView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" id="V9T-qR-8qd" userLabel="TitleViewContainer">
+                                            <rect key="frame" x="214" y="6" width="340" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Ad2-wb-Yk4" userLabel="Title Label">
+                                                    <rect key="frame" x="0.0" y="0.0" width="340" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="DMh-Wh-X2S"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hoC-H3-hnX">
+                                <rect key="frame" x="0.0" y="44" width="768" height="960"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zEc-Eh-s1q" id="tUV-tx-7ZY"/>
+                                    <outlet property="delegate" destination="zEc-Eh-s1q" id="ykg-wj-Wmg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentsTable" destination="hoC-H3-hnX" id="edo-T3-E4a"/>
+                    </connections>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="-3631" y="-551"/>
+            <point key="canvasLocation" x="-3605" y="-609"/>
         </scene>
         <!--Master Table View Controller - Root View Controller-->
         <scene sceneID="jx8-RJ-bbB">
@@ -310,8 +338,12 @@
                 <relationship kind="outlet" name="userNameField" candidateClass="UITextField"/>
             </relationships>
         </class>
-        <class className="CommentsViewController" superclassName="UITableViewController">
+        <class className="CommentsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="outlet" name="commentsTable" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
