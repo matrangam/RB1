@@ -1,12 +1,12 @@
-#import "CommentCell.h"
+#import "RBCommentCell.h"
 
-NSString* kCommentCellReuseIdentifier = @"CommentCell";
+NSString* kRBCommentCellReuseIdentifier = @"RBCommentCell";
 
-@implementation CommentCell
+@implementation RBCommentCell
 
 @synthesize comment = _comment;
 
-- (void) setComment:(Comment*)comment
+- (void) setComment:(RBComment*)comment
 {
     _comment = comment;
     [self.textLabel setNumberOfLines:0];

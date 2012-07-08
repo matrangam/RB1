@@ -1,6 +1,6 @@
-#import "Thing.h"
+#import "RBThing.h"
 
-@implementation Thing
+@implementation RBThing
 
 @synthesize title;
 @synthesize author;
@@ -18,10 +18,10 @@
 @synthesize subredditId;
 @synthesize subreddit;
 
-+ (Thing*) thingFromDictionary:(NSDictionary*)dictionary
++ (RBThing*) thingFromDictionary:(NSDictionary*)dictionary
 {
     NSDictionary* thingDictionary = [dictionary objectForKey:APIKeyData];
-    Thing* thing = [[Thing alloc] init];
+    RBThing* thing = [[RBThing alloc] init];
     [thing setAuthor:[thingDictionary objectForKey:@"author"]];
     [thing setTitle:[thingDictionary objectForKey:@"title"]];
     [thing setIsSelf:[thingDictionary objectForKey:@"is_self"]];

@@ -140,11 +140,11 @@
 
 #pragma Mark API Calls
 
-- (void) authenticateUser:(User*)user withCompletionBlock:(void(^)(User*))completionBlock failBlock:(void(^)(NSError *))failedWithError
+- (void) authenticateUser:(RBUser*)user withCompletionBlock:(void(^)(RBUser*))completionBlock failBlock:(void(^)(NSError *))failedWithError
 {
     NSAssert(nil != completionBlock, @"???");
     
-    void (^completionBlock_)(User*) = [completionBlock copy];
+    void (^completionBlock_)(RBUser*) = [completionBlock copy];
     NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:user.username, QueryStringUsername, user.password, QueryStringPassword, @"json", QueryStringAPIType, nil];
 
     [self queryForPosttingToURI:[NSString stringWithFormat:LoginPathFormat, user.username] withParameters:parameters 
@@ -169,14 +169,14 @@
             NSArray* children = [response objectForKey:APIKeyChildren];
             NSMutableArray* allSubReddits = [NSMutableArray array];
             for (NSDictionary* subRedditDictionary in children) {
-                [allSubReddits addObject:[SubReddit subRedditFromDictionary:subRedditDictionary]];
+                [allSubReddits addObject:[RBSubReddit subRedditFromDictionary:subRedditDictionary]];
             }
             completionBlock_(allSubReddits);
         } onFailedWithError:failedWithError
     ];
 }
 
-- (void) redditsForUser:(User*)user withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
+- (void) redditsForUser:(RBUser*)user withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
 {
     void (^completionBlock_)(NSArray*) = [completionBlock copy];
     NSDictionary* parameters = [NSDictionary dictionaryWithObject:user.redditSession forKey:@"cookie"];
@@ -186,7 +186,7 @@
              NSArray* children = [response objectForKey:APIKeyChildren];
              NSMutableArray* allSubReddits = [NSMutableArray array];
              for (NSDictionary* subRedditDictionary in children) {
-                 [allSubReddits addObject:[SubReddit subRedditFromDictionary:subRedditDictionary]];
+                 [allSubReddits addObject:[RBSubReddit subRedditFromDictionary:subRedditDictionary]];
              }
              completionBlock_(allSubReddits);
          } onFailedWithError:failedWithError
@@ -202,7 +202,7 @@
             NSArray* children = [response objectForKey:APIKeyChildren];
             NSMutableArray* allTheThings = [NSMutableArray array];
             for (NSDictionary* thing in children) {
-                Thing* newThing = [Thing thingFromDictionary:thing];
+                RBThing* newThing = [RBThing thingFromDictionary:thing];
                 [allTheThings addObject:newThing];
             }
             completionBlock_(allTheThings);
@@ -210,7 +210,7 @@
     ];
 }
 
-- (void) commentsForThing:(Thing*)thing withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
+- (void) commentsForThing:(RBThing*)thing withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
 {
     void(^completionBlock_)(NSArray*) = [completionBlock copy];
     
@@ -219,7 +219,7 @@
              NSArray* children = [response objectForKey:APIKeyChildren];
              NSMutableArray* comments = [NSMutableArray array];
              for (NSDictionary* comment in children) {
-                 Comment* newComment = [Comment commentFromDictionary:comment];
+                 RBComment* newComment = [RBComment commentFromDictionary:comment];
                  [comments addObject:newComment];
              }
              completionBlock_(comments);

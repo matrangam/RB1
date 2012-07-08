@@ -9,10 +9,10 @@
     #import <Foundation/Foundation.h>
 
     #import "Network.h" 
-    #import "User.h"
-    #import "SubReddit.h"
-    #import "Thing.h"
-    #import "Comment.h"
+    #import "RBUser.h"
+    #import "RBSubReddit.h"
+    #import "RBThing.h"
+    #import "RBComment.h"
 
     #import "JSONKit.h"
     #import "RBDataProvider.h"

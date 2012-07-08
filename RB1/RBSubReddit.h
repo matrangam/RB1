@@ -10,7 +10,7 @@ extern NSString* const SubRedditSubscribers;
 extern NSString* const SubRedditTitle;
 extern NSString* const SubRedditUrl;
 
-@interface SubReddit : NSObject
+@interface RBSubReddit : NSObject
 
 @property (nonatomic, strong) NSString* displayName;
 @property (nonatomic, strong) NSString* title;
@@ -26,6 +26,6 @@ extern NSString* const SubRedditUrl;
 @property (nonatomic, assign) NSInteger headerHeight;
 @property (nonatomic, assign) NSInteger headerWidth;
 
-+ (SubReddit*) subRedditFromDictionary:(NSDictionary*)dictionary;
++ (RBSubReddit*) subRedditFromDictionary:(NSDictionary*)dictionary;
 
 @end

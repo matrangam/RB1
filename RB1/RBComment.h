@@ -1,4 +1,4 @@
-@interface Comment : NSObject
+@interface RBComment : NSObject
 
 @property (nonatomic, strong) NSString* author;
 @property (nonatomic, strong) NSString* body;
@@ -8,6 +8,6 @@
 @property (nonatomic, strong) NSString* subreddit;
 @property (nonatomic, strong) NSString* subredditId;
 
-+ (Comment*) commentFromDictionary:(NSDictionary*)dictionary;
++ (RBComment*) commentFromDictionary:(NSDictionary*)dictionary;
 
 @end

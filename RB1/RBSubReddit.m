@@ -1,6 +1,6 @@
-#import "SubReddit.h"
+#import "RBSubReddit.h"
 
-@implementation SubReddit
+@implementation RBSubReddit
 
 NSString* const SubRedditCreated = @"created";
 NSString* const SubRedditCreatedUTC = @"created_utc";
@@ -28,9 +28,9 @@ NSString* const SubRedditUrl = @"url";
 @synthesize headerHeight;
 @synthesize headerWidth;
 
-+ (SubReddit*) subRedditFromDictionary:(NSDictionary*)dictionary
++ (RBSubReddit*) subRedditFromDictionary:(NSDictionary*)dictionary
 {
-    SubReddit* subReddit = [[SubReddit alloc] init];
+    RBSubReddit* subReddit = [[RBSubReddit alloc] init];
     NSDictionary* subRedditDictionary = [dictionary objectForKey:APIKeyData];
     [subReddit setCreated:[subRedditDictionary objectForKey:SubRedditCreated]];
     [subReddit setCreatedUTC:[subRedditDictionary objectForKey:SubRedditCreatedUTC]];

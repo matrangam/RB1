@@ -1,10 +1,10 @@
-#import "WebViewController.h"
+#import "RBWebViewController.h"
 
-@interface WebViewController ()
+@interface RBWebViewController ()
 
 @end
 
-@implementation WebViewController
+@implementation RBWebViewController
 
 @synthesize delegate = _delegate;
 @synthesize thing = _thing;

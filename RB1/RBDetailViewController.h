@@ -1,15 +1,15 @@
 #import "RBMasterTableViewController.h"
-#import "WebViewController.h"
+#import "RBWebViewController.h"
 #import "RBDetailViewTableCell.h"
-#import "CommentsViewController.h"
+#import "RBCommentsViewController.h"
 
 @interface RBDetailViewController : UIViewController <UISplitViewControllerDelegate, 
                                                     UIPopoverControllerDelegate, 
-                                                    MasterTableViewControllerDelegate, 
-                                                    AuthenticationViewControllerDelegate, 
-                                                    WebViewControllerDelegate, 
-                                                    DetailViewTableCellDelegate, 
-                                                    CommentsViewControllerDelegate> 
+                                                    RBMasterTableViewControllerDelegate, 
+                                                    RBAuthenticationViewControllerDelegate, 
+                                                    RBWebViewControllerDelegate, 
+                                                    RBDetailViewTableCellDelegate, 
+                                                    RBCommentsViewControllerDelegate> 
 {
     @private
     UIPopoverController* _masterPopoverController;
@@ -18,5 +18,5 @@
 @property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *loginButton;
 @property (strong, nonatomic) IBOutlet UILabel *toolbarTitle;
-@property (strong, nonatomic) SubReddit* selectedSubReddit;
+@property (strong, nonatomic) RBSubReddit* selectedSubReddit;
 @end

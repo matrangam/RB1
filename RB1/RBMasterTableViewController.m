@@ -52,7 +52,7 @@
     if (nil == cell) {
         //XXX: set up the cell
     }
-    SubReddit* subReddit = [_subReddits objectAtIndex:[indexPath row]];
+    RBSubReddit* subReddit = [_subReddits objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:subReddit.displayName];
     return cell;
 }

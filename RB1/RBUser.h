@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
+@interface RBUser : NSObject
 
 @property (nonatomic, strong) NSString* username;
 @property (nonatomic, strong) NSString* password;

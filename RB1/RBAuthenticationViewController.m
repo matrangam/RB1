@@ -19,12 +19,12 @@
 
 - (IBAction)loginButtonPressed:(id)sender 
 {
-    User* user = [[User alloc] init];
+    RBUser* user = [[RBUser alloc] init];
     [user setUsername:_userNameField.text];
     [user setPassword:_passwordField.text];
     
     [[self dataProvider] authenticateUser:user 
-        withCompletionBlock:^(User *user) {
+        withCompletionBlock:^(RBUser *user) {
             [[self delegate] authenticationViewController:self authenticatedUser:user];
             [self dismissModalViewControllerAnimated:YES];
         } 

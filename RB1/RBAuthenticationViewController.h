@@ -1,14 +1,14 @@
 @class RBAuthenticationViewController;
 
-@protocol AuthenticationViewControllerDelegate <NSObject>
+@protocol RBAuthenticationViewControllerDelegate <NSObject>
 
-- (void) authenticationViewController:(RBAuthenticationViewController*)authenticationViewController authenticatedUser:(User*)user;
+- (void) authenticationViewController:(RBAuthenticationViewController*)authenticationViewController authenticatedUser:(RBUser*)user;
 
 @end
 
 @interface RBAuthenticationViewController : UIViewController <UITextFieldDelegate>
 
-@property (unsafe_unretained, nonatomic) id <AuthenticationViewControllerDelegate> delegate;
+@property (unsafe_unretained, nonatomic) id <RBAuthenticationViewControllerDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UITextField *userNameField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 - (IBAction) loginButtonPressed:(id)sender;

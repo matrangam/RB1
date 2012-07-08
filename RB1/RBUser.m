@@ -1,6 +1,6 @@
-#import "User.h"
+#import "RBUser.h"
 
-@implementation User
+@implementation RBUser
 
 @synthesize username = _username;
 @synthesize password = _password;

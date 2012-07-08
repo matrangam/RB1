@@ -1,11 +1,11 @@
-#import "CommentsViewController.h"
-#import "CommentCell.h"
+#import "RBCommentsViewController.h"
+#import "RBCommentCell.h"
 
-@interface CommentsViewController ()
+@interface RBCommentsViewController ()
 
 @end
 
-@implementation CommentsViewController
+@implementation RBCommentsViewController
 
 @synthesize delegate = _delegate;
 @synthesize comments = _comments;
@@ -39,7 +39,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Comment* comment = [_comments objectAtIndex:indexPath.row];
+    RBComment* comment = [_comments objectAtIndex:indexPath.row];
     NSString* commentBody = comment.body;
     CGSize cellSize = [commentBody sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15] 
                               constrainedToSize:CGSizeMake(tableView.frame.size.width, 999) 
@@ -55,12 +55,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CommentCell* cell = [tableView dequeueReusableCellWithIdentifier:kCommentCellReuseIdentifier];
+    RBCommentCell* cell = [tableView dequeueReusableCellWithIdentifier:kRBCommentCellReuseIdentifier];
     if (nil == cell) {
-        cell = [UIView viewWithNibNamed:kCommentCellReuseIdentifier];
+        cell = [UIView viewWithNibNamed:kRBCommentCellReuseIdentifier];
     }
     
-    Comment* currentComment = [_comments objectAtIndex:indexPath.row];
+    RBComment* currentComment = [_comments objectAtIndex:indexPath.row];
     [cell setComment:currentComment];
 
     return cell;
@@ -69,7 +69,7 @@
 - (void) tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    Comment* comment = [_comments objectAtIndex:indexPath.row];
+    RBComment* comment = [_comments objectAtIndex:indexPath.row];
     NSLog(@"%@", comment.body);
 }
 

@@ -1,4 +1,4 @@
-@interface Thing : NSObject
+@interface RBThing : NSObject
 
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, strong) NSString* author;
@@ -19,6 +19,6 @@
 @property (nonatomic, strong) NSString* subredditId;
 @property (nonatomic, strong) NSString* subreddit;
 
-+ (Thing*) thingFromDictionary:(NSDictionary*)dictionary;
++ (RBThing*) thingFromDictionary:(NSDictionary*)dictionary;
 
 @end

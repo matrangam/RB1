@@ -1,10 +1,10 @@
 #import "RBAuthenticationViewController.h"
 
-@class RBMasterTableViewController, SubReddit;
+@class RBMasterTableViewController, RBSubReddit;
 
-@protocol MasterTableViewControllerDelegate  <NSObject>
+@protocol RBMasterTableViewControllerDelegate  <NSObject>
 
-- (void) masterTableViewController:(RBMasterTableViewController*)tableViewController didSelectSubreddit:(SubReddit*)subreddit;
+- (void) masterTableViewController:(RBMasterTableViewController*)tableViewController didSelectSubreddit:(RBSubReddit*)subreddit;
 
 @end
 

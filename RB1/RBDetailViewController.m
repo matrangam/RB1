@@ -1,12 +1,12 @@
 #import "RBDetailViewController.h"
-#import "WebViewController.h"
-#import "CommentsViewController.h"
+#import "RBWebViewController.h"
+#import "RBCommentsViewController.h"
 
 @implementation RBDetailViewController {
     UITableView* _infoTable;
     NSArray* _things;
     RBMasterTableViewController* _masterTableViewController;
-    Thing* _selectedThing;
+    RBThing* _selectedThing;
 }
 @synthesize infoTable = _infoTable;
 @synthesize toolbar = _toolbar;
@@ -33,7 +33,7 @@
 
 #pragma mark MasterTableViewControllerDelegate
 
-- (void) masterTableViewController:(RBMasterTableViewController*)tableViewController didSelectSubreddit:(SubReddit*)subreddit
+- (void) masterTableViewController:(RBMasterTableViewController*)tableViewController didSelectSubreddit:(RBSubReddit*)subreddit
 {
     [_masterPopoverController dismissPopoverAnimated:YES];
     
@@ -108,12 +108,12 @@
         [(RBAuthenticationViewController*)[segue destinationViewController] setDelegate:self];
     }
     else if ([[segue identifier] isEqualToString:@"WebViewPush"]) {
-        WebViewController* viewController = (WebViewController*)[segue destinationViewController];
+        RBWebViewController* viewController = (RBWebViewController*)[segue destinationViewController];
         [viewController setThing:_selectedThing];
         [viewController setDelegate:self];        
     }
     else if ([[segue identifier] isEqualToString:@"CommentsModal"]) {
-        CommentsViewController* viewController = (CommentsViewController*)[segue destinationViewController];
+        RBCommentsViewController* viewController = (RBCommentsViewController*)[segue destinationViewController];
         [viewController setThing:_selectedThing];
         [viewController setDelegate:self];
     }
@@ -121,7 +121,7 @@
 
 #pragma mark AuthenticationControllerDelegate
 
-- (void) authenticationViewController:(RBAuthenticationViewController*)authenticationViewController authenticatedUser:(User*)user
+- (void) authenticationViewController:(RBAuthenticationViewController*)authenticationViewController authenticatedUser:(RBUser*)user
 {
     [[self dataProvider] redditsForUser:user
         withCompletionBlock:^(NSArray* subreddits) {
@@ -134,7 +134,7 @@
 
 #pragma mark WebViewControllerDelegate
 
-- (void) webViewControllerShouldDismiss:(WebViewController*)webViewController
+- (void) webViewControllerShouldDismiss:(RBWebViewController*)webViewController
 {
     [self dismissViewControllerAnimated:YES completion:^{
         // dismiss
@@ -143,7 +143,7 @@
 
 #pragma mark DetailViewTableCellDelegate
 
-- (void) detailViewTableCell:(RBDetailViewTableCell*)detailViewTableCell didSelectCommentsForThing:(Thing*)thing
+- (void) detailViewTableCell:(RBDetailViewTableCell*)detailViewTableCell didSelectCommentsForThing:(RBThing*)thing
 {
     _selectedThing = thing;
     [self performSegueWithIdentifier:@"CommentsModal" sender:self];
@@ -151,7 +151,7 @@
 
 #pragma mark CommentsViewControllerDelegate
 
-- (void)commentsViewControllerShouldDismiss:(CommentsViewController *)viewController
+- (void)commentsViewControllerShouldDismiss:(RBCommentsViewController *)viewController
 {
     [self dismissViewControllerAnimated:YES completion:^{
         // dismiss

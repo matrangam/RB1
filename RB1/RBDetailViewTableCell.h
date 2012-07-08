@@ -1,21 +1,21 @@
 extern NSString* kRBDetailViewTableCellReuseIdentifier;
 extern CGFloat kRBDetailViewTableCellHeight;
 
-@class Thing, RBDetailViewTableCell;
-@protocol DetailViewTableCellDelegate <NSObject>
+@class RBThing, RBDetailViewTableCell;
+@protocol RBDetailViewTableCellDelegate <NSObject>
 
-- (void) detailViewTableCell:(RBDetailViewTableCell*)detailViewTableCell didSelectCommentsForThing:(Thing*)thing;
+- (void) detailViewTableCell:(RBDetailViewTableCell*)detailViewTableCell didSelectCommentsForThing:(RBThing*)thing;
 
 @end
 
 @interface RBDetailViewTableCell : UITableViewCell
 
-@property (unsafe_unretained, nonatomic) id <DetailViewTableCellDelegate> delegate;
+@property (unsafe_unretained, nonatomic) id <RBDetailViewTableCellDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIButton *commentsButton;
 @property (strong, nonatomic) IBOutlet UILabel *authorLabel;
-@property (strong, nonatomic) Thing* thing;
+@property (strong, nonatomic) RBThing* thing;
 
 - (IBAction) commentsButtonPressed:(id)sender;
 

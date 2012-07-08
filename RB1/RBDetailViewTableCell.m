@@ -13,7 +13,7 @@ CGFloat kRBDetailViewTableCellHeight = 90.0;
 @synthesize authorLabel = _authorLabel;
 @synthesize thing = _thing;
 
-- (void) setThing:(Thing *)thing
+- (void) setThing:(RBThing *)thing
 {
     if (_thing != thing) {
         _thing = thing;

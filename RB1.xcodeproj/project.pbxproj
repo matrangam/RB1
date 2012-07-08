@@ -10,7 +10,7 @@
 		D605C81A1583DAD40031A7BF /* RBMasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D605C8191583DAD40031A7BF /* RBMasterTableViewController.m */; };
 		D60F1B511583BC84000AA7D5 /* UIView+Nib.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F1B501583BC84000AA7D5 /* UIView+Nib.m */; };
 		D60F8390156949DD002DF94B /* RBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F838F156949DD002DF94B /* RBDetailViewController.m */; };
-		D60F83931569567E002DF94B /* Thing.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83921569567E002DF94B /* Thing.m */; };
+		D60F83931569567E002DF94B /* RBThing.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83921569567E002DF94B /* RBThing.m */; };
 		D60F83971569619A002DF94B /* NSString+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83961569619A002DF94B /* NSString+QueryString.m */; };
 		D60F839E15743C18002DF94B /* NSString+TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F839D15743C18002DF94B /* NSString+TimeInterval.m */; };
 		D60F83AE157445A0002DF94B /* CachingImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F83A51574459E002DF94B /* CachingImageLoader.m */; };
@@ -20,10 +20,10 @@
 		D60F83B415744602002DF94B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60F83B315744602002DF94B /* ImageIO.framework */; };
 		D612B94A156C5BE000CC5199 /* RBDetailViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D612B949156C5BE000CC5199 /* RBDetailViewTableCell.m */; };
 		D612B94D156C5EDD00CC5199 /* RBDetailViewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D612B94C156C5EDD00CC5199 /* RBDetailViewTableCell.xib */; };
-		D6395DDA15A8BB6700C69E2D /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6395DD915A8BB6700C69E2D /* CommentCell.m */; };
-		D6395DDE15A8BD5A00C69E2D /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6395DDD15A8BD5A00C69E2D /* CommentCell.xib */; };
+		D6395DDA15A8BB6700C69E2D /* RBCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6395DD915A8BB6700C69E2D /* RBCommentCell.m */; };
+		D6395DDE15A8BD5A00C69E2D /* RBCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6395DDD15A8BD5A00C69E2D /* RBCommentCell.xib */; };
 		D6411E961561BB080056665A /* RBDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E951561BB080056665A /* RBDataProvider.m */; };
-		D6411E991561BBE40056665A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E981561BBE40056665A /* User.m */; };
+		D6411E991561BBE40056665A /* RBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E981561BBE40056665A /* RBUser.m */; };
 		D64E970D1561B25400B7A864 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64E970C1561B25400B7A864 /* UIKit.framework */; };
 		D64E970F1561B25400B7A864 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64E970E1561B25400B7A864 /* Foundation.framework */; };
 		D64E97111561B25400B7A864 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64E97101561B25400B7A864 /* CoreGraphics.framework */; };
@@ -35,10 +35,10 @@
 		D64E97321561B2E100B7A864 /* Query.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E972D1561B2E100B7A864 /* Query.m */; };
 		D64E97331561B2E100B7A864 /* QueryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E972F1561B2E100B7A864 /* QueryManager.m */; };
 		D64E97341561B2E100B7A864 /* URLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D64E97311561B2E100B7A864 /* URLCache.m */; };
-		D67A51EA15A7CEE90063A3E7 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67A51E915A7CEE90063A3E7 /* CommentsViewController.m */; };
-		D682DB7A1567EF7900DE57B3 /* SubReddit.m in Sources */ = {isa = PBXBuildFile; fileRef = D682DB791567EF7900DE57B3 /* SubReddit.m */; };
-		D68C2C3E15A26F4B00D6E4CB /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = D68C2C3D15A26F4B00D6E4CB /* Comment.m */; };
-		D69F9BF01597F97700409A44 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D69F9BEF1597F97700409A44 /* WebViewController.m */; };
+		D67A51EA15A7CEE90063A3E7 /* RBCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67A51E915A7CEE90063A3E7 /* RBCommentsViewController.m */; };
+		D682DB7A1567EF7900DE57B3 /* RBSubReddit.m in Sources */ = {isa = PBXBuildFile; fileRef = D682DB791567EF7900DE57B3 /* RBSubReddit.m */; };
+		D68C2C3E15A26F4B00D6E4CB /* RBComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D68C2C3D15A26F4B00D6E4CB /* RBComment.m */; };
+		D69F9BF01597F97700409A44 /* RBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D69F9BEF1597F97700409A44 /* RBWebViewController.m */; };
 		D6B706CA1561C31000F8C35E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B706C91561C31000F8C35E /* JSONKit.m */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +49,8 @@
 		D60F1B501583BC84000AA7D5 /* UIView+Nib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Nib.m"; sourceTree = "<group>"; };
 		D60F838E156949DD002DF94B /* RBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBDetailViewController.h; sourceTree = "<group>"; };
 		D60F838F156949DD002DF94B /* RBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBDetailViewController.m; sourceTree = "<group>"; };
-		D60F83911569567E002DF94B /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
-		D60F83921569567E002DF94B /* Thing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thing.m; sourceTree = "<group>"; };
+		D60F83911569567E002DF94B /* RBThing.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RBThing.h; sourceTree = "<group>"; };
+		D60F83921569567E002DF94B /* RBThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBThing.m; sourceTree = "<group>"; };
 		D60F83951569619A002DF94B /* NSString+QueryString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QueryString.h"; sourceTree = "<group>"; };
 		D60F83961569619A002DF94B /* NSString+QueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QueryString.m"; sourceTree = "<group>"; };
 		D60F839C15743C18002DF94B /* NSString+TimeInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeInterval.h"; sourceTree = "<group>"; };
@@ -70,13 +70,13 @@
 		D612B949156C5BE000CC5199 /* RBDetailViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBDetailViewTableCell.m; sourceTree = "<group>"; };
 		D612B94C156C5EDD00CC5199 /* RBDetailViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RBDetailViewTableCell.xib; sourceTree = "<group>"; };
 		D62A10B61561E50D007DC36C /* RBDataProvider+private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RBDataProvider+private.h"; sourceTree = "<group>"; };
-		D6395DD815A8BB6700C69E2D /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
-		D6395DD915A8BB6700C69E2D /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
-		D6395DDD15A8BD5A00C69E2D /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		D6395DD815A8BB6700C69E2D /* RBCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCommentCell.h; sourceTree = "<group>"; };
+		D6395DD915A8BB6700C69E2D /* RBCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCommentCell.m; sourceTree = "<group>"; };
+		D6395DDD15A8BD5A00C69E2D /* RBCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RBCommentCell.xib; sourceTree = "<group>"; };
 		D6411E941561BB080056665A /* RBDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBDataProvider.h; sourceTree = "<group>"; };
 		D6411E951561BB080056665A /* RBDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBDataProvider.m; sourceTree = "<group>"; };
-		D6411E971561BBE40056665A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		D6411E981561BBE40056665A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D6411E971561BBE40056665A /* RBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RBUser.h; sourceTree = "<group>"; };
+		D6411E981561BBE40056665A /* RBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBUser.m; sourceTree = "<group>"; };
 		D64E97081561B25400B7A864 /* RB1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RB1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64E970C1561B25400B7A864 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D64E970E1561B25400B7A864 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -98,14 +98,14 @@
 		D64E972F1561B2E100B7A864 /* QueryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryManager.m; sourceTree = "<group>"; };
 		D64E97301561B2E100B7A864 /* URLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLCache.h; sourceTree = "<group>"; };
 		D64E97311561B2E100B7A864 /* URLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLCache.m; sourceTree = "<group>"; };
-		D67A51E815A7CEE90063A3E7 /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
-		D67A51E915A7CEE90063A3E7 /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
-		D682DB781567EF7900DE57B3 /* SubReddit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubReddit.h; sourceTree = "<group>"; };
-		D682DB791567EF7900DE57B3 /* SubReddit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubReddit.m; sourceTree = "<group>"; };
-		D68C2C3C15A26F4B00D6E4CB /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
-		D68C2C3D15A26F4B00D6E4CB /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
-		D69F9BEE1597F97700409A44 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		D69F9BEF1597F97700409A44 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		D67A51E815A7CEE90063A3E7 /* RBCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCommentsViewController.h; sourceTree = "<group>"; };
+		D67A51E915A7CEE90063A3E7 /* RBCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCommentsViewController.m; sourceTree = "<group>"; };
+		D682DB781567EF7900DE57B3 /* RBSubReddit.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RBSubReddit.h; sourceTree = "<group>"; };
+		D682DB791567EF7900DE57B3 /* RBSubReddit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBSubReddit.m; sourceTree = "<group>"; };
+		D68C2C3C15A26F4B00D6E4CB /* RBComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBComment.h; sourceTree = "<group>"; };
+		D68C2C3D15A26F4B00D6E4CB /* RBComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBComment.m; sourceTree = "<group>"; };
+		D69F9BEE1597F97700409A44 /* RBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBWebViewController.h; sourceTree = "<group>"; };
+		D69F9BEF1597F97700409A44 /* RBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWebViewController.m; sourceTree = "<group>"; };
 		D6B706C81561C31000F8C35E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = RB1/JSONKit/JSONKit.h; sourceTree = SOURCE_ROOT; };
 		D6B706C91561C31000F8C35E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = RB1/JSONKit/JSONKit.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -185,14 +185,14 @@
 		D62A10BC156205FF007DC36C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D68C2C3C15A26F4B00D6E4CB /* Comment.h */,
-				D68C2C3D15A26F4B00D6E4CB /* Comment.m */,
-				D682DB781567EF7900DE57B3 /* SubReddit.h */,
-				D682DB791567EF7900DE57B3 /* SubReddit.m */,
-				D60F83911569567E002DF94B /* Thing.h */,
-				D60F83921569567E002DF94B /* Thing.m */,
-				D6411E971561BBE40056665A /* User.h */,
-				D6411E981561BBE40056665A /* User.m */,
+				D68C2C3C15A26F4B00D6E4CB /* RBComment.h */,
+				D68C2C3D15A26F4B00D6E4CB /* RBComment.m */,
+				D682DB781567EF7900DE57B3 /* RBSubReddit.h */,
+				D682DB791567EF7900DE57B3 /* RBSubReddit.m */,
+				D60F83911569567E002DF94B /* RBThing.h */,
+				D60F83921569567E002DF94B /* RBThing.m */,
+				D6411E971561BBE40056665A /* RBUser.h */,
+				D6411E981561BBE40056665A /* RBUser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -204,8 +204,8 @@
 				D64E97211561B25400B7A864 /* RBAuthenticationViewController.h */,
 				D64E97221561B25400B7A864 /* RBAuthenticationViewController.m */,
 				D60F83B5157447BA002DF94B /* SplitViewController */,
-				D69F9BEE1597F97700409A44 /* WebViewController.h */,
-				D69F9BEF1597F97700409A44 /* WebViewController.m */,
+				D69F9BEE1597F97700409A44 /* RBWebViewController.h */,
+				D69F9BEF1597F97700409A44 /* RBWebViewController.m */,
 				D6395DDC15A8BB6D00C69E2D /* Comments */,
 			);
 			name = ViewControllers;
@@ -214,11 +214,11 @@
 		D6395DDC15A8BB6D00C69E2D /* Comments */ = {
 			isa = PBXGroup;
 			children = (
-				D67A51E815A7CEE90063A3E7 /* CommentsViewController.h */,
-				D67A51E915A7CEE90063A3E7 /* CommentsViewController.m */,
-				D6395DD815A8BB6700C69E2D /* CommentCell.h */,
-				D6395DD915A8BB6700C69E2D /* CommentCell.m */,
-				D6395DDD15A8BD5A00C69E2D /* CommentCell.xib */,
+				D67A51E815A7CEE90063A3E7 /* RBCommentsViewController.h */,
+				D67A51E915A7CEE90063A3E7 /* RBCommentsViewController.m */,
+				D6395DD815A8BB6700C69E2D /* RBCommentCell.h */,
+				D6395DD915A8BB6700C69E2D /* RBCommentCell.m */,
+				D6395DDD15A8BD5A00C69E2D /* RBCommentCell.xib */,
 			);
 			name = Comments;
 			sourceTree = "<group>";
@@ -356,7 +356,7 @@
 				D64E97171561B25400B7A864 /* InfoPlist.strings in Resources */,
 				D64E97201561B25400B7A864 /* MainStoryboard.storyboard in Resources */,
 				D612B94D156C5EDD00CC5199 /* RBDetailViewTableCell.xib in Resources */,
-				D6395DDE15A8BD5A00C69E2D /* CommentCell.xib in Resources */,
+				D6395DDE15A8BD5A00C69E2D /* RBCommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,11 +374,11 @@
 				D64E97331561B2E100B7A864 /* QueryManager.m in Sources */,
 				D64E97341561B2E100B7A864 /* URLCache.m in Sources */,
 				D6411E961561BB080056665A /* RBDataProvider.m in Sources */,
-				D6411E991561BBE40056665A /* User.m in Sources */,
+				D6411E991561BBE40056665A /* RBUser.m in Sources */,
 				D6B706CA1561C31000F8C35E /* JSONKit.m in Sources */,
-				D682DB7A1567EF7900DE57B3 /* SubReddit.m in Sources */,
+				D682DB7A1567EF7900DE57B3 /* RBSubReddit.m in Sources */,
 				D60F8390156949DD002DF94B /* RBDetailViewController.m in Sources */,
-				D60F83931569567E002DF94B /* Thing.m in Sources */,
+				D60F83931569567E002DF94B /* RBThing.m in Sources */,
 				D60F83971569619A002DF94B /* NSString+QueryString.m in Sources */,
 				D612B94A156C5BE000CC5199 /* RBDetailViewTableCell.m in Sources */,
 				D60F839E15743C18002DF94B /* NSString+TimeInterval.m in Sources */,
@@ -388,10 +388,10 @@
 				D60F83B1157445A0002DF94B /* ThumbnailImageLoader.m in Sources */,
 				D60F1B511583BC84000AA7D5 /* UIView+Nib.m in Sources */,
 				D605C81A1583DAD40031A7BF /* RBMasterTableViewController.m in Sources */,
-				D69F9BF01597F97700409A44 /* WebViewController.m in Sources */,
-				D68C2C3E15A26F4B00D6E4CB /* Comment.m in Sources */,
-				D67A51EA15A7CEE90063A3E7 /* CommentsViewController.m in Sources */,
-				D6395DDA15A8BB6700C69E2D /* CommentCell.m in Sources */,
+				D69F9BF01597F97700409A44 /* RBWebViewController.m in Sources */,
+				D68C2C3E15A26F4B00D6E4CB /* RBComment.m in Sources */,
+				D67A51EA15A7CEE90063A3E7 /* RBCommentsViewController.m in Sources */,
+				D6395DDA15A8BB6700C69E2D /* RBCommentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

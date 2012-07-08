@@ -1,6 +1,6 @@
-#import "Comment.h"
+#import "RBComment.h"
 
-@implementation Comment
+@implementation RBComment
 
 @synthesize author;
 @synthesize body;
@@ -10,10 +10,10 @@
 @synthesize subreddit;
 @synthesize subredditId;
 
-+ (Comment*) commentFromDictionary:(NSDictionary*)dictionary
++ (RBComment*) commentFromDictionary:(NSDictionary*)dictionary
 {
     NSDictionary* commentDictionary = [dictionary objectForKey:APIKeyData];
-    Comment* newComment = [[Comment alloc] init];
+    RBComment* newComment = [[RBComment alloc] init];
     [newComment setAuthor:[commentDictionary objectForKey:@"author"]];
     [newComment setBody:[commentDictionary objectForKey:@"body"]];
     [newComment setBodyHTML:[commentDictionary objectForKey:@"body_html"]];
