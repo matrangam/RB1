@@ -143,8 +143,8 @@
                         <outlet property="loginButton" destination="gTH-9p-1m4" id="kr0-Jb-Hg1"/>
                         <outlet property="toolbar" destination="DK0-6x-J9R" id="UMB-d9-2UK"/>
                         <outlet property="toolbarTitle" destination="krn-WE-gWa" id="myP-wR-cQm"/>
-                        <segue destination="zEc-Eh-s1q" kind="modal" identifier="CommentsModal" id="c73-q5-35h"/>
-                        <segue destination="fPZ-Ib-0B0" kind="modal" identifier="WebViewPush" id="4z7-ky-Mbo"/>
+                        <segue destination="zEc-Eh-s1q" kind="modal" identifier="CommentsModal" modalTransitionStyle="crossDissolve" id="c73-q5-35h"/>
+                        <segue destination="fPZ-Ib-0B0" kind="modal" identifier="WebViewPush" modalTransitionStyle="flipHorizontal" id="4z7-ky-Mbo"/>
                     </connections>
                 </viewController>
             </objects>
@@ -248,7 +248,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="DMh-Wh-X2S"/>
                                 </items>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hoC-H3-hnX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="129" sectionHeaderHeight="22" sectionFooterHeight="22" id="hoC-H3-hnX">
                                 <rect key="frame" x="0.0" y="44" width="768" height="960"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -342,6 +342,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CommentsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="outlet" name="commentBodyView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="commentCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="commentsTable" candidateClass="UITableView"/>
             </relationships>
         </class>

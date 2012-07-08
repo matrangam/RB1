@@ -20,6 +20,8 @@
 		D60F83B415744602002DF94B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D60F83B315744602002DF94B /* ImageIO.framework */; };
 		D612B94A156C5BE000CC5199 /* DetailViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D612B949156C5BE000CC5199 /* DetailViewTableCell.m */; };
 		D612B94D156C5EDD00CC5199 /* DetailViewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D612B94C156C5EDD00CC5199 /* DetailViewTableCell.xib */; };
+		D6395DDA15A8BB6700C69E2D /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6395DD915A8BB6700C69E2D /* CommentCell.m */; };
+		D6395DDE15A8BD5A00C69E2D /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6395DDD15A8BD5A00C69E2D /* CommentCell.xib */; };
 		D6411E961561BB080056665A /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E951561BB080056665A /* DataProvider.m */; };
 		D6411E991561BBE40056665A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D6411E981561BBE40056665A /* User.m */; };
 		D64E970D1561B25400B7A864 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64E970C1561B25400B7A864 /* UIKit.framework */; };
@@ -68,6 +70,9 @@
 		D612B949156C5BE000CC5199 /* DetailViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewTableCell.m; sourceTree = "<group>"; };
 		D612B94C156C5EDD00CC5199 /* DetailViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewTableCell.xib; sourceTree = "<group>"; };
 		D62A10B61561E50D007DC36C /* DataProvider+private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataProvider+private.h"; sourceTree = "<group>"; };
+		D6395DD815A8BB6700C69E2D /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		D6395DD915A8BB6700C69E2D /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		D6395DDD15A8BD5A00C69E2D /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		D6411E941561BB080056665A /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
 		D6411E951561BB080056665A /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
 		D6411E971561BBE40056665A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -201,10 +206,21 @@
 				D60F83B5157447BA002DF94B /* SplitViewController */,
 				D69F9BEE1597F97700409A44 /* WebViewController.h */,
 				D69F9BEF1597F97700409A44 /* WebViewController.m */,
-				D67A51E815A7CEE90063A3E7 /* CommentsViewController.h */,
-				D67A51E915A7CEE90063A3E7 /* CommentsViewController.m */,
+				D6395DDC15A8BB6D00C69E2D /* Comments */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D6395DDC15A8BB6D00C69E2D /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				D67A51E815A7CEE90063A3E7 /* CommentsViewController.h */,
+				D67A51E915A7CEE90063A3E7 /* CommentsViewController.m */,
+				D6395DD815A8BB6700C69E2D /* CommentCell.h */,
+				D6395DD915A8BB6700C69E2D /* CommentCell.m */,
+				D6395DDD15A8BD5A00C69E2D /* CommentCell.xib */,
+			);
+			name = Comments;
 			sourceTree = "<group>";
 		};
 		D6411E8B1561B6890056665A /* JSONKit */ = {
@@ -340,6 +356,7 @@
 				D64E97171561B25400B7A864 /* InfoPlist.strings in Resources */,
 				D64E97201561B25400B7A864 /* MainStoryboard.storyboard in Resources */,
 				D612B94D156C5EDD00CC5199 /* DetailViewTableCell.xib in Resources */,
+				D6395DDE15A8BD5A00C69E2D /* CommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +391,7 @@
 				D69F9BF01597F97700409A44 /* WebViewController.m in Sources */,
 				D68C2C3E15A26F4B00D6E4CB /* Comment.m in Sources */,
 				D67A51EA15A7CEE90063A3E7 /* CommentsViewController.m in Sources */,
+				D6395DDA15A8BB6700C69E2D /* CommentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,5 @@
 #import "CommentsViewController.h"
+#import "CommentCell.h"
 
 @interface CommentsViewController ()
 
@@ -8,19 +9,29 @@
 
 @synthesize delegate = _delegate;
 @synthesize comments = _comments;
+@synthesize thing = _thing;
 @synthesize commentsTable = _commentsTable;
+@synthesize commentCell = _commentCell;
+@synthesize commentBodyView = _commentBodyView;
 
 #pragma mark View Lifecycle
 
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-
+    [[self dataProvider] commentsForThing:_thing withCompletionBlock:^(NSArray* comments){
+        _comments = [NSArray arrayWithArray:comments];
+        [_commentsTable reloadData];
+    } failBlock:^(NSError *error) {
+        //
+    }];
 }
 
 - (void)viewDidUnload 
 {
     [self setCommentsTable:nil];
+    [self setCommentCell:nil];
+    [self setCommentBodyView:nil];
     [super viewDidUnload];
 }
 
@@ -29,8 +40,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Comment* comment = [_comments objectAtIndex:indexPath.row];
-    NSString* commentBody = comment.body;
-    CGSize cellSize = [commentBody sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15] constrainedToSize:CGSizeMake(tableView.frame.size.width, 999) lineBreakMode:UILineBreakModeWordWrap];
+    NSString* commentBody = comment.bodyHTML;
+    CGSize cellSize = [commentBody sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15] 
+                              constrainedToSize:CGSizeMake(tableView.frame.size.width, 999) 
+                                  lineBreakMode:UILineBreakModeWordWrap];
     
     return cellSize.height;
 }
@@ -42,22 +55,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CommentCell"];
+    CommentCell* cell = [tableView dequeueReusableCellWithIdentifier:kCommentCellReuseIdentifier];
     if (nil == cell) {
-        [cell.textLabel setLineBreakMode:UILineBreakModeWordWrap];        
+        cell = [UIView viewWithNibNamed:kCommentCellReuseIdentifier];
+
+        CGRect frame = cell.commentBody.frame;
+        frame.size.width = tableView.frame.size.width;
+        [cell.commentBody setFrame:frame];
     }
     
-    [cell.textLabel setNumberOfLines:0];    
     Comment* currentComment = [_comments objectAtIndex:indexPath.row];
-    NSString* commentBody = currentComment.body;
-    CGSize cellSize = [commentBody sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15] constrainedToSize:CGSizeMake(tableView.frame.size.width, 999) lineBreakMode:UILineBreakModeWordWrap];
+    [cell setComment:currentComment];
 
-    CGRect frame = cell.textLabel.frame;
-    frame.size.height = cellSize.height;
-    [cell.textLabel setFrame:frame];
-    
-    cell.textLabel.text = commentBody;
-    
     return cell;
 }
 
@@ -77,4 +86,10 @@
 {
     [_delegate commentsViewControllerShouldDismiss:self];
 }
+
+- (DataProvider*) dataProvider 
+{
+    return [[AppDelegate sharedAppDelegate] dataProvider];
+}
+
 @end

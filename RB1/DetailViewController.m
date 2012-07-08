@@ -6,7 +6,6 @@
 @implementation DetailViewController {
     UITableView* _infoTable;
     NSArray* _things;
-    NSArray* _comments;
     MasterTableViewController* _masterTableViewController;
     Thing* _selectedThing;
 }
@@ -116,7 +115,7 @@
     }
     else if ([[segue identifier] isEqualToString:@"CommentsModal"]) {
         CommentsViewController* viewController = (CommentsViewController*)[segue destinationViewController];
-        [viewController setComments:_comments];
+        [viewController setThing:_selectedThing];
         [viewController setDelegate:self];
     }
 }
@@ -147,12 +146,8 @@
 
 - (void) detailViewTableCell:(DetailViewTableCell*)detailViewTableCell didSelectCommentsForThing:(Thing*)thing
 {
-    [[self dataProvider] commentsForThing:thing withCompletionBlock:^(NSArray* comments){
-        _comments = [NSArray arrayWithArray:comments];
-        [self performSegueWithIdentifier:@"CommentsModal" sender:self];
-    } failBlock:^(NSError *error) {
-        //
-    }];
+    _selectedThing = thing;
+    [self performSegueWithIdentifier:@"CommentsModal" sender:self];
 }
 
 #pragma mark CommentsViewControllerDelegate
