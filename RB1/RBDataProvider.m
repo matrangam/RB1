@@ -193,11 +193,15 @@
      ];    
 }
 
-- (void) thingsForRedditNamed:(NSString*)reddit withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
+- (void) thingsForRedditNamed:(NSString*)reddit count:(NSNumber*)count lastId:(NSString*)lastId withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
 {
     void(^completionBlock_)(NSArray*) = [completionBlock copy];
 
-    [self queryForGettingFromURI:[NSString stringWithFormat:@"%@%@", reddit, @".json"] parameters:nil 
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
+    [params setValue:count forKey:@"count"];
+    [params setValue:lastId forKey:@"after"];
+
+    [self queryForGettingFromURI:[NSString stringWithFormat:@"%@%@", reddit, @".json"] parameters:params
         withCompletionBlock:^(NSDictionary* response) {
             NSArray* children = [response objectForKey:APIKeyChildren];
             NSMutableArray* allTheThings = [NSMutableArray array];

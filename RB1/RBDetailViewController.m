@@ -2,11 +2,14 @@
 #import "RBWebViewController.h"
 #import "RBCommentsViewController.h"
 
+#define PAGE_COUNT_INCREMENT    25
+
 @implementation RBDetailViewController {
     UITableView* _infoTable;
     NSArray* _things;
     RBMasterTableViewController* _masterTableViewController;
     RBThing* _selectedThing;
+    NSInteger _pageCounter;
 }
 @synthesize infoTable = _infoTable;
 @synthesize toolbar = _toolbar;
@@ -20,7 +23,7 @@
 {
     [super viewDidLoad];
     
-    _masterTableViewController = (RBMasterTableViewController*)[[[[[RBAppDelegate sharedAppDelegate] splitViewController] viewControllers] objectAtIndex:0] topViewController];
+    _masterTableViewController = [RBAppDelegate masterViewController];
 }
 
 - (void) viewDidUnload 
@@ -40,9 +43,15 @@
     [[self toolbarTitle] setText:[subreddit title]];
         
     [self setSelectedSubReddit:subreddit];
-    [[self dataProvider] thingsForRedditNamed:_selectedSubReddit.url withCompletionBlock:^(NSArray* things) {
+    
+    _pageCounter = PAGE_COUNT_INCREMENT;
+    [[self dataProvider] thingsForRedditNamed:_selectedSubReddit.url count:[NSNumber numberWithInteger:_pageCounter] lastId:nil withCompletionBlock:^(NSArray* things) {
         _things = [NSArray arrayWithArray:things];
+        if (_pageCounter == PAGE_COUNT_INCREMENT) {
+            [_infoTable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
+        }
         [_infoTable reloadData];
+        _pageCounter += PAGE_COUNT_INCREMENT;
     } failBlock:^(NSError* error) {
         //
     }];
@@ -80,6 +89,23 @@
     //XXX: not showing self posts
     if (![[_selectedThing isSelf] boolValue]) {
         [self performSegueWithIdentifier:@"WebViewPush" sender:nil];
+    }
+}
+
+- (void) tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    if (indexPath.row == _things.count - 1) {
+        
+        RBThing* lastThing = _things.lastObject;
+        [[self dataProvider] thingsForRedditNamed:_selectedSubReddit.url count:[NSNumber numberWithInteger:_pageCounter] lastId:lastThing.name withCompletionBlock:^(NSArray* things) {
+            NSMutableArray* newArray = _things.mutableCopy;
+            [newArray addObjectsFromArray:things];
+            _things = newArray;
+            [_infoTable reloadData];
+            _pageCounter += PAGE_COUNT_INCREMENT;
+        } failBlock:^(NSError* error) {
+            //
+        }];
     }
 }
 

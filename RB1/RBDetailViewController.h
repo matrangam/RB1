@@ -4,12 +4,12 @@
 #import "RBCommentsViewController.h"
 
 @interface RBDetailViewController : UIViewController <UISplitViewControllerDelegate, 
-                                                    UIPopoverControllerDelegate, 
-                                                    RBMasterTableViewControllerDelegate, 
-                                                    RBAuthenticationViewControllerDelegate, 
-                                                    RBWebViewControllerDelegate, 
-                                                    RBDetailViewTableCellDelegate, 
-                                                    RBCommentsViewControllerDelegate> 
+                                                      UIPopoverControllerDelegate, 
+                                                      RBMasterTableViewControllerDelegate, 
+                                                      RBAuthenticationViewControllerDelegate, 
+                                                      RBWebViewControllerDelegate, 
+                                                      RBDetailViewTableCellDelegate, 
+                                                      RBCommentsViewControllerDelegate> 
 {
     @private
     UIPopoverController* _masterPopoverController;
@@ -19,4 +19,5 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *loginButton;
 @property (strong, nonatomic) IBOutlet UILabel *toolbarTitle;
 @property (strong, nonatomic) RBSubReddit* selectedSubReddit;
+
 @end

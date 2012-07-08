@@ -10,5 +10,6 @@
 @property (strong, nonatomic) RBMasterTableViewController* masterViewController;
 
 + (RBAppDelegate*) sharedAppDelegate;
++ (RBMasterTableViewController*) masterViewController;
 
 @end

@@ -17,8 +17,12 @@
 
 + (RBAppDelegate*) sharedAppDelegate
 {
-    RBAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    return delegate;
+    return (RBAppDelegate*)[[UIApplication sharedApplication] delegate];
+}
+
++ (RBMasterTableViewController*) masterViewController 
+{
+    return (RBMasterTableViewController*)[[[[[RBAppDelegate sharedAppDelegate] splitViewController] viewControllers] objectAtIndex:0] topViewController];
 }
 
 - (RBDataProvider*) dataProvider

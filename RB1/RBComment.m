@@ -22,8 +22,19 @@
     [newComment setSubreddit:[commentDictionary objectForKey:@"subreddit"]];
     [newComment setSubredditId:[commentDictionary objectForKey:@"subreddit_id"]];
     
+    NSLog(@"%@", newComment.parentId);
+    
     return newComment;
 }
+
+/*
+    Each comment has a dictionary called replies, 
+    This dictionary contains a key called 'data' which contains another dictionary.
+    In this dictionary the key 'children' contains an array
+    Every object in the array is a dictionary where 'Data' is the key and the value is a comment
+    Every comment can possibly have replies so this sequence can be arbitrarily DEEP 
+*/
+
 
 //String	author	the account name of the poster
 //String	author_flair_css_class	the css class of the author's flair. subreddit specific

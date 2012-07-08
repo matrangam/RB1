@@ -7,7 +7,7 @@
 - (void) authenticateUser:(RBUser*)user withCompletionBlock:(void(^)(RBUser*))completionBlock failBlock:(void(^)(NSError *))failedWithError;
 - (void) redditsForAnonymousUserWithCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError *))failedWithError;
 - (void) redditsForUser:(RBUser*)user withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError;
-- (void) thingsForRedditNamed:(NSString*)reddit withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError;
+- (void) thingsForRedditNamed:(NSString*)reddit count:(NSNumber*)count lastId:(NSString*)lastId withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError;
 - (void) commentsForThing:(RBThing*)thing withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError;
 
 + (id<ImageLoader>) sharedImageLoader;
