@@ -17,6 +17,7 @@
 @synthesize uniqueId;
 @synthesize subredditId;
 @synthesize subreddit;
+@synthesize visited;
 
 + (RBThing*) thingFromDictionary:(NSDictionary*)dictionary
 {
@@ -37,6 +38,7 @@
     [thing setSubreddit:[thingDictionary objectForKey:@"subreddit"]];
     [thing setName:[thingDictionary objectForKey:@"name"]];
     [thing setUrl:[thingDictionary objectForKey:@"url"]];
+    [thing setVisited:NO];
     
     return thing;
 }

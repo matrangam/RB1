@@ -10,6 +10,7 @@
     RBMasterTableViewController* _masterTableViewController;
     RBThing* _selectedThing;
     NSInteger _pageCounter;
+    NSInteger _lastSelectedRow;
 }
 @synthesize infoTable = _infoTable;
 @synthesize toolbar = _toolbar;
@@ -85,11 +86,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     _selectedThing = [_things objectAtIndex:[indexPath row]];
-
-    //XXX: not showing self posts
-    if (![[_selectedThing isSelf] boolValue]) {
-        [self performSegueWithIdentifier:@"WebViewPush" sender:nil];
-    }
+    [_selectedThing setVisited:YES];
+    _lastSelectedRow = indexPath.row;
+    [self performSegueWithIdentifier:@"WebViewPush" sender:nil];
 }
 
 - (void) tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath
@@ -163,7 +162,8 @@
 - (void) webViewControllerShouldDismiss:(RBWebViewController*)webViewController
 {
     [self dismissViewControllerAnimated:YES completion:^{
-        // dismiss
+        NSIndexPath* path = [NSIndexPath indexPathForRow:_lastSelectedRow inSection:0];
+        [_infoTable reloadRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationFade];
     }];
 }
 

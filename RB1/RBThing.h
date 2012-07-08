@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSString* subredditId;
 @property (nonatomic, strong) NSString* subreddit;
 
+@property (nonatomic, getter = hasBeenVisited) BOOL visited;
+
 + (RBThing*) thingFromDictionary:(NSDictionary*)dictionary;
 
 @end
