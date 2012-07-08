@@ -1,5 +1,5 @@
 #import "ImageLoader.h"
-@interface DataProvider : NSObject <QueryDelegate>
+@interface RBDataProvider : NSObject <QueryDelegate>
 
 @property (nonatomic, copy) void(^didComplete)(NSURLResponse* response, id object);
 @property (nonatomic, copy) void(^didFailWithError)(NSError* error);

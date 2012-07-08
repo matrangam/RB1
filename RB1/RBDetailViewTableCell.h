@@ -1,14 +1,14 @@
-extern NSString* kDetailViewTableCellReuseIdentifier;
-extern CGFloat kDetailViewTableCellHeight;
+extern NSString* kRBDetailViewTableCellReuseIdentifier;
+extern CGFloat kRBDetailViewTableCellHeight;
 
-@class Thing, DetailViewTableCell;
+@class Thing, RBDetailViewTableCell;
 @protocol DetailViewTableCellDelegate <NSObject>
 
-- (void) detailViewTableCell:(DetailViewTableCell*)detailViewTableCell didSelectCommentsForThing:(Thing*)thing;
+- (void) detailViewTableCell:(RBDetailViewTableCell*)detailViewTableCell didSelectCommentsForThing:(Thing*)thing;
 
 @end
 
-@interface DetailViewTableCell : UITableViewCell
+@interface RBDetailViewTableCell : UITableViewCell
 
 @property (unsafe_unretained, nonatomic) id <DetailViewTableCellDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIImageView *iconImageView;

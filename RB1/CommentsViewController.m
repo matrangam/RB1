@@ -83,9 +83,9 @@
     [_delegate commentsViewControllerShouldDismiss:self];
 }
 
-- (DataProvider*) dataProvider 
+- (RBDataProvider*) dataProvider 
 {
-    return [[AppDelegate sharedAppDelegate] dataProvider];
+    return [[RBAppDelegate sharedAppDelegate] dataProvider];
 }
 
 @end

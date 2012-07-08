@@ -1,10 +1,10 @@
-#import "MasterTableViewController.h"
+#import "RBMasterTableViewController.h"
 
-@interface MasterTableViewController ()
+@interface RBMasterTableViewController ()
 - (void) _sortSubreddits:(NSArray*)subreddits;
 @end
 
-@implementation MasterTableViewController 
+@implementation RBMasterTableViewController 
 
 @synthesize delegate = _delegate;
 @synthesize subReddits = _subReddits;
@@ -67,9 +67,10 @@
     return YES;
 }
 
-- (DataProvider*) dataProvider
+- (RBDataProvider*) dataProvider
 {
-    return [[AppDelegate sharedAppDelegate] dataProvider];
+    return [[RBAppDelegate sharedAppDelegate] dataProvider];
 }
 
 @end
+

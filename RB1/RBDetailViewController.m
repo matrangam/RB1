@@ -1,12 +1,11 @@
-#import "DetailViewController.h"
-#import "DetailViewTableCell.h"
+#import "RBDetailViewController.h"
 #import "WebViewController.h"
 #import "CommentsViewController.h"
 
-@implementation DetailViewController {
+@implementation RBDetailViewController {
     UITableView* _infoTable;
     NSArray* _things;
-    MasterTableViewController* _masterTableViewController;
+    RBMasterTableViewController* _masterTableViewController;
     Thing* _selectedThing;
 }
 @synthesize infoTable = _infoTable;
@@ -21,7 +20,7 @@
 {
     [super viewDidLoad];
     
-    _masterTableViewController = (MasterTableViewController*)[[[[[AppDelegate sharedAppDelegate] splitViewController] viewControllers] objectAtIndex:0] topViewController];
+    _masterTableViewController = (RBMasterTableViewController*)[[[[[RBAppDelegate sharedAppDelegate] splitViewController] viewControllers] objectAtIndex:0] topViewController];
 }
 
 - (void) viewDidUnload 
@@ -34,7 +33,7 @@
 
 #pragma mark MasterTableViewControllerDelegate
 
-- (void) masterTableViewController:(MasterTableViewController*)tableViewController didSelectSubreddit:(SubReddit*)subreddit
+- (void) masterTableViewController:(RBMasterTableViewController*)tableViewController didSelectSubreddit:(SubReddit*)subreddit
 {
     [_masterPopoverController dismissPopoverAnimated:YES];
     
@@ -58,14 +57,14 @@
 
 - (CGFloat) tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    return kDetailViewTableCellHeight;
+    return kRBDetailViewTableCellHeight;
 }
 
 - (UITableViewCell*) tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    DetailViewTableCell* cell = [tableView dequeueReusableCellWithIdentifier:kDetailViewTableCellReuseIdentifier];
+    RBDetailViewTableCell* cell = [tableView dequeueReusableCellWithIdentifier:kRBDetailViewTableCellReuseIdentifier];
     if (nil == cell) {
-        cell = [UIView viewWithNibNamed:kDetailViewTableCellReuseIdentifier];
+        cell = [UIView viewWithNibNamed:kRBDetailViewTableCellReuseIdentifier];
         [cell setDelegate:self];
     }
     [cell setThing:[_things objectAtIndex:[indexPath row]]];
@@ -106,7 +105,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"AuthModal"]) {
-        [(AuthenticationViewController*)[segue destinationViewController] setDelegate:self];
+        [(RBAuthenticationViewController*)[segue destinationViewController] setDelegate:self];
     }
     else if ([[segue identifier] isEqualToString:@"WebViewPush"]) {
         WebViewController* viewController = (WebViewController*)[segue destinationViewController];
@@ -122,7 +121,7 @@
 
 #pragma mark AuthenticationControllerDelegate
 
-- (void) authenticationViewController:(AuthenticationViewController*)authenticationViewController authenticatedUser:(User*)user
+- (void) authenticationViewController:(RBAuthenticationViewController*)authenticationViewController authenticatedUser:(User*)user
 {
     [[self dataProvider] redditsForUser:user
         withCompletionBlock:^(NSArray* subreddits) {
@@ -144,7 +143,7 @@
 
 #pragma mark DetailViewTableCellDelegate
 
-- (void) detailViewTableCell:(DetailViewTableCell*)detailViewTableCell didSelectCommentsForThing:(Thing*)thing
+- (void) detailViewTableCell:(RBDetailViewTableCell*)detailViewTableCell didSelectCommentsForThing:(Thing*)thing
 {
     _selectedThing = thing;
     [self performSegueWithIdentifier:@"CommentsModal" sender:self];
@@ -164,9 +163,9 @@
     return YES;
 }
 
-- (DataProvider*) dataProvider 
+- (RBDataProvider*) dataProvider 
 {
-    return [[AppDelegate sharedAppDelegate] dataProvider];
+    return [[RBAppDelegate sharedAppDelegate] dataProvider];
 }
 
 @end

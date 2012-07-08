@@ -1,7 +1,7 @@
-#import "AppDelegate.h"
-#import "MasterTableViewController.h"
+#import "RBAppDelegate.h"
+#import "RBMasterTableViewController.h"
 
-@implementation AppDelegate {
+@implementation RBAppDelegate {
     NSUInteger networkActivityCount;
     uint64_t networkActivityStarted;
     double networkActivityElapsedTimeInMilliseconds;
@@ -15,16 +15,16 @@
 @synthesize detailViewController = _detailViewController;
 
 
-+ (AppDelegate*) sharedAppDelegate
++ (RBAppDelegate*) sharedAppDelegate
 {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    RBAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     return delegate;
 }
 
-- (DataProvider*) dataProvider
+- (RBDataProvider*) dataProvider
 {
     if (!_dataProvider) {
-        _dataProvider = [[DataProvider alloc] init];
+        _dataProvider = [[RBDataProvider alloc] init];
     }
     return _dataProvider;
 }
@@ -34,8 +34,8 @@
     _splitViewController = (UISplitViewController*)self.window.rootViewController;
     [_splitViewController setDelegate:[[_splitViewController viewControllers] lastObject]];
        
-    _detailViewController = (DetailViewController*)[[_splitViewController viewControllers] lastObject];
-    _masterViewController = (MasterTableViewController*)[[[_splitViewController viewControllers] objectAtIndex:0] topViewController];
+    _detailViewController = (RBDetailViewController*)[[_splitViewController viewControllers] lastObject];
+    _masterViewController = (RBMasterTableViewController*)[[[_splitViewController viewControllers] objectAtIndex:0] topViewController];
     [_masterViewController setDelegate:_detailViewController];
     
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];

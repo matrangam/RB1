@@ -1,10 +1,10 @@
-#import "AuthenticationViewController.h"
+#import "RBAuthenticationViewController.h"
 
-@interface AuthenticationViewController ()
+@interface RBAuthenticationViewController ()
 
 @end
 
-@implementation AuthenticationViewController
+@implementation RBAuthenticationViewController
 
 @synthesize delegate = _delegate;
 @synthesize userNameField = _userNameField;
@@ -44,9 +44,9 @@
     return YES;
 }
 
-- (DataProvider*) dataProvider
+- (RBDataProvider*) dataProvider
 {
-    return [[AppDelegate sharedAppDelegate] dataProvider];
+    return [[RBAppDelegate sharedAppDelegate] dataProvider];
 }
 
 @end

@@ -1,10 +1,10 @@
-#import "DetailViewTableCell.h"
+#import "RBDetailViewTableCell.h"
 #import "NSString+TimeInterval.h"
 
-NSString* kDetailViewTableCellReuseIdentifier = @"DetailViewTableCell";
-CGFloat kDetailViewTableCellHeight = 90.0;
+NSString* kRBDetailViewTableCellReuseIdentifier = @"RBDetailViewTableCell";
+CGFloat kRBDetailViewTableCellHeight = 90.0;
 
-@implementation DetailViewTableCell
+@implementation RBDetailViewTableCell
 
 @synthesize delegate = _delegate;
 @synthesize iconImageView = _iconImageView;

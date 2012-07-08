@@ -1,7 +1,7 @@
-#import "DataProvider.h"
+#import "RBDataProvider.h"
 #import "NSString+QueryString.h"
 
-@implementation DataProvider {
+@implementation RBDataProvider {
     NSURLResponse* _response;
     NSMutableData* _responseData;
 }
