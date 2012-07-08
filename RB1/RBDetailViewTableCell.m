@@ -11,6 +11,7 @@ CGFloat kRBDetailViewTableCellHeight = 90.0;
 @synthesize titleLabel = _titleLabel;
 @synthesize commentsButton = _commentsButton;
 @synthesize authorLabel = _authorLabel;
+@synthesize iconSpinner = _iconSpinner;
 @synthesize thing = _thing;
 
 + (UIColor*) inactiveColor
@@ -30,6 +31,16 @@ CGFloat kRBDetailViewTableCellHeight = 90.0;
             self.titleLabel.textColor = [self.class inactiveColor];
             self.authorLabel.textColor = [self.class inactiveColor];
         }
+        if (_thing.thumbnail.length > 0) {
+            [_iconSpinner startAnimating];
+            [[RBDataProvider sharedImageLoader] loadImageForURL:[NSURL URLWithString:_thing.thumbnail] completionBlock:^(UIImage* image, BOOL isFinished) {
+                [self.iconImageView setImage:image];
+                [_iconSpinner stopAnimating];
+            }];
+        } else {
+            [self.iconImageView setImage:nil];
+            [_iconSpinner stopAnimating];
+        }
     }
 }
 
@@ -37,4 +48,10 @@ CGFloat kRBDetailViewTableCellHeight = 90.0;
 {
     [_delegate detailViewTableCell:self didSelectCommentsForThing:_thing];
 }
+
+- (RBDataProvider*) dataProvider
+{
+    return [[RBAppDelegate sharedAppDelegate] dataProvider];
+}
+
 @end

@@ -28,11 +28,19 @@
 }
 
 /*
-    Each comment has a dictionary called replies, 
-    This dictionary contains a key called 'data' which contains another dictionary.
-    In this dictionary the key 'children' contains an array
+    Each comment with replies has a dictionary called replies, 
+    This dictionary contains a key called 'data' which contains another dictionary where the key 'children' contains an array
     Every object in the array is a dictionary where 'Data' is the key and the value is a comment
     Every comment can possibly have replies so this sequence can be arbitrarily DEEP 
+ 
+    Comment {
+    --- Replies {
+ 
+        --- Data { 
+            --- Children (
+ 
+                --- Data {
+                    --- Comment {
 */
 
 

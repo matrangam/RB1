@@ -15,6 +15,7 @@ extern CGFloat kRBDetailViewTableCellHeight;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIButton *commentsButton;
 @property (strong, nonatomic) IBOutlet UILabel *authorLabel;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *iconSpinner;
 @property (strong, nonatomic) RBThing* thing;
 
 - (IBAction) commentsButtonPressed:(id)sender;
