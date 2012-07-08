@@ -40,7 +40,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Comment* comment = [_comments objectAtIndex:indexPath.row];
-    NSString* commentBody = comment.bodyHTML;
+    NSString* commentBody = comment.body;
     CGSize cellSize = [commentBody sizeWithFont:[UIFont fontWithName:@"Helvetica" size:15] 
                               constrainedToSize:CGSizeMake(tableView.frame.size.width, 999) 
                                   lineBreakMode:UILineBreakModeWordWrap];
@@ -58,10 +58,6 @@
     CommentCell* cell = [tableView dequeueReusableCellWithIdentifier:kCommentCellReuseIdentifier];
     if (nil == cell) {
         cell = [UIView viewWithNibNamed:kCommentCellReuseIdentifier];
-
-        CGRect frame = cell.commentBody.frame;
-        frame.size.width = tableView.frame.size.width;
-        [cell.commentBody setFrame:frame];
     }
     
     Comment* currentComment = [_comments objectAtIndex:indexPath.row];
@@ -74,7 +70,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Comment* comment = [_comments objectAtIndex:indexPath.row];
-    NSLog(@"%@", comment.bodyHTML);
+    NSLog(@"%@", comment.body);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
