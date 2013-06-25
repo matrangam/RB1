@@ -35,27 +35,28 @@ static NSString* const kCancelledKey        = @"cancelled";
 {
     const char* str = [url.absoluteString UTF8String];
     uint8_t r[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(str, strlen(str), r);
+    CC_MD5(str, (int32_t)strlen(str), r);
     return [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x", r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8], r[9], r[10], r[11], r[12], r[13], r[14], r[15]];
 }
 
 - (void) loadImageForURL:(NSURL*)url completionBlock:(void (^)(UIImage*, BOOL))block
 {
+    void (^block_)(UIImage*, BOOL) = [block copy];
     dispatch_sync(_queue, ^{
         NSMutableDictionary* info = [_infoByURL objectForKey:url];
         NSMutableSet* blocks = nil;
         if (info) {
             UIImage* image = [info objectForKey:kImageKey];
-            if (block) {
+            if (block_) {
                 if (image) {
-                    block(image, NO);
+                    block_(image, NO);
                 }
                 blocks = [info objectForKey:kBlocksKey];
-                [blocks addObject:block];
+                [blocks addObject:block_];
             }
-        } else if (block) {
-            [_infoByURL setObject:info = [NSMutableDictionary dictionaryWithObjectsAndKeys:blocks = [NSMutableSet setWithObject:block], kBlocksKey, nil] forKey:url];
-
+        } else if (block_) {
+            [_infoByURL setObject:info = [NSMutableDictionary dictionaryWithObjectsAndKeys:blocks = [NSMutableSet setWithObject:block_], kBlocksKey, nil] forKey:url];
+            
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
                 NSString* pathToCachedData = [[_diskPath stringByAppendingPathComponent:[CachingImageLoader _cacheKeyForURL:url]] stringByAppendingPathExtension:@"jpeg"];
                 UIImage* image = [UIImage imageWithContentsOfFile:pathToCachedData];
@@ -75,7 +76,9 @@ static NSString* const kCancelledKey        = @"cancelled";
                     dispatch_async(_queue, ^{
                         void (^completionBlock)(UIImage*, BOOL) = [^(UIImage* image, BOOL isFinal) {
                             dispatch_async(_queue, ^{
-                                [info setObject:image forKey:kImageKey];
+                                if (image) {
+                                    [info setObject:image forKey:kImageKey];
+                                }
                                 for (void (^block)(UIImage*, BOOL isFinal) in blocks) {
                                     block(image, isFinal);
                                 }
