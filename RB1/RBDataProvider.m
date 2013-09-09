@@ -26,7 +26,7 @@
             [query cancel];
             dispatch_async(queue, ^{
                 NSString* errorMessage = @"The connect has Timed Out";
-                failedWithError_([NSError errorWithDomain:@"" code:0 userInfo:[NSDictionary dictionaryWithObject:errorMessage forKey:@"errorMessage"]]);
+                failedWithError_([NSError errorWithDomain:@"" code:0 userInfo:@{@"errorMessage": errorMessage}]);
             });
             dispatch_release(queue);
         } 
@@ -145,7 +145,9 @@
     NSAssert(nil != completionBlock, @"???");
     
     void (^completionBlock_)(RBUser*) = [completionBlock copy];
-    NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:user.username, QueryStringUsername, user.password, QueryStringPassword, @"json", QueryStringAPIType, nil];
+    NSDictionary* parameters = @{QueryStringUsername: user.username,
+                                 QueryStringPassword: user.password,
+                                 QueryStringAPIType: @"json"};
 
     [self queryForPosttingToURI:[NSString stringWithFormat:LoginPathFormat, user.username] withParameters:parameters 
         completionBlock:^(id response) {
