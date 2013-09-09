@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString* link_flair_css_class;
 @property (nonatomic, strong) NSString* link_flair_text;
 @property (nonatomic, strong) NSString* media;
+@property (nonatomic, strong) NSDictionary* media_embed;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* num_comments;
 @property (nonatomic, strong) NSString* num_reports;
@@ -26,6 +27,8 @@
 @property (nonatomic, strong) NSString* permalink;
 @property (nonatomic) BOOL saved;
 @property (nonatomic, strong) NSNumber* score;
+@property (nonatomic, strong) NSString* secure_media;
+@property (nonatomic, strong) NSString* secure_media_embed;
 @property (nonatomic, strong) NSString* selftext;
 @property (nonatomic, strong) NSString* selftext_html;
 @property (nonatomic) BOOL stickied;
