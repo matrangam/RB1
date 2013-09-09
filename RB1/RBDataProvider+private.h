@@ -15,4 +15,4 @@ static NSString* const InfoPathFormat = @"/by_id%@.json"; // thing.name
 static NSString* const CommentsPathFormat = @"/comments/%@/.json"; // thing.uniqueId
 //uri paths
 static NSString* const AnonymousRedditsPath = @"/reddits/.json";
-static NSString* const AuthenticatedRedditsPath = @"/reddits/mine/.json";
+static NSString* const SubscribedRedditsPath = @"/reddits/mine/subscriber.json";

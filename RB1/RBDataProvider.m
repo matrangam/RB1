@@ -180,9 +180,10 @@
 - (void) redditsForUser:(RBUser*)user withCompletionBlock:(void(^)(NSArray*))completionBlock failBlock:(void(^)(NSError*))failedWithError
 {
     void (^completionBlock_)(NSArray*) = [completionBlock copy];
-    NSDictionary* parameters = [NSDictionary dictionaryWithObject:user.redditSession forKey:@"cookie"];
+    NSDictionary* parameters = @{@"cookie": user.redditSession, @"limit": [NSNumber numberWithInt:100]};
     
-    [self queryForGettingFromURI:AuthenticatedRedditsPath parameters:parameters
+    
+    [self queryForGettingFromURI:SubscribedRedditsPath parameters:parameters
          withCompletionBlock:^(NSDictionary* response) {
              NSArray* children = [response objectForKey:APIKeyChildren];
              NSMutableArray* allSubReddits = [NSMutableArray array];
