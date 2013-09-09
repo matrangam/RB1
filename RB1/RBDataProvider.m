@@ -206,8 +206,8 @@
             NSArray* children = [response objectForKey:APIKeyChildren];
             NSMutableArray* allTheThings = [NSMutableArray array];
             for (NSDictionary* thing in children) {
-                RBThing* newThing = [RBThing thingFromDictionary:thing];
-                [allTheThings addObject:newThing];
+                RBThing* newThing = [[RBThing alloc] init];
+                [allTheThings addObject:[newThing thingFromDictionary:thing]];
             }
             completionBlock_(allTheThings);
         } onFailedWithError:failedWithError

@@ -23,10 +23,10 @@ CGFloat kRBDetailViewTableCellHeight = 90.0;
 {
     if (_thing != thing) {
         _thing = thing;
-        NSInteger timeInterval = [[NSDate dateWithTimeIntervalSince1970:thing.createdUTC.doubleValue] timeIntervalSinceDate:[NSDate date]];
+        NSInteger timeInterval = [[NSDate dateWithTimeIntervalSince1970:thing.created_utc.doubleValue] timeIntervalSinceDate:[NSDate date]];
         [[self authorLabel] setText:[NSString stringWithFormat:@"Submitted %@ by %@ to %@", [NSString stringForTimeInterval:timeInterval includeSeconds:YES], thing.author, thing.subreddit]];
         [[self titleLabel] setText:thing.title];
-        [[self commentsButton] setTitle:[NSString stringWithFormat:@"%@", thing.comments] forState:UIControlStateNormal];
+        [[self commentsButton] setTitle:[NSString stringWithFormat:@"%@", thing.num_comments] forState:UIControlStateNormal];
         if (_thing.hasBeenVisited) {
             self.titleLabel.textColor = [self.class inactiveColor];
             self.authorLabel.textColor = [self.class inactiveColor];
