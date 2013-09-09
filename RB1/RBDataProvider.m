@@ -169,7 +169,7 @@
             NSArray* children = [response objectForKey:APIKeyChildren];
             NSMutableArray* allSubReddits = [NSMutableArray array];
             for (NSDictionary* subRedditDictionary in children) {
-                [allSubReddits addObject:[RBSubReddit subRedditFromDictionary:subRedditDictionary]];
+                [allSubReddits addObject:[RBSubReddit subRedditWithDictionary:subRedditDictionary]];
             }
             completionBlock_(allSubReddits);
         } onFailedWithError:failedWithError
@@ -186,7 +186,7 @@
              NSArray* children = [response objectForKey:APIKeyChildren];
              NSMutableArray* allSubReddits = [NSMutableArray array];
              for (NSDictionary* subRedditDictionary in children) {
-                 [allSubReddits addObject:[RBSubReddit subRedditFromDictionary:subRedditDictionary]];
+                 [allSubReddits addObject:[RBSubReddit subRedditWithDictionary:subRedditDictionary]];
              }
              completionBlock_(allSubReddits);
          } onFailedWithError:failedWithError
