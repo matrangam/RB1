@@ -10,6 +10,7 @@
 @property (nonatomic, strong) NSString* header_img;
 @property (nonatomic, strong) NSArray* header_size;
 @property (nonatomic, strong) NSString* header_title;
+@property (nonatomic, strong) NSString* uniqueId;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic) BOOL over18;
 @property (nonatomic, strong) NSString* public_description;
@@ -29,6 +30,6 @@
 @property (nonatomic, strong) NSDictionary* data;
 @property (nonatomic, strong) NSString* kind;
 
-+ (RBSubReddit*) subRedditWithDictionary:(NSDictionary*)dictionary;
+- (RBSubReddit*) subRedditWithDictionary:(NSDictionary*)dictionary;
 
 @end

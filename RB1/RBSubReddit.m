@@ -2,7 +2,7 @@
 
 @implementation RBSubReddit
 
-+ (RBSubReddit*) subRedditWithDictionary:(NSDictionary*)dictionary
+- (RBSubReddit*) subRedditWithDictionary:(NSDictionary*)dictionary
 {
     RBSubReddit* subReddit = [[RBSubReddit alloc] init];
 
@@ -18,7 +18,11 @@
 
 - (void) setValue:(id)value forUndefinedKey:(NSString*)key
 {
-    NSLog(@"WARNING: Setting value: %@ for undefined key: %@", value, key);
+    if ([key isEqualToString:@"id"]) {
+        [self setUniqueId:key];
+    } else {
+        NSLog(@"WARNING: Setting value: %@ for undefined key: %@", value, key);
+    }
 }
 
 @end
