@@ -21,7 +21,7 @@
 - (void) setSubReddits:(NSArray*)subReddits
 {
     if (_subReddits != subReddits) {
-        _subReddits = [subReddits sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"display_name" ascending:YES selector:@selector(caseInsensitiveCompare:)]]];
+        _subReddits = [subReddits sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"displayName" ascending:YES selector:@selector(caseInsensitiveCompare:)]]];
         [self.tableView reloadData];            
     }
 }
@@ -45,7 +45,7 @@
         //XXX: set up the cell
     }
     RBSubReddit* subReddit = [_subReddits objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:subReddit.display_name];
+    [[cell textLabel] setText:subReddit.displayName];
     return cell;
 }
 
