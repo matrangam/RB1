@@ -1,39 +1,41 @@
-@interface RBThing : NSObject
+#import "RBModelObject.h"
 
-@property (nonatomic, strong) NSString* approved_by;
+@interface RBThing : RBModelObject
+
+@property (nonatomic, strong) NSString* approvedBy;
 @property (nonatomic, strong) NSString* author;
-@property (nonatomic, strong) NSString* author_flair_css_class;
-@property (nonatomic, strong) NSString* author_flair_text;
-@property (nonatomic, strong) NSString* banned_by;
-@property (nonatomic, strong) NSString* clicked;
+@property (nonatomic, strong) NSString* authorFlairCssClass;
+@property (nonatomic, strong) NSString* authorFlairText;
+@property (nonatomic, strong) NSString* bannedBy;
+@property (nonatomic, strong) NSNumber* clicked;
 @property (nonatomic, strong) NSNumber* created;
-@property (nonatomic, strong) NSNumber* created_utc;
+@property (nonatomic, strong) NSNumber* createdUTC;
 @property (nonatomic, strong) NSString* distinguished;
 @property (nonatomic, strong) NSString* domain;
 @property (nonatomic, strong) NSNumber* downs;
 @property (nonatomic, strong) NSNumber* edited;
-@property (nonatomic) BOOL hidden;
+@property (nonatomic, strong) NSNumber* hidden;
 @property (nonatomic, strong) NSString* uniqueId;
-@property (nonatomic, strong) NSNumber* is_self;
+@property (nonatomic, strong) NSNumber* isSelf;
 @property (nonatomic, strong) NSString* likes;
-@property (nonatomic, strong) NSString* link_flair_css_class;
-@property (nonatomic, strong) NSString* link_flair_text;
+@property (nonatomic, strong) NSString* linkFlairCssClass;
+@property (nonatomic, strong) NSString* linkFlairText;
 @property (nonatomic, strong) NSString* media;
-@property (nonatomic, strong) NSDictionary* media_embed;
+@property (nonatomic, strong) NSDictionary* mediaEmbed;
 @property (nonatomic, strong) NSString* name;
-@property (nonatomic, strong) NSNumber* num_comments;
-@property (nonatomic, strong) NSString* num_reports;
-@property (nonatomic) BOOL over_18;
+@property (nonatomic, strong) NSNumber* numberOfComments;
+@property (nonatomic, strong) NSString* numberOfReports;
+@property (nonatomic, strong) NSNumber* over18;
 @property (nonatomic, strong) NSString* permalink;
-@property (nonatomic) BOOL saved;
+@property (nonatomic, strong) NSNumber* saved;
 @property (nonatomic, strong) NSNumber* score;
-@property (nonatomic, strong) NSString* secure_media;
-@property (nonatomic, strong) NSString* secure_media_embed;
+@property (nonatomic, strong) NSDictionary* secureMedia;
+@property (nonatomic, strong) NSDictionary* secureMediaEmbed;
 @property (nonatomic, strong) NSString* selftext;
-@property (nonatomic, strong) NSString* selftext_html;
-@property (nonatomic) BOOL stickied;
+@property (nonatomic, strong) NSString* selftextHTML;
+@property (nonatomic, strong) NSNumber* stickied;
 @property (nonatomic, strong) NSString* subreddit;
-@property (nonatomic, strong) NSString* subreddit_id;
+@property (nonatomic, strong) NSString* subredditId;
 @property (nonatomic, strong) NSString* thumbnail;
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, strong) NSNumber* ups;

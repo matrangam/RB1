@@ -41,7 +41,7 @@
     
     if (![value isKindOfClass:propertyClass]) {
         if ([value isKindOfClass:[NSString class]] && propertyClass == [NSNumber class]) {
-            if ([value isEqualToString:@"null"]) {
+            if ([value isEqualToString:@"null"] || [value isEqualToString:@"<null>"]) {
                 value = nil;
             } else {
                 value = [NSNumber numberWithInt:[value intValue]];
