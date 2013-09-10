@@ -19,7 +19,7 @@
 - (void) setValue:(id)value forUndefinedKey:(NSString*)key
 {
     if ([key isEqualToString:@"id"]) {
-        [self setUniqueId:key];
+        [self setUniqueId:value];
     } else {
         NSLog(@"WARNING: Setting value: %@ for undefined key: %@", value, key);
     }
