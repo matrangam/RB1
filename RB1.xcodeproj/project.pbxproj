@@ -40,6 +40,7 @@
 		D68C2C3E15A26F4B00D6E4CB /* RBComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D68C2C3D15A26F4B00D6E4CB /* RBComment.m */; };
 		D69F9BF01597F97700409A44 /* RBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D69F9BEF1597F97700409A44 /* RBWebViewController.m */; };
 		D6B706CA1561C31000F8C35E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B706C91561C31000F8C35E /* JSONKit.m */; };
+		D6CCFDA217DFE25F00A7AC24 /* RBModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CCFDA117DFE25F00A7AC24 /* RBModelObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +50,7 @@
 		D60F1B501583BC84000AA7D5 /* UIView+Nib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Nib.m"; sourceTree = "<group>"; };
 		D60F838E156949DD002DF94B /* RBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBDetailViewController.h; sourceTree = "<group>"; };
 		D60F838F156949DD002DF94B /* RBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBDetailViewController.m; sourceTree = "<group>"; };
-		D60F83911569567E002DF94B /* RBThing.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RBThing.h; sourceTree = "<group>"; };
+		D60F83911569567E002DF94B /* RBThing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBThing.h; sourceTree = "<group>"; };
 		D60F83921569567E002DF94B /* RBThing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBThing.m; sourceTree = "<group>"; };
 		D60F83951569619A002DF94B /* NSString+QueryString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QueryString.h"; sourceTree = "<group>"; };
 		D60F83961569619A002DF94B /* NSString+QueryString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QueryString.m"; sourceTree = "<group>"; };
@@ -75,7 +76,7 @@
 		D6395DDD15A8BD5A00C69E2D /* RBCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RBCommentCell.xib; sourceTree = "<group>"; };
 		D6411E941561BB080056665A /* RBDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBDataProvider.h; sourceTree = "<group>"; };
 		D6411E951561BB080056665A /* RBDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBDataProvider.m; sourceTree = "<group>"; };
-		D6411E971561BBE40056665A /* RBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RBUser.h; sourceTree = "<group>"; };
+		D6411E971561BBE40056665A /* RBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBUser.h; sourceTree = "<group>"; };
 		D6411E981561BBE40056665A /* RBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBUser.m; sourceTree = "<group>"; };
 		D64E97081561B25400B7A864 /* RB1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RB1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64E970C1561B25400B7A864 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -88,7 +89,7 @@
 		D64E971B1561B25400B7A864 /* RBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBAppDelegate.h; sourceTree = "<group>"; };
 		D64E971C1561B25400B7A864 /* RBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBAppDelegate.m; sourceTree = "<group>"; };
 		D64E971F1561B25400B7A864 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		D64E97211561B25400B7A864 /* RBAuthenticationViewController.h */ = {isa = PBXFileReference; path = RBAuthenticationViewController.h; sourceTree = "<group>"; };
+		D64E97211561B25400B7A864 /* RBAuthenticationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBAuthenticationViewController.h; sourceTree = "<group>"; };
 		D64E97221561B25400B7A864 /* RBAuthenticationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBAuthenticationViewController.m; sourceTree = "<group>"; };
 		D64E972A1561B2E100B7A864 /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
 		D64E972B1561B2E100B7A864 /* Network.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.pch; sourceTree = "<group>"; };
@@ -100,7 +101,7 @@
 		D64E97311561B2E100B7A864 /* URLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLCache.m; sourceTree = "<group>"; };
 		D67A51E815A7CEE90063A3E7 /* RBCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCommentsViewController.h; sourceTree = "<group>"; };
 		D67A51E915A7CEE90063A3E7 /* RBCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCommentsViewController.m; sourceTree = "<group>"; };
-		D682DB781567EF7900DE57B3 /* RBSubReddit.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RBSubReddit.h; sourceTree = "<group>"; };
+		D682DB781567EF7900DE57B3 /* RBSubReddit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBSubReddit.h; sourceTree = "<group>"; };
 		D682DB791567EF7900DE57B3 /* RBSubReddit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBSubReddit.m; sourceTree = "<group>"; };
 		D68C2C3C15A26F4B00D6E4CB /* RBComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBComment.h; sourceTree = "<group>"; };
 		D68C2C3D15A26F4B00D6E4CB /* RBComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBComment.m; sourceTree = "<group>"; };
@@ -108,6 +109,8 @@
 		D69F9BEF1597F97700409A44 /* RBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBWebViewController.m; sourceTree = "<group>"; };
 		D6B706C81561C31000F8C35E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = RB1/JSONKit/JSONKit.h; sourceTree = SOURCE_ROOT; };
 		D6B706C91561C31000F8C35E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = RB1/JSONKit/JSONKit.m; sourceTree = SOURCE_ROOT; };
+		D6CCFDA017DFE25E00A7AC24 /* RBModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBModelObject.h; sourceTree = "<group>"; };
+		D6CCFDA117DFE25F00A7AC24 /* RBModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBModelObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 				D60F83921569567E002DF94B /* RBThing.m */,
 				D6411E971561BBE40056665A /* RBUser.h */,
 				D6411E981561BBE40056665A /* RBUser.m */,
+				D6CCFDA017DFE25E00A7AC24 /* RBModelObject.h */,
+				D6CCFDA117DFE25F00A7AC24 /* RBModelObject.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				D68C2C3E15A26F4B00D6E4CB /* RBComment.m in Sources */,
 				D67A51EA15A7CEE90063A3E7 /* RBCommentsViewController.m in Sources */,
 				D6395DDA15A8BB6700C69E2D /* RBCommentCell.m in Sources */,
+				D6CCFDA217DFE25F00A7AC24 /* RBModelObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

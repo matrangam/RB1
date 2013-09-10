@@ -1,4 +1,6 @@
-@interface RBSubReddit : NSObject
+#import "RBModelObject.h"
+
+@interface RBSubReddit : RBModelObject
 
 @property (nonatomic, strong) NSString* accountsActive;
 @property (nonatomic, strong) NSNumber* commentScoreHideMins;
