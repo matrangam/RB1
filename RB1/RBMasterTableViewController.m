@@ -1,9 +1,5 @@
 #import "RBMasterTableViewController.h"
 
-@interface RBMasterTableViewController ()
-- (void) _sortSubreddits:(NSArray*)subreddits;
-@end
-
 @implementation RBMasterTableViewController 
 
 @synthesize delegate = _delegate;
@@ -28,10 +24,6 @@
         _subReddits = [subReddits sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"display_name" ascending:YES selector:@selector(caseInsensitiveCompare:)]]];
         [self.tableView reloadData];            
     }
-}
-
-- (void) _sortSubreddits:(NSArray*)subreddits 
-{
 }
 
 #pragma mark - Table view data source
