@@ -28,7 +28,7 @@ CGFloat kRBDetailViewTableCellHeight = 90.0;
             self.titleLabel.textColor = [self.class inactiveColor];
             self.authorLabel.textColor = [self.class inactiveColor];
         }
-        if (_thing.thumbnail.length > 0) {
+        if ([_thing.is_self isEqualToNumber:@(0)]) {
             [_iconSpinner startAnimating];
             [[RBDataProvider sharedImageLoader] loadImageForURL:[NSURL URLWithString:_thing.thumbnail] completionBlock:^(UIImage* image, BOOL isFinished) {
                 [self.iconImageView setImage:image];
