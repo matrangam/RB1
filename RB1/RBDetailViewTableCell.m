@@ -6,17 +6,14 @@ CGFloat kRBDetailViewTableCellHeight = 90.0;
 
 @implementation RBDetailViewTableCell
 
-@synthesize delegate = _delegate;
-@synthesize iconImageView = _iconImageView;
-@synthesize titleLabel = _titleLabel;
-@synthesize commentsButton = _commentsButton;
-@synthesize authorLabel = _authorLabel;
-@synthesize iconSpinner = _iconSpinner;
-@synthesize thing = _thing;
-
 + (UIColor*) inactiveColor
 {
     return [UIColor colorWithRed:155.0/255.0 green:155.0/255.0 blue:155.0/255.0 alpha:1.0];
+}
+
+- (CGRect) frameForSelfPostOfLabel:(UILabel*)label
+{
+    return CGRectMake(10, label.frame.origin.y, _commentsButton.frame.origin.x - 20, label.frame.size.height);
 }
 
 - (void) setThing:(RBThing *)thing
@@ -40,6 +37,10 @@ CGFloat kRBDetailViewTableCellHeight = 90.0;
         } else {
             [self.iconImageView setImage:nil];
             [_iconSpinner stopAnimating];
+            
+            [_titleLabel setFrame:[self frameForSelfPostOfLabel:_titleLabel]];
+            [_authorLabel setFrame:[self frameForSelfPostOfLabel:_authorLabel]];
+            [self layoutSubviews];
         }
     }
 }
