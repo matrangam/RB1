@@ -171,8 +171,7 @@
             NSArray* children = [response objectForKey:APIKeyChildren];
             NSMutableArray* allSubReddits = [NSMutableArray array];
             for (NSDictionary* subRedditDictionary in children) {
-                RBSubReddit* subReddit = [[RBSubReddit alloc] init];
-                [allSubReddits addObject:[subReddit subRedditWithDictionary:subRedditDictionary]];
+                [allSubReddits addObject:[[RBSubReddit alloc] initWithDictionary:subRedditDictionary]];
             }
             completionBlock_(allSubReddits);
         } onFailedWithError:failedWithError
@@ -190,9 +189,7 @@
              NSArray* children = [response objectForKey:APIKeyChildren];
              NSMutableArray* allSubReddits = [NSMutableArray array];
              for (NSDictionary* subRedditDictionary in children) {
-                 RBSubReddit* subReddit = [[RBSubReddit alloc] init];
-                 [allSubReddits addObject:[subReddit subRedditWithDictionary:subRedditDictionary]];
-             }
+                [allSubReddits addObject:[[RBSubReddit alloc] initWithDictionary:subRedditDictionary]];             }
              completionBlock_(allSubReddits);
          } onFailedWithError:failedWithError
      ];    
@@ -211,8 +208,7 @@
             NSArray* children = [response objectForKey:APIKeyChildren];
             NSMutableArray* allTheThings = [NSMutableArray array];
             for (NSDictionary* thing in children) {
-                RBThing* newThing = [[RBThing alloc] init];
-                [allTheThings addObject:[newThing thingFromDictionary:thing]];
+                [allTheThings addObject:[[RBThing alloc] initWithDictionary:thing]];
             }
             completionBlock_(allTheThings);
         } onFailedWithError:failedWithError

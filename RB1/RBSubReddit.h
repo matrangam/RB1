@@ -30,6 +30,6 @@
 @property (nonatomic, strong) NSDictionary* data;
 @property (nonatomic, strong) NSString* kind;
 
-- (RBSubReddit*) subRedditWithDictionary:(NSDictionary*)dictionary;
+- (id) initWithDictionary:(NSDictionary*)dictionary;
 
 @end

@@ -44,6 +44,6 @@
 @property (nonatomic, strong) NSDictionary* data;
 @property (nonatomic, strong) NSString* kind;
 
-- (RBThing*) thingFromDictionary:(NSDictionary*)dictionary;
+- (id) initWithDictionary:(NSDictionary*)dictionary;
 
 @end
