@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString* media;
 @property (nonatomic, strong) NSDictionary* media_embed;
 @property (nonatomic, strong) NSString* name;
-@property (nonatomic, strong) NSString* num_comments;
+@property (nonatomic, strong) NSNumber* num_comments;
 @property (nonatomic, strong) NSString* num_reports;
 @property (nonatomic) BOOL over_18;
 @property (nonatomic, strong) NSString* permalink;
