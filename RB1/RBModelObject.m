@@ -3,7 +3,7 @@
 
 @implementation RBModelObject
 
-- (id) cleanedValue:(id)value forPropertyName:(NSString*)propertyName
+- (id) cleanedValue:(id)value forPropertyName:(NSString*)propertyName ofClass:(Class)classToCheck
 {
     if (!propertyName) {
         return nil;
@@ -12,7 +12,6 @@
     Class propertyClass = nil;
     NSString* attributes = nil;
     const char* propertyNameAsUTF8 = [propertyName UTF8String];
-    Class classToCheck = [self class];
     objc_property_t property = nil;
     do {
         property = class_getProperty(classToCheck, propertyNameAsUTF8);

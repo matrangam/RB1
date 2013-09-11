@@ -55,7 +55,7 @@
 
 - (void) setValue:(id)value forKey:(NSString*)key
 {
-    id cleanedValue = [self cleanedValue:value forPropertyName:key];
+    id cleanedValue = [self cleanedValue:value forPropertyName:key ofClass:[self class]];
     if (cleanedValue) {
         [super setValue:cleanedValue forKey:key];
     }
