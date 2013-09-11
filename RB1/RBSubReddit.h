@@ -29,9 +29,6 @@
 @property (nonatomic, strong) NSNumber* userIsModerator;
 @property (nonatomic, strong) NSNumber* userIsSubscriber;
 
-@property (nonatomic, strong) NSDictionary* data;
-@property (nonatomic, strong) NSString* kind;
-
 - (id) initWithDictionary:(NSDictionary*)dictionary;
 
 @end

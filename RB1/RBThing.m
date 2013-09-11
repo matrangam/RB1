@@ -21,7 +21,7 @@
                 @"downs": @"downs",
                 @"edited": @"edited",
                 @"hidden": @"hidden",
-                @"uniqueId": @"uniqueId",
+                @"id": @"uniqueId",
                 @"is_self": @"isSelf",
                 @"likes": @"likes",
                 @"link_flair_css_class": @"linkFlairCssClass",

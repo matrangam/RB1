@@ -43,9 +43,6 @@
 
 @property (nonatomic, getter = hasBeenVisited) BOOL visited;
 
-@property (nonatomic, strong) NSDictionary* data;
-@property (nonatomic, strong) NSString* kind;
-
 - (id) initWithDictionary:(NSDictionary*)dictionary;
 
 @end
