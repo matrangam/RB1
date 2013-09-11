@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSNumber* hidden;
 @property (nonatomic, strong) NSString* uniqueId;
 @property (nonatomic, strong) NSNumber* isSelf;
-@property (nonatomic, strong) NSString* likes;
+@property (nonatomic, strong) NSNumber* likes;
 @property (nonatomic, strong) NSString* linkFlairCssClass;
 @property (nonatomic, strong) NSString* linkFlairText;
 @property (nonatomic, strong) NSDictionary* media;

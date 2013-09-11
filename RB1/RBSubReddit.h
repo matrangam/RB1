@@ -24,10 +24,10 @@
 @property (nonatomic, strong) NSNumber* subscribers;
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, strong) NSString* url;
-@property (nonatomic, strong) NSString* userIsBanned;
-@property (nonatomic, strong) NSString* userIsContributor;
-@property (nonatomic, strong) NSString* userIsModerator;
-@property (nonatomic, strong) NSString* userIsSubscriber;
+@property (nonatomic, strong) NSNumber* userIsBanned;
+@property (nonatomic, strong) NSNumber* userIsContributor;
+@property (nonatomic, strong) NSNumber* userIsModerator;
+@property (nonatomic, strong) NSNumber* userIsSubscriber;
 
 @property (nonatomic, strong) NSDictionary* data;
 @property (nonatomic, strong) NSString* kind;
