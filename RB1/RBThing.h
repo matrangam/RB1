@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSString* likes;
 @property (nonatomic, strong) NSString* linkFlairCssClass;
 @property (nonatomic, strong) NSString* linkFlairText;
-@property (nonatomic, strong) NSString* media;
+@property (nonatomic, strong) NSDictionary* media;
 @property (nonatomic, strong) NSDictionary* mediaEmbed;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSNumber* numberOfComments;
