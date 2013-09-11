@@ -241,7 +241,6 @@
 		D64E96FD1561B25400B7A864 = {
 			isa = PBXGroup;
 			children = (
-				D60F83B315744602002DF94B /* ImageIO.framework */,
 				D64E97121561B25400B7A864 /* RB1 */,
 				D64E970B1561B25400B7A864 /* Frameworks */,
 				D64E97091561B25400B7A864 /* Products */,
@@ -259,6 +258,7 @@
 		D64E970B1561B25400B7A864 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D60F83B315744602002DF94B /* ImageIO.framework */,
 				D64E970C1561B25400B7A864 /* UIKit.framework */,
 				D64E970E1561B25400B7A864 /* Foundation.framework */,
 				D64E97101561B25400B7A864 /* CoreGraphics.framework */,
