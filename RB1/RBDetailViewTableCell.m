@@ -21,21 +21,21 @@ CGFloat kRBDetailViewTableCellHeight = 90.0;
     if (_thing != thing) {
         _thing = thing;
         NSInteger timeInterval = [[NSDate dateWithTimeIntervalSince1970:thing.createdUTC.doubleValue] timeIntervalSinceDate:[NSDate date]];
-        [[self authorLabel] setText:[NSString stringWithFormat:@"Submitted %@ by %@ to %@", [NSString stringForTimeInterval:timeInterval includeSeconds:YES], thing.author, thing.subreddit]];
+        [[self authorLabel] setText:[NSString stringWithFormat:@"Submitted %@ ago by %@ to %@", [NSString stringForTimeInterval:timeInterval includeSeconds:YES], thing.author, thing.subreddit]];
         [[self titleLabel] setText:thing.title];
         [[self commentsButton] setTitle:[NSString stringWithFormat:@"%@", thing.numberOfComments] forState:UIControlStateNormal];
         if (_thing.hasBeenVisited) {
             self.titleLabel.textColor = [self.class inactiveColor];
             self.authorLabel.textColor = [self.class inactiveColor];
         }
-        if ([_thing.isSelf isEqualToNumber:@(0)]) {
+        if ([_thing.isSelf isEqualToNumber:@(0)] && _thing.thumbnail.length > 0) {
             [_iconSpinner startAnimating];
             [[RBDataProvider sharedImageLoader] loadImageForURL:[NSURL URLWithString:_thing.thumbnail] completionBlock:^(UIImage* image, BOOL isFinished) {
-                [self.iconImageView setImage:image];
+                [_iconImageView setImage:image];
                 [_iconSpinner stopAnimating];
             }];
         } else {
-            [self.iconImageView setImage:nil];
+            [_iconImageView setImage:nil];
             [_iconSpinner stopAnimating];
             
             [_titleLabel setFrame:[self frameForSelfPostOfLabel:_titleLabel]];
