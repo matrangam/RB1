@@ -70,7 +70,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     RBComment* comment = [_comments objectAtIndex:indexPath.row];
-    NSLog(@"%@", comment.body);
+    NSLog(@"%@", comment.children);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

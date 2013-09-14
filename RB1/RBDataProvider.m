@@ -224,8 +224,7 @@
              NSArray* children = [response objectForKey:APIKeyChildren];
              NSMutableArray* comments = [NSMutableArray array];
              for (NSDictionary* comment in children) {
-                 RBComment* newComment = [RBComment commentFromDictionary:comment];
-                 [comments addObject:newComment];
+                 [comments addObject:[[RBComment alloc] initWithDictionary:comment]];
              }
              completionBlock_(comments);
          } onFailedWithError:failedWithError
